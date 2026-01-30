@@ -1,0 +1,3256 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Constellation</title>
+    <meta name="description" content="
+Retrouvez l&#x27;ensemble de mes réalisations sur cette frise chronologique. 
+">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://constellation.emiliechedid.fr">
+    <meta property="og:title" content="Constellation">
+    <meta property="og:description" content="
+Retrouvez l&#x27;ensemble de mes réalisations sur cette frise chronologique. 
+">
+    <meta property="og:image" content="https://img.youtube.com/vi/saJX6sAWtZ4/hqdefault.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://constellation.emiliechedid.fr">
+    <meta property="twitter:title" content="Constellation">
+    <meta property="twitter:description" content="
+Retrouvez l&#x27;ensemble de mes réalisations sur cette frise chronologique. 
+">
+    <meta property="twitter:image" content="https://img.youtube.com/vi/saJX6sAWtZ4/hqdefault.jpg">
+
+    <link rel="canonical" href="https://constellation.emiliechedid.fr">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap');
+
+.tl-root {
+  font-family: Arial, Helvetica, sans-serif;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1rem 0;
+  box-sizing: border-box;
+  background: transparent;
+  color: #212121;
+}
+.tl-root *, .tl-root *::before, .tl-root *::after {
+  box-sizing: border-box;
+}
+
+/* Header */
+.tl-header {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+.tl-header-text {
+  flex: 1;
+  text-align: center;
+  padding-right: 80px; /* Compense la largeur des boutons pour centrer visuellement */
+}
+.tl-main-title {
+  font-family: 'Oswald', Arial, sans-serif;
+  font-size: 2.5rem;
+  font-weight: 300;
+  color: #212121;
+  margin: 0 0 0.5rem 0;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+.tl-intro {
+  font-size: 1rem;
+  color: #757575;
+  margin: 0;
+  font-weight: 300;
+}
+
+/* View toggle controls */
+.tl-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  flex-shrink: 0;
+}
+.tl-view-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.35rem 0.6rem;
+  border: 1px solid #e0e0e0;
+  background: #fff;
+  border-radius: 0;
+  cursor: pointer;
+  font-size: 0.65rem;
+  font-family: 'Oswald', Arial, sans-serif;
+  font-weight: 400;
+  color: #666;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.tl-view-btn svg {
+  width: 14px;
+  height: 14px;
+}
+.tl-view-btn:hover {
+  background: #f5f5f5;
+  border-color: #212121;
+}
+.tl-view-btn.tl-active {
+  background: #212121;
+  color: #fff;
+  border-color: #212121;
+}
+
+/* Filter toggle button */
+.tl-filter-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-family: 'Oswald', Arial, sans-serif;
+  font-weight: 400;
+  color: #666;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.tl-filter-toggle:hover {
+  color: #212121;
+}
+.tl-filter-toggle svg {
+  transition: transform 0.3s ease;
+}
+.tl-filters:not(.tl-collapsed) .tl-filter-toggle svg {
+  transform: rotate(180deg);
+}
+.tl-filters:not(.tl-collapsed) .tl-filter-toggle {
+  color: #212121;
+}
+
+/* Filter content (collapsible) */
+.tl-filter-content {
+  max-height: 500px;
+  overflow: hidden;
+  transition: max-height 0.3s ease, opacity 0.3s ease, padding 0.3s ease;
+  opacity: 1;
+  padding-top: 1rem;
+}
+.tl-filters.tl-collapsed .tl-filter-content {
+  max-height: 0;
+  opacity: 0;
+  padding-top: 0;
+}
+
+/* Filter styles */
+.tl-filters {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1.5rem;
+}
+.tl-filter-group {
+  margin-bottom: 1rem;
+}
+.tl-filter-group:last-of-type {
+  margin-bottom: 0.5rem;
+}
+.tl-filter-label {
+  font-family: 'Oswald', Arial, sans-serif;
+  font-weight: 400;
+  font-size: 0.75rem;
+  color: #666;
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.tl-filter-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.tl-filter-checkbox {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.9rem;
+  background: #f5f5f5;
+  border: 1px solid #e0e0e0;
+  cursor: pointer;
+  font-size: 0.8rem;
+  color: #666;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+.tl-filter-checkbox:hover {
+  border-color: #212121;
+}
+.tl-filter-checkbox input {
+  display: none;
+}
+.tl-filter-checkbox input:checked + span {
+  color: #fff;
+}
+.tl-filter-checkbox.tl-checked {
+  background: #212121;
+  color: #fff;
+  border-color: #212121;
+}
+.tl-filter-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e0e0e0;
+}
+.tl-filter-btn {
+  padding: 0.4rem 0.8rem;
+  border: 1px solid #e0e0e0;
+  background: transparent;
+  cursor: pointer;
+  font-size: 0.75rem;
+  font-family: 'Oswald', Arial, sans-serif;
+  font-weight: 400;
+  color: #666;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.tl-filter-btn:hover {
+  background: #f5f5f5;
+  border-color: #212121;
+}
+.tl-filter-count {
+  margin-top: 0.8rem;
+  font-size: 0.8rem;
+  color: #9e9e9e;
+  text-align: center;
+}
+.tl-visible-count {
+  font-weight: 500;
+  color: #212121;
+}
+
+/* Hidden elements */
+.tl-year.tl-hidden,
+.tl-event.tl-hidden,
+.tl-slide.tl-hidden {
+  display: none !important;
+}
+.tl-year.tl-no-visible-events {
+  display: none !important;
+}
+
+/* No results message */
+.tl-no-results {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: #9e9e9e;
+  font-size: 1rem;
+}
+
+/* Linear view wrapper with side navigation */
+.tl-linear-wrapper {
+  display: flex;
+  gap: 1.5rem;
+  position: relative;
+}
+
+/* Year navigation sidebar */
+.tl-year-nav {
+  position: sticky;
+  top: 0;
+  height: auto;
+  max-height: 100vh;
+  display: flex;
+  align-items: stretch;
+  gap: 0.5rem;
+  padding: 1rem 0.5rem;
+  flex-shrink: 0;
+  align-self: flex-start;
+  background: #fff;
+  z-index: 10;
+}
+.tl-year-nav-track {
+  width: 2px;
+  background: #e0e0e0;
+  position: relative;
+  min-height: 100%;
+}
+.tl-year-nav-progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #212121;
+  height: 0%;
+  transition: height 0.3s ease;
+}
+.tl-year-nav-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  justify-content: space-between;
+}
+.tl-year-nav-btn {
+  padding: 0.5rem 0.75rem;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 400;
+  font-family: 'Oswald', Arial, sans-serif;
+  color: #9e9e9e;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  letter-spacing: 1px;
+}
+.tl-year-nav-btn:hover {
+  color: #212121;
+}
+.tl-year-nav-btn.tl-active {
+  color: #212121;
+  font-weight: 500;
+}
+
+/* Linear view content */
+.tl-linear-view {
+  flex: 1;
+  min-width: 0;
+  padding-left: 2rem;
+  border-left: 1px solid #e0e0e0;
+  position: relative;
+}
+
+/* Timeline style - Emilie Chedid */
+.tl-year {
+  margin-top: 2.5rem;
+  padding-top: 0;
+  position: relative;
+}
+.tl-year:first-child {
+  margin-top: 0;
+}
+.tl-year-title {
+  font-family: 'Oswald', Arial, sans-serif;
+  font-size: 1.75rem;
+  font-weight: 300;
+  color: #212121;
+  margin-bottom: 1.5rem;
+  margin-left: -2.5rem;
+  padding-left: 1rem;
+  position: relative;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+.tl-year-title::before {
+  content: '';
+  position: absolute;
+  left: -0.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 8px;
+  background: #212121;
+  border-radius: 50%;
+  border: 2px solid #fff;
+}
+
+/* Event styling */
+.tl-event {
+  position: relative;
+  margin-bottom: 1.5rem;
+  padding-left: 0;
+}
+.tl-event-dot {
+  display: none;
+}
+.tl-event-content {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  padding: 1.25rem;
+  border: 1px solid #e0e0e0;
+  transition: all 0.2s ease;
+}
+.tl-event-content:hover {
+  border-color: #212121;
+}
+.tl-event-title {
+  font-family: 'Oswald', Arial, sans-serif;
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin: 0 0 0.25rem 0;
+  color: #212121;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.tl-event-subtitle {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: #757575;
+  margin-bottom: 0.5rem;
+  font-style: italic;
+}
+.tl-event-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+}
+.tl-event-categories {
+  margin: 0;
+  font-size: 0.8rem;
+  flex: 1;
+}
+.tl-event-tag {
+  display: inline-block;
+  background: #f5f5f5;
+  color: #424242;
+  border: 1px solid #e0e0e0;
+  padding: 0.2rem 0.7rem;
+  margin-right: 0.3rem;
+  margin-bottom: 0.3rem;
+  font-size: 0.75rem;
+  font-weight: 400;
+}
+.tl-event-metadata {
+  margin-bottom: 0.75rem;
+  font-size: 0.8rem;
+  color: #757575;
+}
+.tl-event-meta {
+  display: inline-block;
+  margin-right: 1rem;
+  margin-bottom: 0.25rem;
+}
+.tl-event-meta strong {
+  color: #424242;
+  font-weight: 500;
+}
+.tl-event-description {
+  color: #424242;
+  line-height: 1.7;
+  font-size: 0.9rem;
+}
+.tl-event-description p {
+  margin: 0.5rem 0;
+}
+.tl-event-media {
+  margin: 0.75rem 0;
+}
+.tl-event-media img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+.tl-event-link {
+  margin-top: 0.75rem;
+  font-size: 0.85rem;
+}
+.tl-event-link a {
+  color: #212121;
+  text-decoration: none;
+  font-weight: 400;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  border-bottom: 1px solid #212121;
+  padding-bottom: 2px;
+  transition: opacity 0.2s ease;
+}
+.tl-event-link a:hover {
+  opacity: 0.6;
+}
+.tl-event-link a::after {
+  content: '→';
+  transition: transform 0.2s ease;
+}
+.tl-event-link a:hover::after {
+  transform: translateX(4px);
+}
+
+/* Fiche technique */
+.tl-fiche-technique {
+  margin-top: 1rem;
+  background: #fafafa;
+  border: 1px solid #e0e0e0;
+  overflow: hidden;
+}
+.tl-fiche-technique summary {
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  font-family: 'Oswald', Arial, sans-serif;
+  font-weight: 400;
+  font-size: 0.8rem;
+  color: #424242;
+  background: #f5f5f5;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.tl-fiche-technique summary:hover {
+  background: #e0e0e0;
+}
+.tl-fiche-technique summary:focus,
+.tl-fiche-technique summary:active {
+  outline: none;
+  text-transform: uppercase;
+}
+.tl-fiche-technique summary::-webkit-details-marker {
+  display: none;
+}
+.tl-fiche-technique summary::before {
+  content: '+';
+  font-size: 0.875rem;
+  font-weight: 300;
+  transition: transform 0.2s ease;
+}
+.tl-fiche-technique[open] summary::before {
+  content: '−';
+}
+.tl-fiche-technique .tl-fiche-content {
+  padding: 1rem;
+  font-size: 0.8rem;
+  color: #424242;
+  line-height: 1.7;
+}
+.tl-fiche-technique .tl-fiche-content p {
+  margin: 0.3rem 0;
+}
+.tl-fiche-technique .tl-fiche-content strong {
+  color: #212121;
+}
+
+/* YouTube embed */
+.tl-youtube {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  margin-top: 0.75rem;
+}
+.tl-youtube iframe {
+  position: absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  border:0;
+}
+.tl-youtube-hidden {
+  display: none;
+}
+
+/* YouTube placeholder/poster for lazy loading */
+.tl-youtube-placeholder {
+  cursor: pointer;
+}
+.tl-youtube-poster {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.tl-youtube-poster img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.tl-youtube-play {
+  position: relative;
+  z-index: 1;
+  width: 68px;
+  height: 48px;
+  opacity: 0.9;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.tl-youtube-placeholder:hover .tl-youtube-play {
+  opacity: 1;
+  transform: scale(1.1);
+}
+.tl-youtube-play svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Share button */
+.tl-share-container {
+  position: relative;
+  display: inline-block;
+  margin-top: 0.75rem;
+}
+.tl-share-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.8rem;
+  border: 1px solid #e0e0e0;
+  background: #fff;
+  cursor: pointer;
+  font-size: 0.75rem;
+  font-family: 'Oswald', Arial, sans-serif;
+  font-weight: 400;
+  color: #666;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.tl-share-btn svg {
+  width: 14px;
+  height: 14px;
+}
+.tl-share-btn:hover {
+  background: #f5f5f5;
+  border-color: #212121;
+  color: #212121;
+}
+.tl-share-dropdown {
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 -2px 8px rgba(0,0,0,0.1);
+  z-index: 100;
+  min-width: 160px;
+  display: none;
+  margin-bottom: 4px;
+}
+.tl-share-dropdown.tl-open {
+  display: block;
+}
+.tl-share-option {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.6rem 0.8rem;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-family: Arial, sans-serif;
+  color: #424242;
+  text-align: left;
+  transition: background 0.2s ease;
+}
+.tl-share-option:hover {
+  background: #f5f5f5;
+}
+.tl-share-option svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+.tl-share-copied {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #212121;
+  color: #fff;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.75rem;
+  white-space: nowrap;
+  margin-bottom: 8px;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+}
+.tl-share-copied.tl-visible {
+  opacity: 1;
+}
+
+/* Image gallery */
+.tl-gallery {
+  position: relative;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.tl-gallery-img {
+  display: none;
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+.tl-gallery-img.tl-gallery-active {
+  display: block;
+}
+.tl-gallery-prev,
+.tl-gallery-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #424242;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  z-index: 2;
+}
+.tl-gallery-prev:hover,
+.tl-gallery-next:hover {
+  background: #fff;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.3);
+  color: #1976d2;
+}
+.tl-gallery-prev {
+  left: 0.5rem;
+}
+.tl-gallery-next {
+  right: 0.5rem;
+}
+.tl-gallery-counter {
+  position: absolute;
+  bottom: 0.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  z-index: 2;
+}
+
+/* Slideshow styles */
+.tl-slideshow-view {
+  position: relative;
+}
+.tl-slideshow-container {
+  position: relative;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+}
+.tl-slide {
+  display: none;
+  padding: 2rem;
+  animation: tl-fadeIn 0.4s ease;
+}
+.tl-slide.tl-active {
+  display: block;
+}
+@keyframes tl-fadeIn {
+  from { opacity: 0; transform: translateX(20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+.tl-slide-year {
+  display: inline-block;
+  font-family: 'Oswald', Arial, sans-serif;
+  background: #f5f5f5;
+  color: #212121;
+  padding: 0.3rem 0.8rem;
+  border: 1px solid #e0e0e0;
+  font-weight: 400;
+  font-size: 0.8rem;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.tl-slide-content {
+  display: flex;
+  flex-direction: column;
+}
+.tl-slide-text {
+  display: flex;
+  flex-direction: column;
+}
+.tl-slide-media {
+  margin: 0.75rem 0;
+}
+.tl-slide-media img {
+  width: 100%;
+  height: auto;
+}
+.tl-slide-media .tl-youtube {
+  margin-top: 0;
+}
+.tl-slide-title {
+  font-family: 'Oswald', Arial, sans-serif;
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin: 0 0 0.25rem 0;
+  color: #212121;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.tl-slide-subtitle {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: #757575;
+  margin-bottom: 0.5rem;
+  font-style: italic;
+}
+.tl-slide-description {
+  color: #424242;
+  line-height: 1.7;
+  font-size: 0.9rem;
+}
+.tl-slide-description p {
+  margin: 0.5rem 0;
+}
+.tl-slide-description ul, .tl-slide-description ol {
+  margin: 0.5rem 0;
+  padding-left: 1.5rem;
+}
+
+/* Slideshow navigation */
+.tl-slideshow-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+.tl-slide-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid #e0e0e0;
+  background: #fff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: #424242;
+}
+.tl-slide-btn:hover {
+  background: #212121;
+  border-color: #212121;
+  color: #fff;
+}
+.tl-slide-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+.tl-slide-btn:disabled:hover {
+  background: #fff;
+  border-color: #e0e0e0;
+  color: #424242;
+}
+.tl-slide-counter {
+  font-family: 'Oswald', Arial, sans-serif;
+  font-size: 0.9rem;
+  color: #9e9e9e;
+  min-width: 60px;
+  text-align: center;
+  letter-spacing: 1px;
+}
+.tl-slide-current {
+  font-weight: 500;
+  color: #212121;
+}
+
+/* Slideshow dots */
+.tl-slideshow-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.tl-slideshow-dot {
+  width: 8px;
+  height: 8px;
+  background: #e0e0e0;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.tl-slideshow-dot:hover {
+  background: #9e9e9e;
+}
+.tl-slideshow-dot.tl-active {
+  background: #212121;
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+  .tl-header {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .tl-header-text {
+    padding-right: 0;
+  }
+  .tl-controls {
+    flex-direction: row;
+    justify-content: center;
+  }
+  .tl-main-title {
+    font-size: 2rem;
+  }
+  .tl-linear-wrapper {
+    flex-direction: column;
+  }
+  .tl-year-nav {
+    position: relative;
+    top: 0;
+    flex-direction: row;
+    width: 100%;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+  }
+  .tl-year-nav-track {
+    display: none;
+  }
+  .tl-year-nav-buttons {
+    flex-direction: row;
+    gap: 0.25rem;
+    width: 100%;
+  }
+  .tl-year-nav-btn {
+    flex: 1;
+    text-align: center;
+    min-width: auto;
+    padding: 0.4rem 0.5rem;
+    font-size: 0.75rem;
+  }
+  .tl-linear-view {
+    padding-left: 0;
+    border-left: none;
+  }
+  .tl-year-title {
+    font-size: 1.25rem;
+    margin-left: 0;
+    padding-left: 1.5rem;
+  }
+  .tl-year-title::before {
+    left: 0;
+  }
+  .tl-event {
+    padding-left: 0;
+  }
+  .tl-event-content {
+    padding: 1rem;
+  }
+  .tl-event-meta {
+    display: block;
+    margin-bottom: 0.3rem;
+  }
+  .tl-slide-content {
+    flex-direction: column;
+  }
+  .tl-slide {
+    padding: 1rem;
+  }
+}
+
+/* Highlight animation for anchor scroll */
+@keyframes tl-highlight-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(33, 33, 33, 0.4); }
+  50% { box-shadow: 0 0 0 10px rgba(33, 33, 33, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(33, 33, 33, 0); }
+}
+.tl-highlight {
+  animation: tl-highlight-pulse 1s ease-out 2;
+}
+
+
+/* Page-specific styles */
+body {
+    margin: 0;
+    padding: 0;
+    background: #fff;
+}
+.page-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #212121;
+    text-decoration: none;
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 2rem;
+    padding: 0.5rem 1rem;
+    border: 1px solid #212121;
+    transition: all 0.2s;
+}
+.back-link:hover {
+    background: #212121;
+    color: #fff;
+}
+    </style>
+    
+</head>
+<body>
+<div class="page-container"><div class="tl-root">
+
+  <header class="tl-header">
+    <div class="tl-controls">
+      <button class="tl-view-btn tl-active" data-view="linear">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+        Linéaire
+      </button>
+      <button class="tl-view-btn" data-view="slideshow">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+          <line x1="8" y1="21" x2="16" y2="21"></line>
+          <line x1="12" y1="17" x2="12" y2="21"></line>
+        </svg>
+        Slideshow
+      </button>
+    </div>
+    <div class="tl-header-text">
+      <h1 class="tl-main-title">Constellation</h1>
+      <p class="tl-intro">
+Retrouvez l&#x27;ensemble de mes réalisations sur cette frise chronologique. 
+</p>
+    </div>
+  </header>
+
+  <div class="tl-filters tl-collapsed">
+    <button class="tl-filter-toggle" aria-label="Afficher/masquer les filtres">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
+      </svg>
+      <span class="tl-filter-toggle-text">Filtres</span>
+    </button>
+    <div class="tl-filter-content">
+    <div class="tl-filter-group">
+      <div class="tl-filter-label">Catégories</div>
+      <div class="tl-filter-options tl-filter-categories">
+        <label class="tl-filter-checkbox">
+          <input type="checkbox" data-filter="category" value="d.a">
+          <span>D.a</span>
+        </label>
+        <label class="tl-filter-checkbox">
+          <input type="checkbox" data-filter="category" value="dessin">
+          <span>Dessin</span>
+        </label>
+        <label class="tl-filter-checkbox">
+          <input type="checkbox" data-filter="category" value="dvd">
+          <span>Dvd</span>
+        </label>
+        <label class="tl-filter-checkbox">
+          <input type="checkbox" data-filter="category" value="ecriture">
+          <span>Ecriture</span>
+        </label>
+        <label class="tl-filter-checkbox">
+          <input type="checkbox" data-filter="category" value="film">
+          <span>Film</span>
+        </label>
+        <label class="tl-filter-checkbox">
+          <input type="checkbox" data-filter="category" value="illustration">
+          <span>Illustration</span>
+        </label>
+        <label class="tl-filter-checkbox">
+          <input type="checkbox" data-filter="category" value="inédit">
+          <span>Inédit</span>
+        </label>
+        <label class="tl-filter-checkbox">
+          <input type="checkbox" data-filter="category" value="livre">
+          <span>Livre</span>
+        </label>
+        <label class="tl-filter-checkbox">
+          <input type="checkbox" data-filter="category" value="mise_en_scène">
+          <span>Mise en scène</span>
+        </label>
+        <label class="tl-filter-checkbox">
+          <input type="checkbox" data-filter="category" value="perso">
+          <span>Perso</span>
+        </label>
+        <label class="tl-filter-checkbox">
+          <input type="checkbox" data-filter="category" value="photo">
+          <span>Photo</span>
+        </label>
+        <label class="tl-filter-checkbox">
+          <input type="checkbox" data-filter="category" value="productrice">
+          <span>Productrice</span>
+        </label>
+      </div>
+    </div>
+    <div class="tl-filter-actions">
+      <button class="tl-filter-btn tl-filter-select-all">Tout sélectionner</button>
+      <button class="tl-filter-btn tl-filter-deselect-all">Tout désélectionner</button>
+    </div>
+    <div class="tl-filter-count">
+      <span class="tl-visible-count">0</span> événement(s) affiché(s)
+    </div>
+    </div>
+  </div>
+
+  <script type="application/json" id="tl-config">
+{"shareUrlPattern": "https://constellation.emiliechedid.fr/events/{slug}.html"}
+  </script>
+  <script type="application/json" id="tl-timeline-data">
+[{"id": 0, "year": "2026", "title": "SILENCES", "subtitle": "Vidéomusique", "categories": ["film"], "categoriesAttr": "film", "image": "", "images": [], "youtubeId": "saJX6sAWtZ4", "link": "", "artiste": "Joseph Chedid", "production": "Maison Rock", "realisation": "Emilie Chedid", "descriptionHtml": "<p>Quel plaisir de retrouver la belle Micky Green, avec qui j’avais tourné un clip avec son groupe Slap! Ce duo avec Joseph pour cette chanson est très beau et sensible.</p>", "ficheHtml": "<p>Réalisation : Emilie Chedid\nImages :  Emilie Chedid\nMontage et post production : Emilie Chedid\nEtalonnage : Rémi Cluzeau\nSILENCES/ (JOSEPH CHEDID/ Feat Micky Green)\nNous remercions chaleureusement Poppy,\nToute l'équipe du Monaco, Pierre Marfaing et leurs habitués.\nAinsi que nos amis : Andréa, Carole, Caroline, Chantal,\nCharlotte's, Claude, Florence, Marie-Hélène, Olivia, Sandra, Sophie,\nAimé, André, Hamza, Loïc, Robert, Samuel, Stéphane, Terence, Thierry.\nRéalisation, images et post production : Emilie Chedid\nAssistée à la mise en scène et D.A par Saelia Derlon.\nEnregistré, composé, écrit, joué, mixé et produit\npar Joseph Chedid au Studio Maison Rock\nClaviers additionnels: Charlène Juarez\nMastering: Chab\nManagement : Fred Juarez\nPromo : Romane Monnier / Thierry Capdeville\n©TDR 2026 - Maison Rock / Emilie Chedid</p>"}, {"id": 1, "year": "2025", "title": "TWENTY TWENTY", "subtitle": "Vidéomusique", "categories": ["film"], "categoriesAttr": "film", "image": "", "images": [], "youtubeId": "Pa0ji559A_E", "link": "", "artiste": "Joseph Chedid", "production": "Maison Rock", "realisation": "Emilie Chedid", "descriptionHtml": "<p>Avec Joseph on aime expérimenter. On utilise les moyens du bord, on décide de tourner du jour au lendemain, de monter dans la foulée.</p>", "ficheHtml": "<p>Réalisation : Emilie Chedid\nImages :  Joseph et Emilie Chedid\nMontage et post production : Emilie Chedid\nTWENTY TWENTY/ (JOSEPH CHEDID)\nChoeur, Guitare et basse additionnelles : Antonin Fresson\nMerci à l'émouvante Chorale \"Les Voix Timbrées\"\net à son très talentueux Chef de Choeur Florian Martinet\nALBUM HEY FRIEND!\nEcrit, composé, interprété, enregistré, réalisé, mixé et produit par Joseph Chedid\nAu Studio et Label Indépendant \"Maison Rock\" dirigé par Joseph Chedid\nMastering : Antoine Chabert (Chab)\nTour Management : Far Prod\nManagement : Aurélie Marzynski\nPromo : Romane Monnier\n©TDR 2025 - Maison Rock / Emilie Chedid</p>"}, {"id": 2, "year": "2024", "title": "JE SUIS HEUREUX POUR TOI", "subtitle": "Vidéomusique", "categories": ["film"], "categoriesAttr": "film", "image": "", "images": [], "youtubeId": "aSrdS4ycQ_U", "link": "", "artiste": "Joseph Chedid", "production": "Maison Rock", "realisation": "Emilie Chedid", "descriptionHtml": "<p>Rien n’était prévu. On prend un café le matin ensemble. On monte dans le studio, j’attrape la caméra de Joseph et hop, on tourne. Ça donne un clip vif, joyeux, tourné et postproduit en 48h à Maison Rock studio.</p>", "ficheHtml": "<p>Réalisation, Image &amp; Post Production : Emilie Chedid\nMake Up : Violette Chedid\nJE SUIS HEUREUX POUR TOI (JOSEPH CHEDID)\nGuitare et basse additionnelles : Antonin Fresson\nChoeurs : Charlène Juarez, Marie Levron et Hamza Djenat\nALBUM \"HEY FRIEND !\"\nEcrit, composé, interprété, enregistré, réalisé, mixé et produit par Joseph Chedid Au Studio et Label Indépendant Maison Rock dirigé par Joseph Chedid.\nMastering : Antoine Chabert (Chab)\nTour Management : Far Prod\nManagement : Aurélie Marzynski\nPromo : Romane Monnier\n©TDR 2024 - Maison Rock / Emilie Chedid</p>"}, {"id": 3, "year": "2023", "title": "MOGODO", "subtitle": "Vidéomusique", "categories": ["film"], "categoriesAttr": "film", "image": "", "images": [], "youtubeId": "59iSIexQTP8", "link": "", "artiste": "-M- & The Mogodo’s (Gail Ann DORSEY, Corentin PUJOL, Maxime GAROUTE, Fabrice COLOMBANI, Feal LE ROUZIC)", "production": "Labo -M- / Wagram music", "realisation": "Emilie Chedid", "descriptionHtml": "<p>ça faisait des années que je n’avais pas réalisé un clip pour Matthieu. Je me souviens que durant son enregistrement d’album, j’avais tilté sur ce morceau. C’est bien plus tard que Matthieu m’a sollicité pour écrire ce projet. Un revival seventies. Matthieu grimé en Louis. Un bébé -M-. Des T.shirt et photos qui parlent. Des amis et la famille qui viennent danser. Un kif de fantaisies, comme je les aime.</p>", "ficheHtml": "<p>-M- &amp; The Mogodo’s\nAvec la participation exceptionnelle de Loïca, Tao, Anna, Joseph, Amande, Violette,  Alexandre, Dom, Constance, Martine, Julie, Gladys, Cassandre, Anne-Laure, Sandra, Milca, Océane, Elsa, Sidney, Noémie, Cécile, Suzanne, Pierre, Samuel, Paul, Gabriel, Jérôme, Arezki, Martin, Lucas.\nDirection artistique et réalisation : Emilie CHEDID\n1ère assistant réalisateur : André LEVERNE\n2nd assistant réalisateur : Jules Negrel\nCasting : Loïca SAINT-M'LEUX GRAZIANI\nDOP : Noémie GILLOT\n1ère assistant caméra : Adrien MANANT\n2nd assistante caméra : Maria MASHTAKOVA\nChef électricien : Adrien CHATA\nÉlectricien : Bastien LEROUX-REBUT\nÉlectricienne : Telma LANGINIEUX\nChef machiniste : Jonathan LY\nMachiniste : Julien DIESSLER MACH\nIngénieur du son : John KRISCHER\nOpératrice playback : Anouk COLLIN\nChef décorateur : Paul EPARDEAU\nAssistant décorateur : Benjamin COHEN\nAssistante décoratrice : Amandine FAUGERAS\nBackliners : Pierrick LAPUYADE, Christophe RAMIN\nStyliste : Stéphanie Vaillant\nMaquilleuses/Coiffeuses : Adeline LE GALL\nHabilleuse : Mélanie CHASSAIN\nArtwork T.shirt : Emilie Chedid\nCostumes de scène : Agnès B.\nCréation Coiffe, Postiches : Gérald Portenart\nRégisseur général : Pierre LANGEVIN\nRégisseurs : Louis SENTERRE, Simon GERBAUD, Cécile LANGEVIN\nRégisseur camion : Tom ABORD\nCatering :  Guillaume CAFFAREL // les Saveurs de l’Évènements\nPOST-PRODUCTION\nCréation \"Talking Heads\" à partir des photos familiales : Alexandre MARTINEZ\nMonteurs : Gabyo / Emilie Chedid\nMonteur / Truquiste : Aurélien Guégan\nVFX : Alexandre Martinez et Steven ADA\nÉtalonneur : Steven ADA\nIllustrations sonores : Emilie Chedid\nAvec les voix de Billie, Marianne, Joseph, Anna, Loïca, Aimé et Tao\nMixage son : Kouz\nProduction exécutive : Cousines et Dépendances\nProducteurs : Yann Girard et Marie Etchegoyen\nChargé de production : John-David Bonan\nAssistante de production : Annouk TYSZKA\nLabel 3ème Bureau WAGRAM Music\nDirecteur général : Pierre-Olivier TOUBLANC\nDirectrice artistique : Anaïs BABOU\nLABO M : Gaspard Borgeaud\nRégisseur Général de la tournée : Didier VERNEUIL\nDigital Manager : Gabriel HALLÉ\nUn grand merci à :\nLouis, Vasile, Mélinda, Forte forte, American vintage, Fratelli mocchia di coggiola, Edwin, Lionel, Les mauvais garçons et à toute l’équipe.\nMogodo (-M-) Labo M Editions\nContient un fragment de « Matthieu Mogodo » (Louis Chedid) © BMG Rights Management France (cat. Editions Louis Chedid) / Universal Music Publishing France (cat. Le Minotaure Editions Musicales SARL) – Ⓟ Sony Music Entertainment France\n© 2023 Labo M under exclusive licence to 3ème Bureau / Wagram Music</p>"}, {"id": 4, "year": "2022", "title": "RêValité (titre en majuscule)", "subtitle": "Conseil & Suivi Artistique Image", "categories": ["d.a"], "categoriesAttr": "d.a", "image": "", "images": ["https://static.wixstatic.com/media/3d23ce_657507db12a54d8b91d753b0031aca43~mv2.jpeg", "https://static.wixstatic.com/media/3d23ce_8d801080c982481e9e0a6a374171ffa3~mv2.jpeg", "https://static.wixstatic.com/media/3d23ce_6794986351734a78af72f7d01363fa4b~mv2.jpeg"], "youtubeId": null, "link": "", "artiste": "-M-", "production": "Labo M / Wagram music", "realisation": "", "descriptionHtml": "<p>Conseils artistiques Image (stylisme, scéno) et suivi de l’Artwork (Livret, CD, vinyle, affiche, shooting photo), Merchandising / Jeu d’énigmes Les Crafteurs / Mood Board / Brief réalisateurs pour clip.</p>", "ficheHtml": "<p>Photographies et Graphisme : Yann Orhan pour Slo Slo\nLogo -M- : Anne-Dorothée Schulz\nCostume : Agnès B.\nCoiffe : Gérald Portenart, réalisation : Gérald Portenart et Pierre Annez de Taboada\nGuitare : Réalisation Guillaume Rocher\nSecrets dissimulés par Les Crafteurs\nLabo M Production Exécutive : Gaspard Borgeaud / Conseil : Pascal Nègre / Conseil Artistique Image : Émilie Chedid / Digital Marketing : Gabriel Hallé / Labo M Editions : Gaspard Borgeaud, Catherine Rouyez\n3ème Bureau / Wagram Music Direction Générale : Stephan Bourdoiseau / Direction : Pierre-Olivier Toublanc / Marketing : Gabriel Korda, Élise Lecomte / Artistique : Anaïs Babou / Digital Marketing : Paul Carraz / Promotion : François Le Berre, Eric Marjault, Julia Ratto, Clara Smal.</p>"}, {"id": 5, "year": "2021", "title": "Grandes Oreilles", "subtitle": "Vidéomusique", "categories": ["film"], "categoriesAttr": "film", "image": "", "images": [], "youtubeId": "Q8HcijwB9RU", "link": "", "artiste": "-M- (feat. Anna Chedid)", "production": "Wagram music", "realisation": "Emilie Chedid", "descriptionHtml": "<p>Chanson tirée du livre-disque \"Grandes Oreilles Tout Oreilles\", un conte d'Andrée Chedid, illustré par Emilie Chedid, raconté par Louis Chedid et mis en musique par -M-. Un vrai bonheur de travailler avec l’équipe d’animatrices de Camera etc située à Liège (Belgique). J’adore l’animation 2D !</p>", "ficheHtml": "<p>Illustratrice et réalisatrice : Emilie Chedid\nStudio d’animation : Camera-etc\nProducteur : Bastien Martin\nAnimatrice : Louise-Marie Colon\nAnimatrice : Delphine Hermans\nStoryboard : Zoé Borbé\nStagiaires : Céleste Ledu, Constance Lombard, Adèle Marietta\nMonteur image : David Nelissen\nMonteur son : David Nelissen, John Krischer\nAuteur-compositeur : -M-\nMerci à Kickers\nCrédits Musique : Paroles et musique de -M- / -M-: Guitare, Voix, Batterie, Basse, Claviers / Anna Chedid : Chœurs / Feal Le Rouzic : Saxophones / David Dupuis : Trompette / Thomas Henning : Trombone / Edition : Labo M Éditions / Production : Labo M\nProgrammations et sampler par Pierre Boscheron / Réalisé et arrangé par M et Pierre Boscheron / Enregistré au studio Labo M par John Krischer / Édité par Jean-Da Glorioso  / Mixé et sublimé par Mitch Olivier au Studio Mitch’s Room / Masterisé par Chab.</p>"}, {"id": 6, "year": "2021", "title": "Grandes Oreilles, Tout Oreilles", "subtitle": "Livre-disque", "categories": ["livre", "illustration"], "categoriesAttr": "livre illustration", "image": "", "images": ["https://static.wixstatic.com/media/3d23ce_c3018b168bf14c03aafe41938f1f5d06~mv2.png", "https://static.wixstatic.com/media/3d23ce_7ea51b2b9cda4a78bf948410e4f863d3~mv2.jpg", "https://static.wixstatic.com/media/3d23ce_51a24499258b4e9c991bdc068ddc930b~mv2.jpg", "https://static.wixstatic.com/media/3d23ce_0e153c8c061a46db9d605c665816837b~mv2.jpg", "https://static.wixstatic.com/media/3d23ce_8e740d55a77548cdab3a1346e4da7d98~mv2.jpg", "https://static.wixstatic.com/media/3d23ce_8d006ee77fa248dcb3b96fac7053dca9~mv2.jpg", "https://static.wixstatic.com/media/3d23ce_b909a2caefeb480294b472a154fb32a0~mv2.jpg"], "youtubeId": null, "link": "", "artiste": "projet collectif", "production": "Robert Laffont / Wagram Livres", "realisation": "Emilie Chedid (Illustration)", "descriptionHtml": "<p>Quelle chance d’avoir pu illustrer le texte d’Andrée. Une expérience formidable.</p>", "ficheHtml": "<p>Livre de 56 pages illustrées en couleur (format 23cm x 29cm) contient 1 CD audio comprenant notamment 3 chansons inédites de -M- et la lecture du conte par Louis Chedid. À partir de 6 ans.\nCharlotte Depremare / Éditrice chez Robert Laffont\nThyphaine / Attachée de presse Robert Laffont\nPélagie Nicolas / Éditrice chez Wagram Livres\nArnaud Le Guilcher / Éditeur chez Wagram Livres.</p>"}, {"id": 7, "year": "2021", "title": "Illustrations by Emil", "subtitle": "Exposition", "categories": ["illustration"], "categoriesAttr": "illustration", "image": "", "images": ["https://static.wixstatic.com/media/3d23ce_0de820cc47194df285f3d38813e58312~mv2.jpg", "https://static.wixstatic.com/media/3d23ce_46c84d8b782d4db48efff2be0f712e34~mv2.png"], "youtubeId": null, "link": "", "artiste": "Emil illustrations", "production": "Galerie Ars Longa", "realisation": "Emilie Chedid", "descriptionHtml": "<p>La galerie Ars Longa (Aix-en-provence) a accueilli durant une année mes illustrations.</p>", "ficheHtml": "<p>Merci à Marina Fauvey (Galerie Ars Longa) pour sa confiance. https://www.emiliechedid.fr/shop</p>"}, {"id": 8, "year": "2020", "title": "Ghost by Emil", "subtitle": "Exposition", "categories": ["illustration"], "categoriesAttr": "illustration", "image": "", "images": ["https://static.wixstatic.com/media/3d23ce_9ea74dc6a3f24223b5bb32d6bd94589d~mv2.jpg", "https://static.wixstatic.com/media/3d23ce_0e47e176a9934aeebd89fe670533ecce~mv2.jpg", "https://static.wixstatic.com/media/3d23ce_ee197c05fac0480bb93db8fc3509dcc0~mv2.jpg", "https://static.wixstatic.com/media/3d23ce_c8d77e4c7be44b5fbdaa574d15d9e9da~mv2.jpg", "https://static.wixstatic.com/media/3d23ce_a20468f8e0144ae98e1cb702c0eb34fe~mv2.jpg", "https://static.wixstatic.com/media/3d23ce_6f264c82a5f04112a063fc8d225ec469~mv2.jpg", "https://static.wixstatic.com/media/3d23ce_085039e566e54019b253be583c8e8819~mv2.png"], "youtubeId": null, "link": "", "artiste": "Emil", "production": "Librairie éphémère (77)", "realisation": "", "descriptionHtml": "<p>Exposition à la Librairie Éphémère à Coulommiers du 20 novembre au 4 janvier. Présentation du roman graphique et exposition des planches extraites du livre, en vente sur la boutique en ligne.</p>", "ficheHtml": ""}, {"id": 9, "year": "2020", "title": "Ghost Clusters", "subtitle": "Roman graphique", "categories": ["livre", "illustration"], "categoriesAttr": "livre illustration", "image": "", "images": ["https://static.wixstatic.com/media/3d23ce_57daf81c47e648ceb4de35187b93298a~mv2.jpg", "https://static.wixstatic.com/media/3d23ce_7c9c67a40f77492ca08c119958693598~mv2.jpg", "https://static.wixstatic.com/media/3d23ce_a89d8c88931a4ad9ba1a99300cb01629~mv2.jpg", "https://static.wixstatic.com/media/3d23ce_270070d36f7c456fa0e98f3fab01a042~mv2.jpg", "https://static.wixstatic.com/media/3d23ce_b3658195378e4083bc23c89a7fecea51~mv2.jpg", "https://static.wixstatic.com/media/3d23ce_62cc149c35da46d1b1fbbf55ebc39815~mv2.jpg", "https://static.wixstatic.com/media/3d23ce_0e47e176a9934aeebd89fe670533ecce~mv2.jpg", "https://static.wixstatic.com/media/3d23ce_96b608d2a49f4812affb8569e3c5d014~mv2.jpg"], "youtubeId": null, "link": "https://video.wixstatic.com/video/3d23ce_d536961b244f4b568bea3b1e896ae349/480p/mp4/file.mp4", "artiste": "Emil illustrations", "production": "Emil Editions", "realisation": "Emilie Chedid (auteur / illustrations)", "descriptionHtml": "<p>« Ghost Clusters » Roman graphique illustré et écrit par Emilie Chedid. Résumé</p>", "ficheHtml": "<p>Ecrit, illustré, mis en pages et édité par Emilie Chedid.\nRelecture : Olivia Karam\nAide mise en page : Fabien Alencar\nAttachée de presse : Charlotte Dumas-Vorzet.\nImprimé chez Books Factory en décembre 2020.</p>"}, {"id": 10, "year": "2020", "title": "Naïvetés by Emil", "subtitle": "Exposition", "categories": ["illustration"], "categoriesAttr": "illustration", "image": "", "images": ["https://static.wixstatic.com/media/3d23ce_c089c46388e5406dac3f08207c84ebcb~mv2.jpg", "https://static.wixstatic.com/media/3d23ce_c7a1215425fe42fe8220a23f8d75559f~mv2.jpg"], "youtubeId": null, "link": "", "artiste": "Emil", "production": "Café Noir (85)", "realisation": "", "descriptionHtml": "<p>Exposition tout l’été au café noir de Noirmoutier en l’île.</p>", "ficheHtml": "<p>Vous pouvez retrouver les illustrations sur la boutique en ligne https://www.emiliechedid.fr/shop</p>"}, {"id": 11, "year": "2020", "title": "Vibrations", "subtitle": "Théâtre", "categories": ["ecriture", "mise_en_scène"], "categoriesAttr": "ecriture mise_en_scène", "image": "", "images": ["https://static.wixstatic.com/media/3d23ce_24e05ca2c9744ca08d70fc5cec2d88ca~mv2.jpeg", "https://static.wixstatic.com/media/3d23ce_716a69f9d66a49aab624f53480a53529~mv2.jpeg"], "youtubeId": null, "link": "", "artiste": "Apprentis Comédien.nes des ateliers (2018/2019)", "production": "Ateliers Théâtre-cinéma-écriture Pontmoulin (77)", "realisation": "Emilie Chedid", "descriptionHtml": "<p>Pièce de théâtre, écriture collective.</p>", "ficheHtml": "<p>Spectacle de fin d’année au théâtre de Coulommiers annulé par l’épidémie Covid.</p>"}, {"id": 12, "year": "2019", "title": "Naïvetés by Emil", "subtitle": "Exposition", "categories": ["illustration"], "categoriesAttr": "illustration", "image": "", "images": ["https://static.wixstatic.com/media/3d23ce_3cb8b70773a24cf79e3a66f8703d26bc~mv2.jpg", "https://static.wixstatic.com/media/3d23ce_3dfe04466a0a424a9a49f1656996cc04~mv2.jpg"], "youtubeId": null, "link": "", "artiste": "Emil", "production": "Librairie éphémère (77)", "realisation": "", "descriptionHtml": "<p>Exposition à la Librairie Éphémère à Coulommiers du 20 novembre au 4 janvier.</p>", "ficheHtml": "<p>https://www.emiliechedid.fr/shop</p>"}, {"id": 13, "year": "2019", "title": "Luzerne Couture", "subtitle": "Pub web", "categories": ["film"], "categoriesAttr": "film", "image": "", "images": [], "youtubeId": "FdcRO30gZ6Y", "link": "", "artiste": "Edwina Zajdermann & autre mannequin", "production": "Luzerne / Nicolas Roux", "realisation": "Emilie Chedid (image et postprod)", "descriptionHtml": "<p>Pub &amp; Teasers web pour la marque de vêtements Luzerne. Ligne de vêtement en laine et mohair. Je n’ai retrouvé que ces deux teasers, mais il y en avait des tas d’autres…</p>", "ficheHtml": "<p>Réalisation, image et postprod : Emilie Chedid\nMannequin : Edwina Zajdermann &amp; autres mannequins\nStylisme déco : Marianne Chedid\nStylisme : Stéphanie Vaillant\nMusique : Guillaume Anienda\nMaquillage : Marine Juarez</p>"}, {"id": 14, "year": "2019", "title": "Entre 2 Pôles", "subtitle": "Théâtre", "categories": ["ecriture", "mise_en_scène"], "categoriesAttr": "ecriture mise_en_scène", "image": "", "images": ["https://static.wixstatic.com/media/3d23ce_47fbadabd6084da08516a3c2634a3d3a~mv2.jpeg"], "youtubeId": "X8JCjPhZjuE", "link": "", "artiste": "Apprentis Comédien.nes des ateliers (2017/2018)", "production": "Ateliers Théâtre-cinéma-écriture Pontmoulin (77)", "realisation": "Emilie Chedid, Pierre Bacle & Patrick Roussel", "descriptionHtml": "<p>Une Pièce de Théâtre pensée par Emilie Chedid &amp; les élèves de Théâtre-Cinéma de Pontmoulin. Écrite par Emilie Chedid, Pierre Bacle &amp; Patrick Roussel. Spectacle de fin d’année au théâtre de Coulommiers 77. Le pitch : Que deviendrions-nous, si tous les outils technologiques qui font notre quotidien venaient à disparaître ? Cette fable humaniste réunit sur scène 50 personnages hétérogènes qui évoluent d’Afrique en France, et nous raconte que animaux, comme humains doivent apprendre à vivre ensemble, lorsqu’un événement majeur vient bouleverser leurs vies.</p>", "ficheHtml": "<p>MISE EN SCÈNE\nEmilie Chedid et Pierre Bacle\nCRÉATION DES MASQUES\nPatrick Roussel\nCOSTUMES\nMélanie Roussel\nDon’t Forget Mélanie\nSCÉNOGRAPHIE &amp; CRÉATION SONORE\nEmilie Chedid\nLUMIÈRE &amp; SON\nSony Thiam\nBrice Henriot, Pierre Roussel\nASSISTANT MISE EN SCÈNE\nTony Derlon\nCAPTATION\nPhilippe De Lachèze-Murel\nLes amis de la couleur\nMONTAGE\nEmilie Chedid\nEN FRANCE\nODILE Aurélie Cluzel\nHUBERT Bleck Le Rock\nDANIEL Patrick Roussel\nVALÉRIE Sabrina Cachelin\nLA CANICHE Chiara Desmurs\nLE CHIEN JAUNE Louise Baudrillard\nLA VENDEUSE Louise Bouyer\nLES JOURNALISTES\nPierre Bacle,\nÈva Giraudeau, Annaëlle Teuf\nLES INFLUENCEUSES\nLéa Henry, Ève Lemercier-Rémy,\nMarie Ramaz\nLES MONITEURS\nAude Tricottet, Lucas Borel\nLA COLONIE\nAngela Chojnacki, Maëlys Yasse,\nJuliette Baudrillard, Violette &amp;\nAmande Chedid-Rajchenbach,\nStan &amp; Lou Tastet, Noah Espinaco-\nRobert, Milan Delorme\nLES ÉLÈVES\nBillie Hermance, Calista Robba,\nSamuel Benhaïm\nLEURS AMIS\nLaura Loyer, Sahé Devilliers,\nInès Lepain, Maryssa Laclau\nChloée &amp; Charlotte Delhaise,\nCalista Robba, Léana Galland Vieira\nEN AFRIQUE\nMia Roussel CLARENCE\nLudivine Georgeot ANNE\nJoffrey Evrard EMMANUEL\nLaurence Falhun ADÈLE\nMichel Tossom JOHN\nLéa Henry CARUZO\nLouise Bouyer L’ÉLÉPHANTE\nAnnaëlle Teuf LE CHEVAL\nÈve Lemercier-Rémy LE SINGE\nMarie Ramaz LE COCHON\nEXTRAITS MUSICAUX\nSons libre de droit\nLe Boudin légion étrangère\nLe livre de la Jungle\nRossignol Luis Mariano\nUn autre monde Téléphone\nSweet child O mine Guns n’Roses\nThe Ghetto Danny Hattaway\nPercussions de Kouroussa\nChopin Nocturne n°2\nBipolaire Joseph Chedid\nNouvel Avenir Sabrina Cachelin\nCoordination générale/Artwork\nEmilie Chedid\nUn grand merci à tous les comédiens pour leur implication. Pierre,\nPatrick et sa famille. Claire Rémy, Maxime Parée, Madeleine\nDeville (Association de couture de Coulommiers). À nos Amis et\nnos Familles pour leur formidable soutien et leur précieuse aide.\nMélanie, Marianne, Isabelle. Tony, Vincent, Anne-Laure, La ferme\nde Pontmoulin, l’équipe de la Mairie et du Théâtre de municipal de\nCoulommiers.</p>"}, {"id": 15, "year": "2018", "title": "Naïvetés by Emil", "subtitle": "Exposition", "categories": ["illustration"], "categoriesAttr": "illustration", "image": "", "images": ["https://static.wixstatic.com/media/3d23ce_fbe2bd3db0154ae48f27261dab5ff461~mv2.png"], "youtubeId": null, "link": "", "artiste": "Emil", "production": "Atelier Système D. (75)", "realisation": "Emilie Chedid", "descriptionHtml": "<p>Première Exposition Naïvetés by Emil à l’Atelier Système D. (Paris 11e) dirigée par Sandra Derlon du 30 novembre au 1er décembre 2018. Illustrations en vente sur la boutique en ligne.</p>", "ficheHtml": "<p>https://www.emiliechedid.fr/shop</p>"}, {"id": 16, "year": "2018", "title": "Ah c’qu’on est bête", "subtitle": "Vidéomusique", "categories": ["film"], "categoriesAttr": "film", "image": "", "images": [], "youtubeId": "Alag-wApomQ", "link": "", "artiste": "Les Parisiennes", "production": "Les films de Morphée / Believe music", "realisation": "Emilie Chedid", "descriptionHtml": "<p>Clip tourné au studio Jours tranquilles et produit par Les films de Morphée, avec Mareva Galanter, Inna Modja, Helena Noguerra et Arielle Dombasle. Titre extrait de l’album Les Parisiennes (2018), qui ressuscite le groupe mythique des années 60 avec une nouvelle formation.</p>", "ficheHtml": "<p>format: vidéoclip couleur HD, ~3 min\nalbum_source: \"Les Parisiennes\" (Parlophone / Warner Music France, 2018)\nProductrice Alice Caron /\nChef opérateur Thomas Letellier /\nChargé de production Thomas Le Dem /\nAssistant de production Thomas Dahirel /\nAssistant OPV Maxime Bonan /\nChef electro Amida Belgharbi /\nElectro Luka Wenglarz /\nCostumière Fleur Demery /\nChorégraphe Stéphane Jarny /\nDéco Sylvia François /\nMaquilleuse Sandrine Roman /\nMaquilleuse Faustine Violleau /\nCoiffeuse Elika Bavar /\nCoiffeur Nunzio Carbone /\nMontage Thomas Courcellet /\nAnimation Dessin : Emilie Chedid /\nVFX Andy Maistre/\nEtalonnage Charles Keramoal / Tetsuo\nStudio Jours Tranquilles\n©2018 Parlophone / Warner Music France</p>"}, {"id": 17, "year": "2018", "title": "Slap !", "subtitle": "Vidéomusique", "categories": ["film"], "categoriesAttr": "film", "image": "", "images": [], "youtubeId": "FwrMKGaUlbU", "link": "", "artiste": "Slap! (Charlène Juarez, Micky Green, Sandra Derlon)", "production": "Cowgirl Music", "realisation": "Emilie Chedid", "descriptionHtml": "<p>Slap!, c’est de la pop, du ska, de la northern soul, du R’n’B, du hip hop, du reggae… Un mélange assumé à l’image du groupe, impossible à faire rentrer dans une case. Derrière les pseudos, trois amies musiciennes : Charlène Juarez, alias Chat, aux claviers, Michaela “Micky” Green à la batterie, et Sandra Derlon à la guitare. Ensemble, elles forment un trio libre, sans règles ni prise de tête, qui joue avec les styles musicaux et l’auto-dérision.</p>", "ficheHtml": "<p>Réalisation et D.A : Emilie Chedid /\nChef opérateur : Aurélien Dubois /\nFiguration : Tony Derlon, Ornella towanou, Joseph Chedid /\nDéco : Sylvia François et Caroline Watelet /\nAssistants : Théo Fouilleul /\nStylisme : Stéphanie Vaillant /\nMaquillage, coiffure : valiyi (Hmcparis) Gloria et Anne-Laure /\nCatering : Andréa Juarez /\nMontage : Emilie Chedid et Aurélien Guégan /\nUn grand merci à Guillaume Ananda, Luc Anger, pour leur aide et soutien précieux /\nTourné à Pontmoulin chez Anne-Laure Clémence et Vincent Devilliers.\n©2018 Cowgirl music\nLettre Infinie\nConseil artistique Image\ncategories: D.A\nartiste: -M-\nproduction: Labo -M-/ Wagram Music\nréalisation:\nimage: https://static.wixstatic.com/media/3d23ce_d6ce7dd888b14f4c92af5ec36eb109d6~mv2.jpeg\nhttps://static.wixstatic.com/media/3d23ce_85a0b44efdda4c389709517a8c6d207f~mv2.jpg\nhttps://static.wixstatic.com/media/3d23ce_972dc33038dd451ab9c768131bae1c9b~mv2.jpg\nlink:\ndescription: Matthieu a toujours un concept visuel lié à ses albums, pour celui-ci le dessin de la pochette était clair, il fallait juste trouver les bons partenaires visuels pour la finaliser. Recherches et conseils sur logo, artwork, costume.\nfiche_technique:\nYann Orhan (photo) / Alex Courtès (graphisme et réal clip) / Gérald Portenart (Coiffe) / Stéphanie Vaillant (Costume)/ LABO -M- : Gaspard Borgeaud\nLABO-M-.NET\nD.A Image Web\ncategories: D.A\nartiste: -M-\nproduction: Labo -M-\nréalisation: Mahi-Mahi / Site Web (Version avant 2022)\nimage:\nlink: https://youtu.be/Fh_e1I_VtcA\ndescription: Direction artistique, conseil et suivi de la création du premier site Labo-m.net entre 2015 et 2016. On découvre ici, suite aux éléments et briefs fournis, une archive vidéo du tout premier retour des graphistes, Clémence et Simon (2points13). J’ai volontairement accéléré leurs paroles pour rendre la vidéo moins longue :-) Beaucoup de travail s’en est suivi jusqu’à la mise en ligne… Le site a été modifié en 2017, puis en 2022.\nfiche_technique :\nEquipe LABO -M- : Gaspard Borgeaud, Laurence Colin, Zoé Fuger, Gabriel Hallé.\nGraphistes : 2points13\nDevSite : Mahi Mahi / Xavier Cailly\nPlateformes Jamshake : plateforme sociale de musique collaborative et Racontr, plateforme de storytelling.</p>"}, {"id": 18, "year": "2018", "title": "Une histoire d’âme", "subtitle": "Documentaire", "categories": ["film"], "categoriesAttr": "film", "image": "", "images": [], "youtubeId": "OV1go4W8gZw", "link": "", "artiste": "Lamomali", "production": "Labo -M- / Wagram Music", "realisation": "Emilie Chedid & Timothée Hilst", "descriptionHtml": "<p>Documentaire de 22 minutes, tourné entre la France et le Mali (studios, concerts, tournées) Avec -M-, Amadou &amp; Mariam, Philippe Jarousky, Ibrahim Maalouf, Oxmo Puccino. Un film dédié à Marc-Antoine Moreau qui a fait découvrir le Mali à Matthieu.</p>", "ficheHtml": "<p>duree: 22 min\nformat: documentaire musical HD (making of + images de tournée)\nAvec -M-, Amadou &amp; Mariam, Philippe Jarousky, Ibrahim Maalouf, Oxmo Puccino\nréalisation: Emilie Chedid &amp; Timothée Hilst\nDirectrice artistique et ITW : Emilie Chedid\nImages ITW : Eric Chouard\nSon Itw : Clément Bonnardel\nMontage / Etalonnage : Timothée Hilst\nMixage : Florian Tirot\nImages additionnelles : Victoires de la musique / Franco de La Rochelle / Mali, réalisés par Christian Bouchet et Laurent Segretier / Paris-Bamako, réalisé par Laurent Thessier / Paris, réalisé par Martin Fraudreau / Festival Africa Express / Solidarité, réalisé par Stéphane de Freitas / Images : Timothée Hilst : Théâtre de Yerres, Les nuits de Fourvières, Salle Pleyel &amp; Accord Arena.\nLabo -M- : Gaspard Borgeaud, Gabriel Hallé, Catherine Rouyez.\n3eme bureau/Wagram : Pierre-Olivier Toublanc, Chloée Robert, Jennifer Havet, Eric Marjault, François Le Berre, Ludivine Rome, Ivann Robert.\nCrédits musicaux : générique de fin.\n© 2018 Labo M / 3ème Bureau / Wagram Music\nEnglish translation available.</p>"}, {"id": 19, "year": "2018", "title": "Les âmes-cœurs", "subtitle": "Théâtre", "categories": ["ecriture", "mise_en_scène"], "categoriesAttr": "ecriture mise_en_scène", "image": "", "images": [], "youtubeId": "1isMTPXLpEE", "link": "", "artiste": "Apprentis Comédien.nes des ateliers (2016/2017)", "production": "Ateliers Théâtre-cinéma-écriture Pontmoulin (77)", "realisation": "Emilie Chedid, Pierre Bacle & Patrick Roussel", "descriptionHtml": "<p>Les âmes Coeurs</p>", "ficheHtml": "<p>Mise en Scène\nEmilie Chedid\n&amp;\nChorégraphie\nAnne-Laure Clémence\nMerci à mes élèves Sahé, Billie, Lou, Noah, Quentin, Amande, Violette, Florian, Maxime, Samuel, Anne-Laure, Milca, Tony et Dimitri et aux danseurs et danseuses. Malheureusement pour des questions de droits musicaux, les passages dansés sont supprimés par youtube.</p>"}, {"id": 20, "year": "2017", "title": "Parce que je t’aime", "subtitle": "Vidéomusique", "categories": ["film"], "categoriesAttr": "film", "image": "", "images": [], "youtubeId": "kCpm_6qiuhQ", "link": "", "artiste": "Élodie Frégé", "production": "Virgin / Mercury Music Group", "realisation": "Emilie Chedid", "descriptionHtml": "<p>Parce que je t’aime, interprétée par Élodie Frégé est extrait de l’album « Elles et Barbara » tourné au studio Guillaume Tell. Une chanson magnifique, intemporelle.</p>", "ficheHtml": "<p>Réalisation : Emilie Chedid\nChef opérateur : Aurélien Dubois\nCadres : Emilie Chedid &amp; Aurélien Dubois\nIng.Son : Clément Bonnardel\nChef Électricien : Sébastien Greveldinger\nMontage : Olivia Chiché\nEtalonnage\nPost Prod : Lylo / Catherine Wartel\nDirectrice Artistique : Nathalie Noennec\nGraphisme : Clémentine Larroumet (be-poles)\nResponsable Marketing Virgin : Antoine Boudie\nEdith Fambuena (direction artistique, réalisation, programmation)\nJeanne Cherhal (piano), Agnès Imbault (piano, claviers, orgue, harmonium, percus corporelles), Julie Gomel, Marie Lalonde (guitares, bouzouki, ukulélé, toms), Katel (guitare, basse, clavier basse, percussions), Zoé Hochberg (batterie, toms, percus corporelles), Elena Azevedo Da Silva (harpe électrique), David Salkin (tambourin), Alexis Anérilles (clavecin, buggle), Guilhem Valayé (répétiteur)\n©2017 Mercury Music Group</p>"}, {"id": 21, "year": "2017", "title": "L’aigle Noir", "subtitle": "Documentaire", "categories": ["film"], "categoriesAttr": "film", "image": "", "images": [], "youtubeId": "pYG9hUkizck", "link": "", "artiste": "Juliette Armanet", "production": "Mercury Music Group", "realisation": "Emilie Chedid", "descriptionHtml": "<p>Juliette Armanet interprète et raconte l’expérience de chanter « L’aigle noir » de Barbara. Extrait de l’album « Elles &amp; Barbara », l’album et les vidéos associent captation studio intimiste (Studio Guillaume Tell) + témoignages face caméra où les artistes racontent leur lien avec Barbara et le titre interprété.</p>", "ficheHtml": "<p>Réalisation : Emilie Chedid\nChef opérateur : Aurélien Dubois\nCadres : Emilie Chedid &amp; Aurélien Dubois\nIng.Son : Clément Bonnardel\nChef Electricien : Sébastien Greveldinger\nMontage : Olivia Chiché\nEtalonnage\nPosprod : Lylo / Catherine Wartel\nDirectrice Artistique : Nathalie Noennec\nGraphisme : Clémentine Larroumet (be-poles)\nResponsable Marketing Virgin : Antoine Boudie\nEdith Fambuena (direction artistique, réalisation, programmation)\nJeanne Cherhal (piano), Agnès Imbault (piano, claviers, orgue, harmonium, percus corporelles), Julie Gomel, Marie Lalonde (guitares, bouzouki, ukulélé, toms), Katel (guitare, basse, clavier basse, percussions), Zoé Hochberg (batterie, toms, percus corporelles), Elena Azevedo Da Silva (harpe électrique), David Salkin (tambourin), Alexis Anérilles (clavecin, buggle), Guilhem Valayé (répétiteur)\n©2017 Mercury Music Group\nElles &amp; Barbara\nDocumentaire / Bande Annonce\ncategories: film\nartiste: Juliette Armanet, Zazie, Jeanne Cherhal, Julie Fuchs, Dani, Angélique Kidjo, Nolwenn Leroy, Louane, Daphné, Olivia Ruiz, Virginie Ledoyen, Élodie Frégé, Melody Gardot\nproduction: Mercury Music Group\nréalisation: Emilie Chedid\nimage:\nlink: https://youtu.be/PpRJcpg5zlY\ndescription: Bande-Annonce documentaire avec Zazie (La solitude), Jeanne Cherhal (Nantes), Julie Fuchs (Göttingen), Dani (Si la photo est bonne), Angélique Kidjo (Le soleil noir), Nolwenn Leroy (Dis, quand reviendras-tu ?), Louane (Mon enfance), Daphné (Marienbad), Olivia Ruiz (Gueule de nuit), Virginie Ledoyen (Cet enfant-là), Juliette Armanet (L’aigle noir), Élodie Frégé (Parce que je t’aime), Melody Gardot (C’est trop tard). Tourné au studio Guillaume Tell.\nfiche_technique:\nRéalisation : Emilie Chedid\nChef opérateur : Aurélien Dubois\nCadres : Emilie Chedid &amp; Aurélien Dubois\nIng.Son : Clément Bonnardel\nChef Electricien : Sébastien Greveldinger\nMontage : Olivia Chiché\nEtalonnage\nPosprod : Lylo / Catherine Wartel\nDirectrice Artistique : Nathalie Noennec\nGraphisme : Clémentine Larroumet (be-poles)\nResponsable Marketing Virgin : Antoine Boudie\nEdith Fambuena (direction artistique, réalisation, programmation)\nJeanne Cherhal (piano), Agnès Imbault (piano, claviers, orgue, harmonium, percus corporelles), Julie Gomel, Marie Lalonde (guitares, bouzouki, ukulélé, toms), Katel (guitare, basse, clavier basse, percussions), Zoé Hochberg (batterie, toms, percus corporelles), Elena Azevedo Da Silva (harpe électrique), David Salkin (tambourin), Alexis Anérilles (clavecin, buggle), Guilhem Valayé (répétiteur)\n©2017 Mercury Music Group</p>"}, {"id": 22, "year": "2016", "title": "F.O.R.T", "subtitle": "Vidéomusique", "categories": ["film"], "categoriesAttr": "film", "image": "", "images": [], "youtubeId": "HAkXHjd9fbY", "link": "", "artiste": "Louis, Matthieu, Joseph et Anna Chedid", "production": "Barclay / Universal Music", "realisation": "Emilie Chedid", "descriptionHtml": "<p>Clip F.O.R.T réalisé pour la famille Chedid.</p>", "ficheHtml": "<p>Réalisation : Emilie Chedid\nImages : Emilie Chedid, Franck Morand\nImages complémentaires : Aurélien Guégan, Loïca Saint M’Leux\nMontage : Aurélien Guégan\nEtalonnage : Ghislain Rio\nMixage : Romain Colonna d’Istria\nProduction exécutive : Chiips / Bénédicte Cartigny\nMoyens Techniques : Chiips, Lylo\nF.O.R.T (Anna Chedid / Joseph Chedid / Matthieu Chedid / Louis Chedid)\nÉditions de l’Amourade, Labo M Éditions, BMG Rights Management France, Anna Chedid Publishing\nRéalisé par Hervé Salters\nLouis : voix lead, choeurs\nMatthieu : voix lead, choeurs, guitare électrique, guitare acoustique , basse, percussions\nAnna : voix lead, choeurs, piano\nJoseph : voix lead, choeurs, batterie\nAlbum enregistré aux studios La Fabrique ( St Rémy de Provence ) par Charles De Schutter assisté de Naël Barakat.\nMixé et masterisé  au studio Rec’N Roll ( Bruxelles ) par Charles de Schutter, assisté de Nael Barakat.\nProduction exécutive : Antoine Dathanat, assisté de Marie-José Sarazin\nChef de projet : Jérôme Marroc-Latour, assisté de Céline Fiack\nManagement et production exécutive : Olivier Wurth\npour Louis Chedid : Hélène Texier\npour Labo M : Gaspard Borgeaud\npour Joseph ‘Selim’ Chedid : Elodie Filleul\npour Anna ‘Nach’ Chedid : Alain Lahana\nGuitares et backline : Sylvain Coppin / Pierrick Lapuyade\nRégie : Feal Le Rouzic\nLa Fabrique - studio : Isabelle et Hervé Le Gill\nAssistant studio : Daniel Cayotte\nStagiaires : Rémy Dumelz et Arthur Meyer\nChef cuisine : Marie\n© 2015 Riviera – Maison Barclay, un label Universal Music France</p>"}, {"id": 23, "year": "2016", "title": "On ne dit jamais assez aux gens qu’on aime qu’on les aime", "subtitle": "Vidéomusique", "categories": ["film"], "categoriesAttr": "film", "image": "", "images": [], "youtubeId": "W5eDAne7nl0", "link": "", "artiste": "Louis, Matthieu, Joseph et Anna Chedid", "production": "Barclay / Universal Music", "realisation": "Emilie Chedid", "descriptionHtml": "<p>Clip F.O.R.T réalisé pour la famille Chedid.</p>", "ficheHtml": "<p>Réalisation : Emilie Chedid\nImages : Emilie Chedid, Franck Morand\nImages complémentaires : Aurélien Guégan, Loïca Saint M’Leux\nMontage : Aurélien Guégan\nEtalonnage : Ghislain Rio\nMixage : Romain Colonna d’Istria\nProduction exécutive : Chiips / Bénédicte Cartigny\nMoyens Techniques : Chiips, Lylo\nF.O.R.T (Anna Chedid / Joseph Chedid / Matthieu Chedid / Louis Chedid)\nÉditions de l’Amourade, Labo M Éditions, BMG Rights Management France, Anna Chedid Publishing\nRéalisé par Hervé Salters\nLouis : voix lead, choeurs\nMatthieu : voix lead, choeurs, guitare électrique, guitare acoustique , basse, percussions\nAnna : voix lead, choeurs, piano\nJoseph : voix lead, choeurs, batterie\nAlbum enregistré aux studios La Fabrique ( St Rémy de Provence ) par Charles De Schutter assisté de Naël Barakat.\nMixé et masterisé  au studio Rec’N Roll ( Bruxelles ) par Charles de Schutter, assisté de Nael Barakat.\nProduction exécutive : Antoine Dathanat, assisté de Marie-José Sarazin\nChef de projet : Jérôme Marroc-Latour, assisté de Céline Fiack\nManagement et production exécutive : Olivier Wurth\npour Louis Chedid : Hélène Texier\npour Labo M : Gaspard Borgeaud\npour Joseph ‘Selim’ Chedid : Elodie Filleul\npour Anna ‘Nach’ Chedid : Alain Lahana\nGuitares et backline : Sylvain Coppin / Pierrick Lapuyade\nRégie : Feal Le Rouzic\nLa Fabrique - studio : Isabelle et Hervé Le Gill\nAssistant studio : Daniel Cayotte\nStagiaires : Rémy Dumelz et Arthur Meyer\nChef cuisine : Marie\n© 2015 Riviera – Maison Barclay, un label Universal Music France</p>"}, {"id": 24, "year": "2016", "title": "Brassens sur parole(s)-Les copains d’abord", "subtitle": "Vidéomusique", "categories": ["film"], "categoriesAttr": "film", "image": "", "images": [], "youtubeId": "Fk6IDDxH5Ac", "link": "", "artiste": "André Dussollier, Audrey Tautou, Catherine Frot, François Berléand, François Morel, Guillaume Gallienne, Jean-Pierre Darroussin, Julie Depardieu, Karin Viard, Léa Drucker, Lionel Abelanski, Michel Bouquet, Michel Fau, Pierre Richard, Roger Dumas, Valérie Bonneton.", "production": "Virgin / Mercury music group", "realisation": "Emilie Chedid", "descriptionHtml": "<p>Brassens sur Parole(s) est un hommage choral à Georges Brassens, imaginé pour le 35ᵉ anniversaire de sa disparition. Sous la direction artistique de Louis Chedid, et à l’initiative conjointe de ce dernier et d’Ève Cazzani, petite-nièce du poète sétois, seize comédiens et comédiennes se réapproprient les chansons de Brassens en les disant ou en les chantant. Plutôt que de faire appel aux chanteurs habituellement associés à son univers, le projet confie ces textes à des voix de cinéma et de théâtre : François Morel, Audrey Tautou, Jean-Pierre Darroussin, André Dussollier, Michel Bouquet, François Berléand, Karin Viard, Julie Depardieu, Guillaume Gallienne, entre autres. Chacun et chacune prête sa personnalité à un titre, révélant la force, l’humour, la tendresse et parfois la gravité de cette langue ciselée.Les arrangements, loin du simple pastiche « voix-guitare-contrebasse », explorent d’autres couleurs (jazz, latino, etc.) et démontrent à quel point l’œuvre de Brassens supporte la métamorphose sans perdre son âme. Le projet se clôt sur « Les Copains d’abord », interprété collectivement, comme un clin d’œil affectueux et un « petit bonheur posthume » offert à l’un des plus grands auteurs-compositeurs de la chanson française.</p>", "ficheHtml": "<p>Réalisation et cadre : Emilie Chedid\nProduction : Kiosco / Clément Chovin\nMontage : Pablo Teyssier-Verger\nArrangements : Louis Chedid, Cyril Taïeb\nDirection artistique et réalisation : Louis Chedid\nGraphisme : Clémentine Larroumet\nManagement : Hélène Texier\nAssistante pro : Jodie Meylon\nTourné au studio Question de son.</p>"}, {"id": 25, "year": "2016", "title": "Brassens sur parole(s)", "subtitle": "Bande annonce", "categories": ["film"], "categoriesAttr": "film", "image": "", "images": [], "youtubeId": "DeI5deT-zqM", "link": "", "artiste": "Louis Chedid, André Dussollier, Audrey Tautou, Catherine Frot, François Berléand, François Morel, Guillaume Gallienne, Jean-Pierre Darroussin, Julie Depardieu, Karin Viard, Léa Drucker, Lionel Abelanski, Michel Bouquet, Michel Fau, Pierre Richard, Roger Dumas, Valérie Bonneton.", "production": "Virgin / Mercury music group", "realisation": "Emilie Chedid", "descriptionHtml": "<p>Brassens sur parole(s) est un album choral qui réunit seize grandes figures du cinéma français autour de l’œuvre de Georges Brassens. Sous la direction artistique et la réalisation musicale de Louis Chedid, avec les arrangements de Louis Chedid et Cyril Taïeb, ces comédiens ne jouent pas seulement les chansons : ils les incarnent, en font entendre l’humour, la tendresse et la mélancolie.</p>", "ficheHtml": "<p>Réalisation et cadre : Emilie Chedid\nProduction : Kiosco / Clément Chovin\nMontage : Pablo Teyssier-Verger\nArrangements : Louis Chedid, Cyril Taïeb\nDirection artistique et réalisation : Louis Chedid\nGraphisme : Clémentine Larroumet\nManagement : Hélène Texier\nAssistante pro : Jodie Meylion\nTourné au studio Question de son.\nJean-Pierre Darroussin – J'ai rendez-vous avec vous\nKarine Viard – Mourir pour des idées\nMichel Fau – Le pornographe\nGuillaume Gallienne – La prière\nAudrey Tautou – La mauvaise réputation\nPierre Richard – Les passantes\nMichel Bouquet – Il n'y a pas d'amour heureux\nCatherine Frot – La plainte des filles de joie\nLionel Abelanski – Je me suis fait tout petit\nRoger Dumas – Auprès de mon arbre\nJulie Depardieu – Le gorille\nLéa Drucker – Les amoureux des bancs publics\nFrançois Morel – La non-demande en mariage\nFrançois Berléand – Le temps ne fait rien à l’affaire\nValérie Bonneton – Chanson pour l’Auvergnat\nAndré Dussollier – Supplique pour être enterré à la plage de Sète\nJean-Pierre Darroussin, Karine Viard, Michel Fau, Guillaume Gallienne, Audrey Tautou, Pierre Richard, Michel Bouquet, Catherine Frot, Lionel Abelanski, Roger Dumas, Julie Depardieu, Léa Drucker, François Morel, François Berléand, Valérie Bonneton, André Dussollier – Les copains d’abord</p>"}, {"id": 26, "year": "2016", "title": "Famille Chedid", "subtitle": "Photo de presse", "categories": ["photo"], "categoriesAttr": "photo", "image": "", "images": ["https://static.wixstatic.com/media/3d23ce_e5a769901bc14fccb40eebf1227865b9~mv2.jpg", "https://static.wixstatic.com/media/3d23ce_073dec0d27b5422b9671d4c55c64a17e~mv2.jpg", "https://static.wixstatic.com/media/3d23ce_ba71abc2082642f9ba21684e1c91bf20~mv2.jpg", "https://static.wixstatic.com/media/3d23ce_0262a80e5c5f46c8a1ccba58b4d48ec1~mv2.jpg", "https://static.wixstatic.com/media/3d23ce_267e97000a704296a771a5f42e07051f~mv2.jpg", "https://static.wixstatic.com/media/3d23ce_bc32270bc5884fb68e6f2160e29eb8ab~mv2.jpg", "https://static.wixstatic.com/media/3d23ce_829d6810246e40609f5d84c58d9c1bb3~mv2.jpg"], "youtubeId": null, "link": "", "artiste": "Famille Chedid", "production": "", "realisation": "Emilie Chedid", "descriptionHtml": "<p>Photo de presse durant le filage du 7 mai 2015.</p>", "ficheHtml": ""}, {"id": 27, "year": "2015", "title": "La B.O² -M- Expérience", "subtitle": "Captation", "categories": ["film"], "categoriesAttr": "film", "image": "", "images": [], "youtubeId": "uMTqqo7OcMI", "link": "", "artiste": "-M- / Matthias Picard", "production": "Labo -M-", "realisation": "Emilie Chedid", "descriptionHtml": "<p>Extrait de la captation pour fêter la sortie de la BD-Album La B.O² -M- au Yoyo (Palais de Tokyo). Un concert expérimental du Chedakles (-M-, Brad Thomas Ackely et Lawrence Clais). Suivant les règles du jeu surréaliste posées par le public et illustrées en Live par Matthias Picard avec Emilie Chedid, sampler par Pierre Boscheron et avec Charly de Schutter au Moog.</p>", "ficheHtml": "<p>Réalisation et Montage : Emilie Chedid\n13 ans après Labo -M-, Matthieu Chedid propose un deuxième interlude musical entre deux albums de -M : la B.O² -M-, objet à tiroirs mêlant musique, conte, dessin et orange numérique.\nhttp://www.editions2024.com/labo2m\nLe 13 décembre 2015, la B.O² M s’est installée au Yoyo à Paris pour une expérience live unique, un voyage initiatique et intérieur autour du rêve de Matthieu, sur une création sonore de Pierre Boscheron. 3 séances proposant 3 visions d'un même rêve.\nLabo -M-, Smïle Arts &amp; Communication et Crazybaby! remercient chaleureusement les partenaires de la B.O² -M EXPÉRIENCE : Le Yoyo - Le Palais de Tokyo - Auguri - Devialet - Ed.2024 - Procédés Chénel - Villa Schweppes - Henryot &amp; Cie - Fontana Arte - My Design - Posca - Uni-ball - Pierre Hermé - Each Other - HP - Wacom</p>"}, {"id": 28, "year": "2015", "title": "Ame mélodique", "subtitle": "Vidéomusique", "categories": ["film"], "categoriesAttr": "film", "image": "", "images": [], "youtubeId": "F_r7y3Mefmc", "link": "", "artiste": "Nach", "production": "Chiips / Polydor-Universal Music France", "realisation": "", "descriptionHtml": "<p>Titre extrait du premier album de Anna Chedid, alias Nach (2015). L’âme mélodique de NACH, c’est son côté multi-instrumentiste. Son album, elle l’a composé et écrit seule, elle y joue de presque tous les instruments. C’est pourquoi, j’aimerais mettre en valeur cette facette d’elle dans ce clip. Anna commence et finit au piano. Elle est seule, perdue dans l’espace noir. Au montage, on joue ensuite sur Anna qui joue de tous les autres instruments (basse, batterie, autre claviers) et forme un groupe à elle toute seule. Puis ses musiciennes la remplacent par intermittence à la basse, batterie et autre clavier.</p>", "ficheHtml": "<p>\"Nach\" (Polydor / Universal Music France, 2015)\nformat: vidéoclip couleur HD, ~3-4 min\nAvec\nAnna chedid\nLucie Antunes\nClémence Lasme\nLaurie Xhaard\nRéalisation : Emilie Chedid\nChef Opérateur : Yvan Schreck\nLumières : Javier Ruiz Gomez\nAssistant caméra : Nicolas Djian\nchef maq/coiffure : Loriane Léger\nDéco : Anna Xhaard\nRégie : Guillaume Ananda / Livio Iriart\nTourné au studio de l’Olivier (Montrouge)\nProduction Chiips :\nBénédicte Cartigny\nJuan Jonquères\n©2015 - Polydor Universal Music France</p>"}, {"id": 29, "year": "2015", "title": "33 tours à la Fabrique", "subtitle": "Documentaire", "categories": ["film", "inédit"], "categoriesAttr": "film inédit", "image": "", "images": [], "youtubeId": "N0lQSKQoOAo", "link": "", "artiste": "Anna, Louis, Matthieu, Joseph Chedid", "production": "Barclay / Universal Music", "realisation": "Emilie Chedid", "descriptionHtml": "<p>documentaire musical tourné au studio La Fabrique, sur l’enregistrement de l’album familial d’Anna, Louis, Matthieu et Joseph Chedid. Le film accompagne la sortie de l’album (making of sensible / immersion en studio).</p>", "ficheHtml": "<p>Réalisation : Emilie Chedid\nImages : Emilie Chedid, Franck Morand\nImages complémentaires : Aurélien Guégan, Loïca Saint M’Leux\nMontage : Aurélien Guégan\nEtalonnage : Ghislain Rio\nMixage : Romain Colonna d’Istria\nProduction exécutive : Chiips\nMoyens Techniques : Chiips, Lylo\nAlbum enregistré aux studios La Fabrique (St Rémy de Provence) par Charles De Schutter assisté de Nael Barakat.\nMixé et masterisé  au studio Rec'n Roll ( Bruxelles ) par Charles de Schutter, assisté de Nael Barakat.\nProduction exécutive : Antoine Dathanat, assisté de Marie-José Sarazin\nChef de projet : Jérôme Marroc-Latour, assisté de Céline Fiack\nManagement et production exécutive :\nOlivier Wurth\npour Louis Chedid : Hélène Texier\npour Labo M : Gaspard Borgeaud\npour Joseph ‘Selim’ Chedid : Elodie Filleul\npour Anna ‘Nach’ Chedid : Alain Lahana\nGuitares et backline :\nSylvain Coppin\nPierrick Lapuyade\nRégie : Feal Le Rouzic\nLa Fabrique - studio : Isabelle et Hervé Le Gill\nAssistant studio : Daniel Cayotte\nStagiaires : Rémy Dumelz et Arthur Meyer\nChef cuisine : Marie\n© 2015 Riviera – Maison Barclay, un label Universal Music France</p>"}, {"id": 30, "year": "2015", "title": "Chedid à l’Opéra Garnier", "subtitle": "Captation", "categories": [], "categoriesAttr": "", "image": "", "images": [], "youtubeId": "Ymsl2w10ZCQ", "link": "", "artiste": "Anna, Joseph, Matthieu, Louis Chedid", "production": "Pathé Live / Netflix", "realisation": "Emilie Chedid et Tristan Carné", "descriptionHtml": "<p>captation de concert “Famille Chedid” avec mise en scène et dispositif lumière/scéno spécifiques au lieu (Opéra Garnier). Concert filmé en 2015 à l’Opéra Garnier et diffusé en direct dans les cinémas Pathé avant d’être proposé sur la plateforme Netflix (France).</p>", "ficheHtml": "<p>KIOSCO TV (production captation)\nProducteur / co-réalisateur — Tristan Carné\nCo-réalisatrice — Emilie Chedid\nDirecteur de production — Azziz Zerhouni\nChargée de production — Marie Ouguergouz\nDirectrice de la photographie — Cecille Trelluyer\nScripte — Severine Thibaut\nResponsable de Post Production — Guillaume Ducasse\n1er assistant réalisation — Stephane Bohee\n2e assistante réalisation — Jodie Melyon\nCadreurs — Mohamed Koulla, Thomas Babinet, Olivier Braunstein, Cyril Charbit\nEric Sissung, Alexandre Janiaud, Eric Guilloux, Mathieu Bernier, Hervé Duflot, Auguste Ossieux, Jean Baptiste Cortet\nAuguri Productions (production spectacle)\nDirecteur Général — Olivier Wurth\nDirecteur de Production — Laurent Poirier\nRégisseur Artistes — Feal Le Rouzic\nIngénieur du son — Charles de Schutter\nCréateur Lumières — Jérémy Bargues\nPATHE LIVE\nDirecteur Général — Thierry Fontaine\nTechnical Manager — JIimmy Kerrad\nChargé de Communication — Antoine Cronier\nPalais Garnier (Lieu de tournage)\nDirecteur — Laurent METIVIER\nAMP VISUAL TV (Prestataire Vidéo)\nChargé de clientèle — Benjamin Cohen\nDirecteur de production — Olivier Pajot\nChef d’équipement — Philippe Virollaud</p>"}, {"id": 31, "year": "2014", "title": "Lady Luck", "subtitle": "Vidéomusique", "categories": ["film"], "categoriesAttr": "film", "image": "", "images": [], "youtubeId": "uLGQh69Z6uI", "link": "", "artiste": "Lulu Gainsbourg", "production": "Suburb / Mercury Universal music group", "realisation": "", "descriptionHtml": "<p>Premier single extrait de l'album Lady Luck de Lulu Gainsbourg.</p>", "ficheHtml": "<p>Avec Lulu &amp; Lilou, Alain Bouzigues, Mathieu Garnier, Sébastien Pujol, Charly de Witte, Françoise Smilenko, Chantal Pfaff, Juliette Pitron, Lisa Gassman, Zoé Fuger, Marilou Malo, Louise Découflé, Gandhi Jeddi, Lionel Gragy, Hugo Hubert, Imaêl Dugain, Charles Rolland V, Arnaud martin.\nRéalisation &amp; D.A : Emilie Chedid\n1ère assistante réalisateur — Marjorie Marramaque\nProducteur — Frédéric Alenda\nDirecteur de production — Eric Lepelletier\nRégisseur — Mathieu Pasteur\nChef opérateur — Benjamin Chartier\nDéco Accessoires — Pauline Reichenbach\nChef machiniste — Romain Riche\nStyliste — Stéphanie Vaillant\nChef électricien — Edouard Alvernhe\nMaquilleuse — Virginie Rascle\nElectricien — Benjamin Lemonnyer\nCoiffeuse — Sandra Lamzabi\nTourné au café Mansart et au Bus Palladium\nMontage : Aurélien Guégan\nLaurie Xhaard : sons additionnels\nJean-François Wang / Leila Montanier (Umusic)\n©2014 Mercury Universal music group</p>"}, {"id": 32, "year": "2014", "title": "Paranoïa", "subtitle": "Vidéomusique", "categories": ["film"], "categoriesAttr": "film", "image": "", "images": [], "youtubeId": "rg8ZqcqqMV0", "link": "", "artiste": "Joseph Chedid", "production": "Chiips / Maison Rock", "realisation": "Emilie Chedid", "descriptionHtml": "<p>Clip Paranoïa pour Selim.</p>", "ficheHtml": "<p>PARANOïA écrit et réalisé par EMiLiE CHEDiD\navec CHAT, Joseph Chedid, Bénédicte CARTiGNY,  Pierre JUAREZ, Bruno VAERMAN, MOZiiMO, Ornella TOWANOU, Anna CHEDiD, Quentin LAFFONT, Stéphanie VAiLLANT,  BLACK Jean-Jacques, Camille FUGER, Morgane AHRACH, Marie LEVRON, Kevin de LORGERiL. BiG\nMusique SELiM extrait de l'album MAiSON ROCK\nProduction CHiiPS\nDirectrice de Production Bénédicte Cartigny\nImages  Sergio Pulido\nMontage Aurélien  Guégan\nEtalonnage Lionel  Kopp\nTrucage MO\nSOUNDS EFFECTS J.Chedid &amp; Aurélien Guégan.\nAssistante de réalisation Morgane Ahrach\nCOSTUMES Stéphanie Vaillant\nCOiFFURES Charlotte Arguillère\nMAQUiLLAGES Mathilde Passeri, Sarah Atalah\nDéCORS Jeanne Frenkel, Chris Person, Caroline Watelet\nLUMièRES  Hugo Hubert, Samuel Noriega\nMachineries Pierre Morsard\nEffet spécial Cléo Schulmann, Amélie Grossier\nRéGiE  Arnaud Gavini, Karine Mauris, Sabine Dupuis\nLa Cantine Clandestine Sophie Thomsen, Marie Levron\nMOYENS TECHNiQUES\nCréative Régie, Damasius, Puzzle Vidéo, 7ème sens  POSTPRODUCTiON Chiips, Lylo cinéma numérique, Bmac\nMERCi Nelly Zagury, Marianne Chedid, Lucas Stoll, Haydée Tarcollet, Laurent Sylvestre &amp; l’équipe making off,  Gaspard, Bibou, Alice Esperenza, Marie Béraut, Mathieu, Jean Watelet &amp; tous nos peintres. © 2014 Chiips/Maison Rock</p>"}, {"id": 33, "year": "2012", "title": "ÎL", "subtitle": "Bande Annonce", "categories": ["film"], "categoriesAttr": "film", "image": "", "images": [], "youtubeId": "aATxwTcBuaE", "link": "", "artiste": "-M-", "production": "Suburb / Barclay Universal music France", "realisation": "Emilie Chedid", "descriptionHtml": "<p>Présentation du nouvel album îl avec -M-, Brad Thomas Ackley, Dorion Fiszel, Lawrence Clais, Alan Bac.</p>", "ficheHtml": "<p>Réalisation et D.A : Emilie Chedid\nProd exe : Suburb Production / Frederic Alenda\nArtwork : Sanghon Kim\nImages : Lisa Roze, Emilie Chedid, Sandra Loterstein, Dorion Fiszel.\nMusic video “Mojo” : Beryl Koltz\nConcert El Trey Theater (L.A) : Sébastien Paquet et Luke Schlink\nMontage : Valentin Feron\nPostprod : Lylo &amp; Sylicone\nCoordination images Los Angeles : Olivier Wurth - Auguri Production\n©2015 Barclay Universal music France</p>"}, {"id": 34, "year": "2011", "title": "I Know What You Did", "subtitle": "Vidéomusique", "categories": ["film"], "categoriesAttr": "film", "image": "", "images": [], "youtubeId": "vsOPhRQyp4Q", "link": "", "artiste": "Medi", "production": "Suburb / Atmosphériques", "realisation": "Emilie Chedid", "descriptionHtml": "<p>Issu du premier album solo de Medi \"You Got Me (Moving)\",</p>", "ficheHtml": "<p>Avec Medi et ses musiciens, Vanessa Guide, Jina Djemba….\nréalisation : Emilie Chedid\nImage : Benjamin Chartier\nMontage : Giles Gardner\nEtalonnage : Cédric Lacour\nProd exe : Suburb / Frédérique Alenda</p>"}, {"id": 35, "year": "2011", "title": "Prem Sé", "subtitle": "Photo de presse", "categories": ["photo"], "categoriesAttr": "photo", "image": "", "images": ["https://static.wixstatic.com/media/3d23ce_dd3168d0d1ce4a77a97ebd698b9dfa25~mv2.jpg", "https://static.wixstatic.com/media/3d23ce_52a142de35ae43f1b4a6f39c817142d8~mv2.jpg", "https://static.wixstatic.com/media/3d23ce_8b997025b01b4380b8724469c1470458~mv2.jpg", "https://static.wixstatic.com/media/3d23ce_ad9e744c684c41d3be8c6909d1d75f7e~mv2.jpg", "https://static.wixstatic.com/media/3d23ce_db250580bb7d47a99ce4ebe937501f47~mv2.jpg", "https://static.wixstatic.com/media/3d23ce_2580cab6b62b4e8688abe77425464300~mv2.jpg"], "youtubeId": null, "link": "", "artiste": "Prem Sé", "production": "Seb Gohier", "realisation": "Emilie Chedid", "descriptionHtml": "<p>Photos promotionnelles pour le groupe Prem Sé pour leur premier EP \"Earthling\". Marie (Bobby) &amp; Nico Vitch proposent une douce folk indie. Prise de vue été 2011 à la campagne.</p>", "ficheHtml": "<p>Photographie : Emilie Chedid\nMake up : Annabelle Petit\nProd : Seb Gohier</p>"}, {"id": 36, "year": "2010", "title": "Violette", "subtitle": "Naissance", "categories": ["perso"], "categoriesAttr": "perso", "image": "", "images": ["https://static.wixstatic.com/media/3d23ce_c4abf0d720a24bf4a7975e6889816fca~mv2.png"], "youtubeId": null, "link": "", "artiste": "", "production": "", "realisation": "", "descriptionHtml": "<p>Naissance de ma seconde fille, le 23 Avril 2010. \"Les enfants sont la meilleure chose que cette terre nous ait offert.” (Julius Langbehn)</p>", "ficheHtml": ""}, {"id": 37, "year": "2009", "title": "Mister Mystère", "subtitle": "DVD", "categories": ["film"], "categoriesAttr": "film", "image": "", "images": [], "youtubeId": null, "link": "", "artiste": "-M-", "production": "", "realisation": "Emilie Chedid", "descriptionHtml": "<p>Conception artistique, réalisation et montage du DVD Mister Mystère.</p>", "ficheHtml": ""}, {"id": 38, "year": "2008", "title": "Amande", "subtitle": "Naissance", "categories": ["perso"], "categoriesAttr": "perso", "image": "", "images": ["https://static.wixstatic.com/media/3d23ce_adc33b8a930547c59c81f6aec156b830~mv2.jpg"], "youtubeId": null, "link": "", "artiste": "", "production": "", "realisation": "", "descriptionHtml": "<p>Naissance de ma première fille, le 6 Mars 2008. Immense émotion et joie intense. Comme le dit si bien Ernst Kramer \"Chaque parent vient au monde en même temps que son premier enfant.\"</p>", "ficheHtml": ""}, {"id": 39, "year": "2007", "title": "Petite pute", "subtitle": "Vidéomusique", "categories": ["film", "inédit", "dessin"], "categoriesAttr": "film inédit dessin", "image": "", "images": [], "youtubeId": "n_bwKuvK5t0", "link": "", "artiste": "Austine", "production": "La Bohème films / Third side records", "realisation": "Emilie Chedid", "descriptionHtml": "<p>Un clip que j’ai produit, réalisé et dessiné. J’ai rencontré Michel Nassif, à Paris. D’origine libanaise comme moi, on s’est rendu compte que nos grands-parents étaient amis. Il produisait à l’époque Austine au sein de son label.</p>", "ficheHtml": "<p>Production exe : Emilie Chedid / La Bohème Films\nRéalisation, dessin : Emilie Chedid\nChef opérateur : Martin DE CHABANEIX\nMaquillage : Charlotte Arguillère / Sylvaine CHESNE\nStyliste : Emilie HAMON\nMontage et étalonnage : Aurélien Guégan\nCoordinateur de production : Stéphane AUBIN\nDirecteur de Production : Rémi PRADINAS\nAsst. de Production : Justine SEMENTZEFF\n​​Vocals, Backing Vocals, Guitar – Austine\nDrums – Jean Thévenin\nGuitar, Ukulele, Organ, Body Percussion – Robin Leduc\nProducer – Cocosuma, Robin Leduc\nProgrammed By, Synthesizer – Michel Nassif\nTrumpet, Bugle – Thibault Renard\n©2007 La Bohème Films / 3rd side records</p>"}, {"id": 40, "year": "2007", "title": "Farewell Angel", "subtitle": "Vidéomusique", "categories": ["film"], "categoriesAttr": "film", "image": "", "images": [], "youtubeId": "oRv5Vq5saH0", "link": "", "artiste": "Karlex", "production": "", "realisation": "Emilie Chedid", "descriptionHtml": "<p>L'artiste haïtiano-américain Karlex présente son nouveau clip pour la chanson « Farewell Angel ». Ce single est extrait de l'album afro-groove « Ghetto Fabulous », qui rencontre un vif succès et attire les foules à travers l'Europe.</p>", "ficheHtml": "<p>Brocante sonore &amp; autres dingueries\nDocumentaire (DVD)\ncategories: film\nartiste: collectif Ziczazou\nproduction: La bohème films\nréalisation: Emilie Chedid\nimage:\nlink: https://youtu.be/4pKjBdZnxHY?si=GiQS3r4B13skJGyb\ndescription: Il aura fallu attendre 20 ans, 9 spectacles, 4 albums et des milliers de concerts à travers le monde pour découvrir enfin Zic Zazou en DVD. Leur dernière création, Brocante sonore, est l’aboutissement d’une démarche unique qui a fait du groupe une référence du théâtre musical.\nÉmilie Chedid filme avec justesse cet atelier–bric-à-brac où neuf ouvriers-musiciens font chanter leurs outils : ils soufflent, grattent, frappent, frottent… aucun objet n’échappe à leur appétit. La magie polyphonique se met en place par petites touches, puis monte en puissance jusqu’à la fin de la journée de travail. On rit, on est ému·e par la poésie qui surgit, on admire l’inventivité à l’œuvre.\nLe DVD propose aussi une recette de musique loufoque, de nombreux bonus, et un documentaire qui révèle l’histoire singulière de ce groupe d’amis — preuve que la force du collectif peut, aujourd’hui encore, accomplir des miracles.\nfiche_technique:\nLa Bohème films &amp; Sicalines présentent\n« ZicZazou dans Brocante Sonore &amp;  autres dingueries »\nUn Dvd conçu et réalisé par Emilie Chedid\nProduit par Emilie Chedid &amp; Stéphanie Carpentier\nDirection de Production Rémi Pradinas\nMontage Gaël Cathou &amp; Aurélien Guégan\nArtwork Yann Orhan\nEncoding &amp; Authoring : Gilles Chavy\nZic ZaZou\nMichel Berte : basse, idiophones, téléphone\nPatrice Boinet : batterie, percussion , membranophones\nPierre Denis : compositeur, trompette, aérophones\nAlain Graine : auteur, chant, trompette, cordophones\nBruno Hic : Trombone, euphonium, lamellaphones\nJean-François Hoël : compositeur, sax, clarinette, aérophones\nFrédéric Obry : compositeur, guitare, cordophones\nHervé Mabille : compositeur, sax ,clavier , idiophones\nFrançois Trouillet : comédien, clown , trouillophones\nContenu du dvd\nBrocante sonore\nZic Zazou\nLa leçon de musique\nMalus\nBrocante Sonore a été exceptionnellement filmé dans l’ancienne salle des pendus, lors du festival Les Rutilants. Nous tenons à remercier Valéry Desmarets, Gilles Briand et leur équipe pour leur accueil chaleureux et pour nous avoir permis de filmer dans l’enceinte des puits 9 et 9 bis, ainsi que les mineurs pour avoir eu l’énergie de conserver ce site imprégné de leur labeur.\nTitres et auteurs des morceaux interprétés dans « Brocante Sonore » :\nTubes et tuyaux (Jean-François Hoël)\nLa Machine (Jean-François Hoël)\nPicnic (Jean-François Hoël)\nOde au travail (Jean-François Hoël)\nWassa (Patrice Boinet)\nChaises musicales (Jean-François Hoël, Alain Graine)\nOde au travail (Jean-François Hoël)\nBébé boléro (Jean-François Hoël)\nBalaton (Frédéric Obry)\nLe ballon de rouge (Hervé Mabille)\nPingpongpoelle (Hervé Mabille)\nGants siffleurs (Jean-François Hoël)\nConques (Pierre Denis, Jean-François Hoël)\nBriques(Pierre Denis, Alain Graine)\nLes joyeux bucherons (Jean-François Hoël)\nLa vie ouvrière (Jean-François Hoël)\nBucheroncoda (Jean-François Hoël)\nShamalamalaïes (Frédéric Obry)</p>\n<hr />\n<p>Traduction française de \"l'ode au travail\" chantée en  espéranto dans Brocante sonore :\nHo lé li ya oï li la\nen manojn koroj blovas   (des coeurs soufflent dans des mains)\nO lé lo lé la o\no li la bo lé la\no olé lo lé la\no lé li a ooooo\nlaborosto surambosas (l'os du travail est sur l'enclume)\nilaro vivon martelas  (Les outils martèlent la vie)\no lé lo lé la\nglasotint' amike belas  (le tintement est amicalement beau)\no o lé  lo lé la\no lé li a o é oooo\nlaborosto surambosas  (l'os du travail est sur l'enclume)\noooo\n©2007- La bohème films / Sicalines – Tous droits réservés.</p>"}, {"id": 41, "year": "2007", "title": "Les leçons de musique", "subtitle": "DVD intéractif", "categories": ["dvd", "productrice", "d.a"], "categoriesAttr": "dvd productrice d.a", "image": "", "images": [], "youtubeId": null, "link": "", "artiste": "Maxime Le Forestier joue Brassens", "production": "La bohème films / Polydor Universal music", "realisation": "Emilie Chedid", "descriptionHtml": "<p>Après un premier DVD consacré à M et vendu à plus de 50 000 exemplaires voici le nouvel opus de cette collection. Maxime Le Forestier nous propose ses Leçons de Musique et nous fait découvrir l’univers musical de Georges Brassens. Bénéficiez des meilleurs conseils de l'artiste à la guitare dans un cours vivant et original. Abordez la pratique à travers des  versions inédites des chansons de Brassens.</p>", "ficheHtml": "<p>Interprétation\nMaxime Le Forestier\nÉquipe Polydor\nJean-Philippe Allard, Chiquito, Aurélie Ullrich, Éric Lelievre, Sylvie Del Pozo, Nitsan Sayag, Laurence Polis, Étienne Perreau, Steeve Populo, Viviane Mir, Philippe Zouari.\nProduction\nLA BOHÈME FILMS\nÉmilie Chedid\nJean-Philippe Reza\nDirecteur de production &amp; postproduction\nRémi Pradinas\nAssistant de production &amp; postproduction\nStéphane Aubin\nStagiaire de production\nSonia Mosbah\nRéalisation &amp; direction artistique\nÉmilie Chedid\nAssistant de réalisation\nBenjamin Blanc\nScripte\nCéline Lepêcheur\nDirecteur de la photographie\nDylan Doyle\nAssistants caméra\nMatthieu Normand\nStéphane Aupetit\nChef électricien\nAmida Belgharbi\nÉlectricien\nJean-Christophe Frendo\nMaquillage\nCharlotte Arguillère\nChef décorateur\nThomas Viscogliosi\nAssistant décorateur\nMarco Melaragni\nStudio\nTrianon Hall\nCoco &amp; Co\nIngénieur du son (musique)\nJérôme Kerner\nAssistant son\nFlorent Pottier\nRégisseur général\nYann Girard\nRégisseurs\nBeryl Koltz\nThomas Cirade\nJean-Marc Dewailly\nMontage &amp; étalonnage\nBADLANDS\nAurélien Guégan\nRelevés &amp; tablatures\nBOOKMAKERS\nPatrick Moulou, Philippe Baron, Daniela Grubisic\nGraphisme / dessin / animation\nDAM — Des Animaux Mécaniques\nYann Orhan\nInfographie &amp; truquage\nDAM — Des Animaux Mécaniques\nGilles Chavy\nDirection artistique (musique)\nChiquito\nMixage\nLaurent Gueneau\nJérôme Kerner\nMixage bonus\nFrédéric Commault\nMastering\nDIGITAL ENCODING SYSTEM\nPoussin\nEncoding &amp; authoring\nGilles Chavy\nSuivi comptabilité\nCRED\nChristine Renaud\nSuivi juridique\nSylvain Jaraud\nSarah Forest\nSophie Best\nCatherine Labrosse\nSébastien Branchu\nMoyens techniques\nLa Bohème Films · Badlands · Des Animaux Mécaniques · Trianon Hall · TSF · Assurances Saint Honoré · FLAM · Stricher · Digital Encoding System · Transpalux · Tapages · Tigre · TRM\nRemerciements\nUn grand merci à Georges et Maxime, Rémi, Stéphane, nos Jean-Philippe, Chiquito sans qui rien n’aurait été possible… Sans oublier toute l’équipe de tournage et de postproduction de ce DVD, Karibou et nos family chéries. À Mario Poletti pour l’accès à toutes ses photos. Au Théâtre Alexandre Dumas de Saint-Germain-en-Laye. Ainsi que Rose Léandri pour VMA, Delphine Perichon et Viviane Tasca (Backline), Patrice Desmare (ingénieur du son scène) et Alain Queguiner (luthier de Maxime Le Forestier), les Éditions Universal et Warner, Gaël Marteau (SACEM), Jean Menu (CNC), Freddy Lamotte (FLAM).\nCrédits photos\nArtwork / photo\nYann Orhan\nAssistante photo\nCamille Stoos\nCrédits musicaux\nLa princesse et le croque-notes (G. Brassens – Éditions Musicales 57)\nLe gorille (G. Brassens – Éditions Intersong Paris)\nAuprès de mon arbre (G. Brassens – Éditions Intersong Paris)\nStances à un cambrioleur (G. Brassens – Éditions Musicales 57)\nLa non demande en mariage (G. Brassens – Éditions Musicales 57)\nLes copains d’abord (G. Brassens – Éditions Musicales 57)\nLa religieuse (G. Brassens – Éditions Musicales 57)\nJe me suis fait tout petit (G. Brassens – Éditions Intersong Paris)\nLe testament (G. Brassens – Éditions Intersong Paris)\nDans l’eau de la claire fontaine (G. Brassens – Éditions Musicales 57)\nAu bois de mon cœur (G. Brassens – Éditions Musicales 57)\nLa mauvaise réputation (G. Brassens – Éditions Intersong Paris)\nLe temps ne fait rien à l’affaire (G. Brassens – Éditions Musicales 57)\nAvec la participation du Centre National de la Cinématographie, du Ministère de l’Économie, des Finances et de l’Industrie, et de la SACEM.\n(P) La Bohème Films &amp; Polydor, un label Universal Music France</p>"}, {"id": 42, "year": "2006", "title": "Comme un souffle", "subtitle": "Vidéomusique", "categories": ["film"], "categoriesAttr": "film", "image": "", "images": [], "youtubeId": null, "link": "", "artiste": "Joseph d’Anvers", "production": "La bohème films / Atmosphériques", "realisation": "Emilie Chedid", "descriptionHtml": "<p>Clip Comme un souffle pour Joseph d’Anvers.</p>", "ficheHtml": ""}, {"id": 43, "year": "2006", "title": "La Bouche", "subtitle": "Vidéomusique", "categories": ["film"], "categoriesAttr": "film", "image": "", "images": [], "youtubeId": null, "link": "", "artiste": "Mouss et Hakim", "production": "La bohème films / Atmosphériques", "realisation": "Emilie Chedid", "descriptionHtml": "<p>Clip La Bouche pour Mouss et Hakim.</p>", "ficheHtml": ""}, {"id": 44, "year": "2006", "title": "Larmes", "subtitle": "Vidéomusique", "categories": ["film"], "categoriesAttr": "film", "image": "", "images": [], "youtubeId": null, "link": "", "artiste": "Pauline Croze", "production": "La bohème films / Wagram", "realisation": "Emilie Chedid", "descriptionHtml": "<p>Clip Larmes pour Pauline Croze.</p>", "ficheHtml": ""}, {"id": 45, "year": "2006", "title": "Reine d’un jour", "subtitle": "Vidéomusique", "categories": ["film"], "categoriesAttr": "film", "image": "", "images": [], "youtubeId": null, "link": "", "artiste": "Julie Reins", "production": "La bohème films / BMG", "realisation": "Emilie Chedid", "descriptionHtml": "<p>Clip Reine d’un jour pour Julie Reins.</p>", "ficheHtml": ""}, {"id": 46, "year": "2005", "title": "Mr Bibendum", "subtitle": "Vidéomusique", "categories": ["film"], "categoriesAttr": "film", "image": "", "images": [], "youtubeId": null, "link": "", "artiste": "Tryo", "production": "La bohème films / Sony", "realisation": "Emilie Chedid", "descriptionHtml": "<p>Clip Mr Bibendum pour Tryo.</p>", "ficheHtml": ""}, {"id": 47, "year": "2005", "title": "À tes souhaits", "subtitle": "Vidéomusique", "categories": ["film"], "categoriesAttr": "film", "image": "", "images": [], "youtubeId": null, "link": "", "artiste": "-M-", "production": "La bohème films / Delabel", "realisation": "Emilie Chedid", "descriptionHtml": "<p>Clip À tes souhaits pour M.</p>", "ficheHtml": ""}, {"id": 48, "year": "2005", "title": "Les leçons de musique", "subtitle": "DVD", "categories": ["film"], "categoriesAttr": "film", "image": "", "images": [], "youtubeId": null, "link": "", "artiste": "Maxime Le Forestier chante Brassens", "production": "La bohème films / Polydor Universal music", "realisation": "Emilie Chedid", "descriptionHtml": "<p>L'univers de Georges Brassens interprété par Maxime le Forestier. Bénéficiez des meilleurs conseils de l'artiste à la guitare dans un cours vivant et original.</p>", "ficheHtml": "<p>1 DVD (230 mn) ; couleur multi-pistes; un livret avec musique imprimée\nCoffret DVD musical pédagogique (studio + masterclass + bonus)\nDécouvrez l'univers de Georges Brassens interprété par Maxime le Forestier. Bénéficiez des meilleurs conseils de l'artiste à la guitare dans un cours vivant et original. Abordez la pratique à travers les 7 versions inédites des chansons de Brassens.\nBonus : un entretien inédit de Maxime Le Forestier * le making of du tournage * le dictionnaire * Louis Jean Calvet nous (linguiste et biographe)nous éclaire sur l'écriture des textes et les expresions de Georges Brassens.\n\"Le Gorille\"\n\"La Mauvaise réputation\"\n\"Auprès de mon arbre\"\n\"Je me suis fait tout petit\"\n\"Les Copains d'abord\"\n\"La Non-demande en mariage\"\n\"La Princesse et le croque notes\"\nPauline Croze\nPhoto presse\ncategories: Photo\nartiste: Pauline Croze\nproduction: La bohème films\nréalisation: Emilie Chedid\nimage:\nlink:\ndescription: Photos presse pour Pauline Croze.\nfiche_technique:</p>"}, {"id": 49, "year": "2004", "title": "Carambar", "subtitle": "Vidéomusique", "categories": ["film"], "categoriesAttr": "film", "image": "", "images": [], "youtubeId": null, "link": "", "artiste": "Jérémie Kisling", "production": "La bohème films / Naïve", "realisation": "Emilie Chedid", "descriptionHtml": "<p>Clip Carambar pour Jérémie Kisling.</p>", "ficheHtml": ""}, {"id": 50, "year": "2004", "title": "Abeilles", "subtitle": "Vidéomusique", "categories": ["film"], "categoriesAttr": "film", "image": "", "images": [], "youtubeId": null, "link": "", "artiste": "Jérémie Kisling", "production": "La bohème films / Naïve", "realisation": "Emilie Chedid", "descriptionHtml": "<p>Clip Abeilles pour Jérémie Kisling.</p>", "ficheHtml": ""}, {"id": 51, "year": "2004", "title": "Ailleurs", "subtitle": "Vidéomusique", "categories": ["film"], "categoriesAttr": "film", "image": "", "images": [], "youtubeId": null, "link": "", "artiste": "Keren Ann", "production": "La bohème films / EMI", "realisation": "Emilie Chedid", "descriptionHtml": "<p>Clip Ailleurs pour Keren Ann.</p>", "ficheHtml": ""}, {"id": 52, "year": "2004", "title": "Au coin du monde", "subtitle": "Vidéomusique", "categories": ["film"], "categoriesAttr": "film", "image": "", "images": [], "youtubeId": null, "link": "", "artiste": "Keren Ann", "production": "La bohème films / EMI", "realisation": "Emilie Chedid", "descriptionHtml": "<p>Clip Au coin du monde pour Keren Ann.</p>", "ficheHtml": "<p>Juliette Gréco / Olympia 2004\nCaptation &amp; DVD\ncategories: film\nartiste: Juliette Gréco\nproduction: La bohème films / Polydor Universal music france\nréalisation: Emilie Chedid\nimage:\nlink:\ndescription: Captation du concert à l’Olympia. Making of de l'Olympia, images inédites de l'enregistrement du titre Les beaux jours reviennent en studio avec Bénabar, documentaire : Je m'appelle Gréco.\nRéalisation et conception artistique du DVD Juliette Gréco à l’Olympia.\nfiche_technique:\nUniversal/Polydor 9822242\nsortie 16/02/2006\n1 DVD (77 mn) ; 16/9 compatible 4/3, Dolby Digital Stéréo 5.1</p>"}, {"id": 53, "year": "2004", "title": "Les leçons de musique", "subtitle": "DVD", "categories": ["film"], "categoriesAttr": "film", "image": "", "images": [], "youtubeId": null, "link": "", "artiste": "-M-", "production": "La bohème films / Polydor Universal music", "realisation": "Emilie Chedid", "descriptionHtml": "<p>Élu meilleur DVD musical aux Victoires de la musique (2005), les  \"Leçons de musique de -M-\" est une méthode d'apprentissage de la musique en multi-angles. Bénéficiez des meilleurs conseils de l'artiste au chant, à la basse, la guitare et à la batterie et au violoncelle par Vincent Segal, dans un cours vivant et original. Abordez la pratique à travers les 5 versions inédites des chansons.</p>", "ficheHtml": "<p>Coffret DVD musical pédagogique (studio + masterclass + bonus)\n2 DVD (275 mn) ; PAL couleur multi-pistes; Livret 16 pages avec les grilles d'accords, les tablatures et les paroles.\nDate de sortie ‏ : ‎ 8 novembre 2004\nCréation / concept visuel\n- Création : Gilles Chavy\n- Photographie &amp; artwork : Yann Orhan\n- Assistant photo : Cyrille Girard\n- Infographie &amp; trucages : Gilles Chavy, Jérémy Justice\n- Photographe de plateau : Chris Person\nRéalisation / production\n- Réalisation : Emilie Chedid\n- Producteurs : Emilie Chedid,  Jean-Philippe Reza\n- Assistant de réalisation : Benjamin Blanc\n- Directrice de production : Sandrine Paquot\n- Assistant de production : Stéphane Aubin\n- Régisseur : Philippe Jarraud\n- Accessoiriste : Clotilde Augot\n- Backline : Christophe Merlaud\n- Électriciens plateau : Christophe Bassoulet, Cédric Guerby\nImage / post-production image\n- Techniciens cinéma (image/plateau) : Adrien Perrault, David N’Guénor, Philippe Chauvel\n- Montage image : Aurélien Guégan, Olivia Chiché\n- Chef opérateur : Dominique Fausset, Rudy Bouchoucha\n- Étalonnage : Aurélien Guégan, Maxime Sokolowski\nSon / enregistrement\n- Ingénieur du son musique : Olivier Lude\n- Ingénieur du son image : Jean-Paul Guirado\n- Assistant ingénieur du son : Matthias Froidefond\n- Ingénieurs du son voix-off : Joseph Chedid\nMixage\n- Mixage : Germain Boulay, Jean-Marc Pinaud, Olivier Lude\nMusique / pédagogie\n- Interprète principal, guitare, voix : -M-\n- Guitare &amp; pédagogie : Patrick Moulou\n- Violoncelle : Vincent Segal\n- Piano : Stéphane Aubin\n- Narration : -M-, Vincent Segal, Patrick Moulou\nRelevés &amp; partitions\n- Relevés et tablatures : Daniela Grubisic, Patrick Moulou\nContenu des DVD (résumé)\n- DVD 1 – Les leçons de musique : décomposition des titres (\"La Fleur\", \"Je dis aime\", \"Monde virtuel\", \"Ma mélodie\", \"La corde sensible\") avec :\naccords, riffs, rythmiques, ralentis, parties guitare 1 / guitare 2, basse, batterie, piano, violoncelle, paroles, commentaires sur les morceaux.\n- DVD 2 – Bonus : entretiens avec -M- et Vincent Segal, module \"Les notions élémentaires\" avec Patrick Moulou, \"Maman Sam\", \"L’envers du décor\", \"La Gamme pentatonique\", \"Machistador\", \"La Boucle\", crédits.</p>"}, {"id": 54, "year": "2003", "title": "Souvenir de Galgon", "subtitle": "Documentaire", "categories": ["film"], "categoriesAttr": "film", "image": "", "images": [], "youtubeId": null, "link": "", "artiste": "", "production": "Festival d’Asques et d’ailleurs", "realisation": "Emilie Chedid", "descriptionHtml": "<p>Documentaire Souvenir de Galgon (Prix du Jury, Festival d’Asques et d’ailleurs).</p>", "ficheHtml": ""}, {"id": 55, "year": "2002", "title": "Streets Go Down", "subtitle": "Vidéomusique", "categories": ["film"], "categoriesAttr": "film", "image": "", "images": [], "youtubeId": null, "link": "", "artiste": "Keren Ann", "production": "La bohème films / EMI", "realisation": "Emilie Chedid", "descriptionHtml": "<p>Clip Streets Go Down pour Keren Ann.</p>", "ficheHtml": ""}, {"id": 56, "year": "2002", "title": "Bright Stones", "subtitle": "Vidéomusique", "categories": ["film"], "categoriesAttr": "film", "image": "", "images": [], "youtubeId": null, "link": "", "artiste": "Keren Ann", "production": "La bohème films / EMI", "realisation": "Emilie Chedid", "descriptionHtml": "<p>Clip Bright Stones pour Keren Ann.</p>", "ficheHtml": ""}, {"id": 57, "year": "2002", "title": "Glace XL", "subtitle": "Publicité", "categories": ["film"], "categoriesAttr": "film", "image": "", "images": [], "youtubeId": null, "link": "", "artiste": "", "production": "Label Tunisie", "realisation": "Emilie Chedid", "descriptionHtml": "<p>Spot publicitaire Glace XL (30\").</p>", "ficheHtml": "<p>Le Tour de -M-\nCaptation &amp; DVD\ncategories: film\nartiste: -M-\nproduction: La bohème films\nréalisation: Emilie Chedid\nimage:\nlink:\ndescription: Conception artistique du DVD Le Tour de M.\nfiche_technique:</p>"}, {"id": 58, "year": "2001", "title": "Sur le fil", "subtitle": "Vidéomusique", "categories": ["film"], "categoriesAttr": "film", "image": "", "images": [], "youtubeId": null, "link": "", "artiste": "Keren Ann", "production": "La bohème films / EMI", "realisation": "Emilie Chedid", "descriptionHtml": "<p>Clip Sur le fil pour Keren Ann.</p>", "ficheHtml": ""}, {"id": 59, "year": "2001", "title": "Bonoboo", "subtitle": "Vidéomusique", "categories": ["film"], "categoriesAttr": "film", "image": "", "images": [], "youtubeId": null, "link": "", "artiste": "-M-", "production": "La bohème films / Delabel", "realisation": "Emilie Chedid", "descriptionHtml": "<p>Clip Bonoboo pour M.</p>", "ficheHtml": ""}, {"id": 60, "year": "2001", "title": "Oui peut-être", "subtitle": "Vidéomusique", "categories": ["film"], "categoriesAttr": "film", "image": "", "images": [], "youtubeId": "aHdDD3uC6p8", "link": "", "artiste": "Tanger", "production": "La bohème films / Mercury Music Group", "realisation": "Emilie Chedid", "descriptionHtml": "<p>Oui, peut-être issu de l’album Détroit (2000). Tanger est un groupe de rock français formé en 1992 par Philippe Pigeard, Christophe Van Huffel, Didier Perrin, Tolga Arslan et Thomas Mouzard.</p>", "ficheHtml": "<p>Réalisation Emilie Chedid / Cheffe opératrice Béatrice Mizrahi</p>"}, {"id": 61, "year": "2001", "title": "Corn Flakes", "subtitle": "Vidéomusique", "categories": ["film"], "categoriesAttr": "film", "image": "", "images": [], "youtubeId": "LU6ikNVxe9g", "link": "", "artiste": "-M-", "production": "La bohème films / Delabel", "realisation": "Emilie Chedid", "descriptionHtml": "<p>Deuxième clip tourné avec Joseph et Anna.</p>", "ficheHtml": ""}, {"id": 62, "year": "2001", "title": "Publicités Le Tour de M", "subtitle": "PubTV", "categories": ["film"], "categoriesAttr": "film", "image": "", "images": [], "youtubeId": null, "link": "", "artiste": "", "production": "La bohème films / Delabel / Europe 2", "realisation": "Emilie Chedid", "descriptionHtml": "<p>Campagnes publicitaires Le Tour de M.</p>", "ficheHtml": "<p>Loto Halloween\nPublicités\ncategories: film\nartiste:\nproduction: Française des Jeux / Telema\nréalisation: Emilie Chedid\nimage:\nlink: https://youtu.be/3G30DEvbtG4\ndescription: Spots Loto Halloween réalisé par Emilie Chedid\navec Laurence Oltuski, Stéphane Aubin, Arié Elmaleh, Charlotte Desgeorges\n©2001-Française des Jeux / Telema.\nfiche_technique:\n25 ans du Loto\nPublicités\ncategories: film\nartiste:\nproduction: Française des Jeux / Telema\nréalisation: Emilie Chedid\nimage:\nlink: https://youtu.be/hOXs11PMZZ0\ndescription: Spots 25 ans du Loto par réalisé par Emilie Chedid\navec Stéphane Aubin.\n©2001-Française des Jeux / Telema.\nfiche_technique:</p>"}, {"id": 63, "year": "2001", "title": "Keren Ann, l’album", "subtitle": "Publicité", "categories": ["film"], "categoriesAttr": "film", "image": "", "images": [], "youtubeId": null, "link": "", "artiste": "Keren Ann", "production": "La bohème films / EMI / RTL", "realisation": "Emilie Chedid", "descriptionHtml": "<p>Campagne de promotion de l’album de Keren Ann.</p>", "ficheHtml": ""}, {"id": 64, "year": "2000", "title": "Seule", "subtitle": "Vidéomusique", "categories": ["film"], "categoriesAttr": "film", "image": "", "images": [], "youtubeId": "PbpODAzTrYo", "link": "", "artiste": "Keren Ann", "production": "La bohème films / EMI", "realisation": "Emilie Chedid", "descriptionHtml": "<p>Clip Seule pour Keren Ann.</p>", "ficheHtml": ""}, {"id": 65, "year": "2000", "title": "Du baptême à je dis M", "subtitle": "Documentaire", "categories": ["film"], "categoriesAttr": "film", "image": "", "images": [], "youtubeId": null, "link": "", "artiste": "", "production": "La bohème films-Le Village / Delabel", "realisation": "Emilie Chedid", "descriptionHtml": "<p>Documentaire Du baptême à je dis M.</p>", "ficheHtml": ""}, {"id": 66, "year": "2000", "title": "Temps de chiotte", "subtitle": "Documentaire", "categories": ["film"], "categoriesAttr": "film", "image": "", "images": [], "youtubeId": null, "link": "", "artiste": "", "production": "La bohème films / BMG", "realisation": "Emilie Chedid", "descriptionHtml": "<p>Documentaire Temps de chiotte sur Alexandre Varlet.</p>", "ficheHtml": ""}, {"id": 67, "year": "1999", "title": "Je dis aime", "subtitle": "Vidéomusique", "categories": ["film"], "categoriesAttr": "film", "image": "", "images": [], "youtubeId": "6hV-UnrC9tU", "link": "", "artiste": "-M-", "production": "La bohème films / Delabel", "realisation": "Emilie Chedid", "descriptionHtml": "<p>Clip Je dis aime pour M.</p>", "ficheHtml": ""}, {"id": 68, "year": "1998", "title": "Machistador", "subtitle": "Vidéomusique", "categories": ["film"], "categoriesAttr": "film", "image": "", "images": [], "youtubeId": "w3sSGZlWLP4", "link": "", "artiste": "-M-", "production": "La bohème films / Delabel", "realisation": "Emilie Chedid", "descriptionHtml": "<p>Clip Machistador pour M.</p>", "ficheHtml": ""}, {"id": 69, "year": "1998", "title": "Nostalgic du cool", "subtitle": "Vidéomusique", "categories": ["film"], "categoriesAttr": "film", "image": "", "images": [], "youtubeId": "YoZCz6-pyH8", "link": "", "artiste": "-M-", "production": "Onyx Film / Delabel", "realisation": "Emilie Chedid", "descriptionHtml": "<p>Le tout premier clip réalisé pour M. Avec Joseph, Anna.</p>", "ficheHtml": "<p>réalisé par Emilie Chedid\nCheffe opérateur : Tessa Racine\nMaquillage et coiffure : Charlotte Arguillère\nProduit par Aton Soumache / Onyx Films</p>"}, {"id": 70, "year": "1998", "title": "Capable de tout", "subtitle": "Vidéomusique", "categories": ["film"], "categoriesAttr": "film", "image": "", "images": [], "youtubeId": "8DiqqXX24Fw", "link": "", "artiste": "Marc Morgan", "production": "Onyx Film / Mercury", "realisation": "Emilie Chedid", "descriptionHtml": "<p>Une rencontre avec Marc Morgan. Un clip fun tourné entre Paris et Le passage du Gois à Noirmoutier. Un bon souvenir de tournage.</p>", "ficheHtml": "<p>réalisé par Emilie Chedid\nMaquillage et coiffure : Charlotte Arguillère\nAssistante réalisation : Pascale Denus\nChef opérateur : Rudy Bouchoucha\nMachiniste : Stéphane Canda\ndirectrice de prod : Sandrine\nChef de projet : Stéphane Gilles\nProduit par Aton Soumache / Onyx Films</p>"}, {"id": 71, "year": "1998", "title": "C’est l’inattendu", "subtitle": "Documentaire", "categories": ["film"], "categoriesAttr": "film", "image": "", "images": [], "youtubeId": null, "link": "", "artiste": "-M-", "production": "Delabel", "realisation": "Emilie Chedid", "descriptionHtml": "<p>Documentaire C’est l’inattendu sur M.</p>", "ficheHtml": "<p>Produit et réalisé par Emilie Chedid</p>"}, {"id": 72, "year": "1997", "title": "Tidam", "subtitle": "Vidéomusique", "categories": ["film"], "categoriesAttr": "film", "image": "", "images": [], "youtubeId": "q7orPB473WY", "link": "", "artiste": "Rachel des Bois", "production": "La bohème films / Barclay", "realisation": "Emilie Chedid", "descriptionHtml": "<p>Clip Tidam pour Rachel des Bois.</p>", "ficheHtml": "<p>réalisé par Emilie Chedid\nChef opérateur : Jean-Louis Padis\nChef décorateur : Christophe Thiollier\nParoles de – Pierre Grillet , Rachel Des Bois\nMusique de – Michel Korb , Rachel Des Bois</p>"}, {"id": 73, "year": "1997", "title": "Petit Suisse", "subtitle": "Publicité", "categories": ["film"], "categoriesAttr": "film", "image": "", "images": [], "youtubeId": null, "link": "", "artiste": "", "production": "Gervais -Young & Rubicam / Telema", "realisation": "", "descriptionHtml": "<p>Publicité Petit Suisse pour Gervais.</p>", "ficheHtml": ""}, {"id": 74, "year": "1997", "title": "Les Cracker’s", "subtitle": "Publicité", "categories": ["film"], "categoriesAttr": "film", "image": "", "images": [], "youtubeId": "LywbNi35IJ4", "link": "", "artiste": "", "production": "Heudeubert - BDDP / Telema", "realisation": "Emilie Chedid", "descriptionHtml": "<p>Publicité Les Cracker’s pour Heudeubert.</p>", "ficheHtml": ""}, {"id": 75, "year": "1997", "title": "Petit Grillé", "subtitle": "Publicité", "categories": ["film"], "categoriesAttr": "film", "image": "", "images": [], "youtubeId": null, "link": "", "artiste": "", "production": "Heudeubert - BDDP / Telema", "realisation": "", "descriptionHtml": "<p>Publicité Petit Grillé pour Heudeubert.</p>", "ficheHtml": ""}, {"id": 76, "year": "1997", "title": "Répondez-moi", "subtitle": "Documentaire", "categories": ["film"], "categoriesAttr": "film", "image": "", "images": [], "youtubeId": null, "link": "", "artiste": "Louis Chedid", "production": "Mercury", "realisation": "", "descriptionHtml": "<p>Documentaire Répondez-moi sur Louis Chedid.</p>", "ficheHtml": ""}, {"id": 77, "year": "1996", "title": "Près du lac vert", "subtitle": "Vidéomusique", "categories": ["film"], "categoriesAttr": "film", "image": "", "images": [], "youtubeId": "PdrkP2w8ZdI", "link": "", "artiste": "Muriel Moreno", "production": "Warner East West france", "realisation": "Emilie Chedid", "descriptionHtml": "<p>Réinvention solo de Muriel Moreno (ancienne chanteuse du groupe Niagara). Tournée en occitanie. réalisé et post produit avec Images peinte à la main à l’aquarelle par Emilie Chedid.</p>", "ficheHtml": "<p>Durée : ~4 min 05\nAlbum source : Amulettes (1996, Warner/East West)\nRéalisation : Emilie Chedid\nDirectrice de production : Sandrine Paquot\nChef opérateur : Juan Solanas</p>"}, {"id": 78, "year": "1996", "title": "Mr. M", "subtitle": "Documentaire", "categories": ["film"], "categoriesAttr": "film", "image": "", "images": [], "youtubeId": null, "link": "", "artiste": "", "production": "autoproduction", "realisation": "Emilie Chedid", "descriptionHtml": "<p>Court métrage documentaire Mr. M.</p>", "ficheHtml": ""}, {"id": 79, "year": "1994", "title": "Ondulé", "subtitle": "Vidéomusique", "categories": ["film"], "categoriesAttr": "film", "image": "", "images": [], "youtubeId": "Np768-L7uyM", "link": "", "artiste": "Mathieu Boogaerts", "production": "Autoproduction et Programm 33 / Remark", "realisation": "Emilie Chedid et Mathieu Boogaerts", "descriptionHtml": "<p>Clip fondateur qui impose le style dépouillé / humoristique de Boogaerts, très diffusé à l’époque sur MCM et M6.</p>", "ficheHtml": "<p>Durée du clip : ~3 min 30 (format standard single 1994)\nAlbum source : Super (premier album, sortie 1996, le clip sert de lancement).\nParoles et musiques : mathieu boogaerts\nEnregistrement : laurent levaillant à « la mahoudière » et à « la cave de nogent »\nMixage : renaud letang et mathieu boogaerts au « studio marcadet »\nGravure : raphaël jonin chez «dyam »\nPhotographies : capucine de chabaneix\nPochette : m/m (paris)</p>"}, {"id": 80, "year": "1994", "title": "Télé Achat", "subtitle": "Habillage chaîne TV", "categories": ["film"], "categoriesAttr": "film", "image": "", "images": [], "youtubeId": null, "link": "", "artiste": "", "production": "Télé achat", "realisation": "", "descriptionHtml": "<p>Habillage de la chaîne Télé Achat.</p>", "ficheHtml": ""}, {"id": 81, "year": "1993", "title": "Juliette Gréco - Juliette Gréco", "subtitle": "Documentaire", "categories": ["film", "inédit"], "categoriesAttr": "film inédit", "image": "", "images": [], "youtubeId": null, "link": "", "artiste": "Juliette Gréco / caetano Veloso", "production": "Phonogram / Universal music france", "realisation": "Emilie Chedid", "descriptionHtml": "<p>Documentaire sur l’enregistrement de l’album Juliette Gréco. Enregistré en 1993 un album écrit par Étienne Roda-Gil sur des musiques, entre autres, de João Bosco, Julien Clerc, Gérard Jouannest et Caetano Veloso.</p>", "ficheHtml": "<p>album_source: \"Juliette Gréco\" (Philips / Phonogram, 1993)\nlieu_tournage: Studio Guillaume Tell (Paris)\nformat: documentaire making of de l'enregistrement de l'album (coulisses + sessions studio)\nSeptembre 1993 – Philips 518361-2.\nRéalisation et images : Emilie Chedid\nTitres :\n1. Vivre dans l'avenir (1:44) ;\n2. Comme un journal (3:05) ;\n3. Le Coeur des Anguilles (4:13), coordination : Dominique Dreyfus, guitare et chœurs : Joao Bosco<em> ;\n4. Si La Bête A Bu (2:36) ;\n5. Et là, T'y crois (4:39) ;\n6. Radio Boum Boum (3:41) ;\n7. Les Femmes sont belles (2:16), violon : Michel Cron ;\n8. Pyramide (2:09) ;\n9. Mickey travaille (3:49), coordination : Dominique Dreyfus, guitare : Caetano Veloso ;\n10. Petit Barbare (3:08) ;\n11. Rubans rouges et toiles noires (2:28), hautbois ténora : Robert Farrade ;\n12. Qu'on me donne une chanson d'amour (1:22).\nArrangé par et chef d'orchestre : François Rauber (pistes 1, 4, 6, 8, 11), Franço</em> (piste 7), Jacques Morelembaum<em> (piste 9), Jean-Claude Petit</em> (pistes 2, 5, 10). Œuvre : Marie Farge, NDR-G. Coproducteur : François Rauber, Gérard Jouannest, Jean-Claude Petit<em>. Concept : Emmanuelle Advenier-Haie</em>. Illustration : Nadinhatzin. Piano : Gérard Jouannest (pistes 1, 4, 6, 7, 8, 10). Producteur, concept : Étienne Roda-Gil*. Enregistré et mixé par Roland Guillotel, au Studio Guillaume Tell. Written by : Étienne Roda-Gil – Gérard Jouannest (pistes 1, 4, 6 à 8, 11), Étienne Roda-Gil – Jean-Claude Petit (pistes 2, 10), Étienne Roda-Gil – Joao Bosco (piste 3), Étienne Roda-Gil – Julien Clerc (piste 5), Étienne Roda-Gil / Caetano Veloso (piste 9).\nEnregistré et mixé au Studio Guillaume Tell.\nDroit d'auteur phonographique ℗ : Phonogramme. Copyright © : Phonogram. Fabriqué par : PMDC, France. Publié par : PolyGram Music, La Fille De La Véranda Éditions, Sony Music Publishing, Zumbido, Éditions Crécelles et Sidonie, Terra Enterprises Inc.</p>"}, {"id": 82, "year": "1993", "title": "Shoes for Show", "subtitle": "Documentaire", "categories": ["film", "inédit"], "categoriesAttr": "film inédit", "image": "", "images": [], "youtubeId": "2jLBu-WneSk", "link": "", "artiste": "Edouard Clairvoy", "production": "Autoproduction / Festival jeunes reporters Vidéothèque de Paris", "realisation": "Emilie Chedid, Antoine Bonnin", "descriptionHtml": "<p>Dans les années 90, j’habitais dans le quartier de Pigalle et je passais tous les jours devant la boutique Clairvoy, avec sa vitrine remplie de chaussures de spectacle et de souliers de clown. Cette boutique me fascinait. Un matin, j’ai poussé la porte et j’ai rencontré Édouard Clairvoy, son créateur. Il m’a offert un thé et nous avons parlé pendant des heures.</p>", "ficheHtml": "<p>Durée : 9mn\nMars 1993\nConsultable au Forum des Images / VDP 7559\nPrix du Jury, prix du Public et prix du Montage, Festival Jeunes reporters de Paris (Forum des Images, anciennement Vidéothèque de Paris).\nRéalisation : Emilie Chedid, Antoine Bonnin\nImage : Antoine Bonnin\nSon : Dominique Elalouf\nMontage : Jeanne Delasnerie\nMusique : Matthieu Chedid et choeurs Mathieu Boogaerts\nRemerciements : Edouard Clairvoy, Chantal et Antoine Tanguy, Messieurs Elias, Jacob et Nicolas, Marie Lavandier, Alain Sandot</p>"}]
+  </script>
+
+  <div class="tl-linear-wrapper">
+    <div class="tl-year-nav">
+      <div class="tl-year-nav-track">
+        <div class="tl-year-nav-progress"></div>
+      </div>
+      <div class="tl-year-nav-buttons">
+
+        <button class="tl-year-nav-btn" data-year="2026">2026</button>
+
+        <button class="tl-year-nav-btn" data-year="2025">2025</button>
+
+        <button class="tl-year-nav-btn" data-year="2024">2024</button>
+
+        <button class="tl-year-nav-btn" data-year="2023">2023</button>
+
+        <button class="tl-year-nav-btn" data-year="2022">2022</button>
+
+        <button class="tl-year-nav-btn" data-year="2021">2021</button>
+
+        <button class="tl-year-nav-btn" data-year="2020">2020</button>
+
+        <button class="tl-year-nav-btn" data-year="2019">2019</button>
+
+        <button class="tl-year-nav-btn" data-year="2018">2018</button>
+
+        <button class="tl-year-nav-btn" data-year="2017">2017</button>
+
+        <button class="tl-year-nav-btn" data-year="2016">2016</button>
+
+        <button class="tl-year-nav-btn" data-year="2015">2015</button>
+
+        <button class="tl-year-nav-btn" data-year="2014">2014</button>
+
+        <button class="tl-year-nav-btn" data-year="2012">2012</button>
+
+        <button class="tl-year-nav-btn" data-year="2011">2011</button>
+
+        <button class="tl-year-nav-btn" data-year="2010">2010</button>
+
+        <button class="tl-year-nav-btn" data-year="2009">2009</button>
+
+        <button class="tl-year-nav-btn" data-year="2008">2008</button>
+
+        <button class="tl-year-nav-btn" data-year="2007">2007</button>
+
+        <button class="tl-year-nav-btn" data-year="2006">2006</button>
+
+        <button class="tl-year-nav-btn" data-year="2005">2005</button>
+
+        <button class="tl-year-nav-btn" data-year="2004">2004</button>
+
+        <button class="tl-year-nav-btn" data-year="2003">2003</button>
+
+        <button class="tl-year-nav-btn" data-year="2002">2002</button>
+
+        <button class="tl-year-nav-btn" data-year="2001">2001</button>
+
+        <button class="tl-year-nav-btn" data-year="2000">2000</button>
+
+        <button class="tl-year-nav-btn" data-year="1999">1999</button>
+
+        <button class="tl-year-nav-btn" data-year="1998">1998</button>
+
+        <button class="tl-year-nav-btn" data-year="1997">1997</button>
+
+        <button class="tl-year-nav-btn" data-year="1996">1996</button>
+
+        <button class="tl-year-nav-btn" data-year="1994">1994</button>
+
+        <button class="tl-year-nav-btn" data-year="1993">1993</button>
+
+      </div>
+    </div>
+    <div class="tl-linear-view">
+      <!-- Events rendered dynamically by virtual scroller -->
+    </div>
+  </div>
+
+  <div class="tl-slideshow-view" style="display: none;">
+    <div class="tl-slideshow-container">
+      <!-- Slides rendered dynamically by virtual scroller -->
+    </div>
+    <div class="tl-slideshow-nav">
+      <button class="tl-slide-btn tl-slide-prev" aria-label="Précédent">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+      </button>
+      <div class="tl-slide-counter">
+        <span class="tl-slide-current">1</span> / <span class="tl-slide-total">83</span>
+      </div>
+      <button class="tl-slide-btn tl-slide-next" aria-label="Suivant">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </button>
+    </div>
+    <div class="tl-slideshow-dots"></div>
+  </div>
+
+  <style>
+
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap');
+
+.tl-root {
+  font-family: Arial, Helvetica, sans-serif;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1rem 0;
+  box-sizing: border-box;
+  background: transparent;
+  color: #212121;
+}
+.tl-root *, .tl-root *::before, .tl-root *::after {
+  box-sizing: border-box;
+}
+
+/* Header */
+.tl-header {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+.tl-header-text {
+  flex: 1;
+  text-align: center;
+  padding-right: 80px; /* Compense la largeur des boutons pour centrer visuellement */
+}
+.tl-main-title {
+  font-family: 'Oswald', Arial, sans-serif;
+  font-size: 2.5rem;
+  font-weight: 300;
+  color: #212121;
+  margin: 0 0 0.5rem 0;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+.tl-intro {
+  font-size: 1rem;
+  color: #757575;
+  margin: 0;
+  font-weight: 300;
+}
+
+/* View toggle controls */
+.tl-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  flex-shrink: 0;
+}
+.tl-view-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.35rem 0.6rem;
+  border: 1px solid #e0e0e0;
+  background: #fff;
+  border-radius: 0;
+  cursor: pointer;
+  font-size: 0.65rem;
+  font-family: 'Oswald', Arial, sans-serif;
+  font-weight: 400;
+  color: #666;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.tl-view-btn svg {
+  width: 14px;
+  height: 14px;
+}
+.tl-view-btn:hover {
+  background: #f5f5f5;
+  border-color: #212121;
+}
+.tl-view-btn.tl-active {
+  background: #212121;
+  color: #fff;
+  border-color: #212121;
+}
+
+/* Filter toggle button */
+.tl-filter-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-family: 'Oswald', Arial, sans-serif;
+  font-weight: 400;
+  color: #666;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.tl-filter-toggle:hover {
+  color: #212121;
+}
+.tl-filter-toggle svg {
+  transition: transform 0.3s ease;
+}
+.tl-filters:not(.tl-collapsed) .tl-filter-toggle svg {
+  transform: rotate(180deg);
+}
+.tl-filters:not(.tl-collapsed) .tl-filter-toggle {
+  color: #212121;
+}
+
+/* Filter content (collapsible) */
+.tl-filter-content {
+  max-height: 500px;
+  overflow: hidden;
+  transition: max-height 0.3s ease, opacity 0.3s ease, padding 0.3s ease;
+  opacity: 1;
+  padding-top: 1rem;
+}
+.tl-filters.tl-collapsed .tl-filter-content {
+  max-height: 0;
+  opacity: 0;
+  padding-top: 0;
+}
+
+/* Filter styles */
+.tl-filters {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1.5rem;
+}
+.tl-filter-group {
+  margin-bottom: 1rem;
+}
+.tl-filter-group:last-of-type {
+  margin-bottom: 0.5rem;
+}
+.tl-filter-label {
+  font-family: 'Oswald', Arial, sans-serif;
+  font-weight: 400;
+  font-size: 0.75rem;
+  color: #666;
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.tl-filter-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.tl-filter-checkbox {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.9rem;
+  background: #f5f5f5;
+  border: 1px solid #e0e0e0;
+  cursor: pointer;
+  font-size: 0.8rem;
+  color: #666;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+.tl-filter-checkbox:hover {
+  border-color: #212121;
+}
+.tl-filter-checkbox input {
+  display: none;
+}
+.tl-filter-checkbox input:checked + span {
+  color: #fff;
+}
+.tl-filter-checkbox.tl-checked {
+  background: #212121;
+  color: #fff;
+  border-color: #212121;
+}
+.tl-filter-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e0e0e0;
+}
+.tl-filter-btn {
+  padding: 0.4rem 0.8rem;
+  border: 1px solid #e0e0e0;
+  background: transparent;
+  cursor: pointer;
+  font-size: 0.75rem;
+  font-family: 'Oswald', Arial, sans-serif;
+  font-weight: 400;
+  color: #666;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.tl-filter-btn:hover {
+  background: #f5f5f5;
+  border-color: #212121;
+}
+.tl-filter-count {
+  margin-top: 0.8rem;
+  font-size: 0.8rem;
+  color: #9e9e9e;
+  text-align: center;
+}
+.tl-visible-count {
+  font-weight: 500;
+  color: #212121;
+}
+
+/* Hidden elements */
+.tl-year.tl-hidden,
+.tl-event.tl-hidden,
+.tl-slide.tl-hidden {
+  display: none !important;
+}
+.tl-year.tl-no-visible-events {
+  display: none !important;
+}
+
+/* No results message */
+.tl-no-results {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: #9e9e9e;
+  font-size: 1rem;
+}
+
+/* Linear view wrapper with side navigation */
+.tl-linear-wrapper {
+  display: flex;
+  gap: 1.5rem;
+  position: relative;
+}
+
+/* Year navigation sidebar */
+.tl-year-nav {
+  position: sticky;
+  top: 0;
+  height: auto;
+  max-height: 100vh;
+  display: flex;
+  align-items: stretch;
+  gap: 0.5rem;
+  padding: 1rem 0.5rem;
+  flex-shrink: 0;
+  align-self: flex-start;
+  background: #fff;
+  z-index: 10;
+}
+.tl-year-nav-track {
+  width: 2px;
+  background: #e0e0e0;
+  position: relative;
+  min-height: 100%;
+}
+.tl-year-nav-progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #212121;
+  height: 0%;
+  transition: height 0.3s ease;
+}
+.tl-year-nav-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  justify-content: space-between;
+}
+.tl-year-nav-btn {
+  padding: 0.5rem 0.75rem;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 400;
+  font-family: 'Oswald', Arial, sans-serif;
+  color: #9e9e9e;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  letter-spacing: 1px;
+}
+.tl-year-nav-btn:hover {
+  color: #212121;
+}
+.tl-year-nav-btn.tl-active {
+  color: #212121;
+  font-weight: 500;
+}
+
+/* Linear view content */
+.tl-linear-view {
+  flex: 1;
+  min-width: 0;
+  padding-left: 2rem;
+  border-left: 1px solid #e0e0e0;
+  position: relative;
+}
+
+/* Timeline style - Emilie Chedid */
+.tl-year {
+  margin-top: 2.5rem;
+  padding-top: 0;
+  position: relative;
+}
+.tl-year:first-child {
+  margin-top: 0;
+}
+.tl-year-title {
+  font-family: 'Oswald', Arial, sans-serif;
+  font-size: 1.75rem;
+  font-weight: 300;
+  color: #212121;
+  margin-bottom: 1.5rem;
+  margin-left: -2.5rem;
+  padding-left: 1rem;
+  position: relative;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+.tl-year-title::before {
+  content: '';
+  position: absolute;
+  left: -0.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 8px;
+  background: #212121;
+  border-radius: 50%;
+  border: 2px solid #fff;
+}
+
+/* Event styling */
+.tl-event {
+  position: relative;
+  margin-bottom: 1.5rem;
+  padding-left: 0;
+}
+.tl-event-dot {
+  display: none;
+}
+.tl-event-content {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  padding: 1.25rem;
+  border: 1px solid #e0e0e0;
+  transition: all 0.2s ease;
+}
+.tl-event-content:hover {
+  border-color: #212121;
+}
+.tl-event-title {
+  font-family: 'Oswald', Arial, sans-serif;
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin: 0 0 0.25rem 0;
+  color: #212121;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.tl-event-subtitle {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: #757575;
+  margin-bottom: 0.5rem;
+  font-style: italic;
+}
+.tl-event-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+}
+.tl-event-categories {
+  margin: 0;
+  font-size: 0.8rem;
+  flex: 1;
+}
+.tl-event-tag {
+  display: inline-block;
+  background: #f5f5f5;
+  color: #424242;
+  border: 1px solid #e0e0e0;
+  padding: 0.2rem 0.7rem;
+  margin-right: 0.3rem;
+  margin-bottom: 0.3rem;
+  font-size: 0.75rem;
+  font-weight: 400;
+}
+.tl-event-metadata {
+  margin-bottom: 0.75rem;
+  font-size: 0.8rem;
+  color: #757575;
+}
+.tl-event-meta {
+  display: inline-block;
+  margin-right: 1rem;
+  margin-bottom: 0.25rem;
+}
+.tl-event-meta strong {
+  color: #424242;
+  font-weight: 500;
+}
+.tl-event-description {
+  color: #424242;
+  line-height: 1.7;
+  font-size: 0.9rem;
+}
+.tl-event-description p {
+  margin: 0.5rem 0;
+}
+.tl-event-media {
+  margin: 0.75rem 0;
+}
+.tl-event-media img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+.tl-event-link {
+  margin-top: 0.75rem;
+  font-size: 0.85rem;
+}
+.tl-event-link a {
+  color: #212121;
+  text-decoration: none;
+  font-weight: 400;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  border-bottom: 1px solid #212121;
+  padding-bottom: 2px;
+  transition: opacity 0.2s ease;
+}
+.tl-event-link a:hover {
+  opacity: 0.6;
+}
+.tl-event-link a::after {
+  content: '→';
+  transition: transform 0.2s ease;
+}
+.tl-event-link a:hover::after {
+  transform: translateX(4px);
+}
+
+/* Fiche technique */
+.tl-fiche-technique {
+  margin-top: 1rem;
+  background: #fafafa;
+  border: 1px solid #e0e0e0;
+  overflow: hidden;
+}
+.tl-fiche-technique summary {
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  font-family: 'Oswald', Arial, sans-serif;
+  font-weight: 400;
+  font-size: 0.8rem;
+  color: #424242;
+  background: #f5f5f5;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.tl-fiche-technique summary:hover {
+  background: #e0e0e0;
+}
+.tl-fiche-technique summary:focus,
+.tl-fiche-technique summary:active {
+  outline: none;
+  text-transform: uppercase;
+}
+.tl-fiche-technique summary::-webkit-details-marker {
+  display: none;
+}
+.tl-fiche-technique summary::before {
+  content: '+';
+  font-size: 0.875rem;
+  font-weight: 300;
+  transition: transform 0.2s ease;
+}
+.tl-fiche-technique[open] summary::before {
+  content: '−';
+}
+.tl-fiche-technique .tl-fiche-content {
+  padding: 1rem;
+  font-size: 0.8rem;
+  color: #424242;
+  line-height: 1.7;
+}
+.tl-fiche-technique .tl-fiche-content p {
+  margin: 0.3rem 0;
+}
+.tl-fiche-technique .tl-fiche-content strong {
+  color: #212121;
+}
+
+/* YouTube embed */
+.tl-youtube {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  margin-top: 0.75rem;
+}
+.tl-youtube iframe {
+  position: absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  border:0;
+}
+.tl-youtube-hidden {
+  display: none;
+}
+
+/* YouTube placeholder/poster for lazy loading */
+.tl-youtube-placeholder {
+  cursor: pointer;
+}
+.tl-youtube-poster {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.tl-youtube-poster img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.tl-youtube-play {
+  position: relative;
+  z-index: 1;
+  width: 68px;
+  height: 48px;
+  opacity: 0.9;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.tl-youtube-placeholder:hover .tl-youtube-play {
+  opacity: 1;
+  transform: scale(1.1);
+}
+.tl-youtube-play svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Share button */
+.tl-share-container {
+  position: relative;
+  display: inline-block;
+  margin-top: 0.75rem;
+}
+.tl-share-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.8rem;
+  border: 1px solid #e0e0e0;
+  background: #fff;
+  cursor: pointer;
+  font-size: 0.75rem;
+  font-family: 'Oswald', Arial, sans-serif;
+  font-weight: 400;
+  color: #666;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.tl-share-btn svg {
+  width: 14px;
+  height: 14px;
+}
+.tl-share-btn:hover {
+  background: #f5f5f5;
+  border-color: #212121;
+  color: #212121;
+}
+.tl-share-dropdown {
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 -2px 8px rgba(0,0,0,0.1);
+  z-index: 100;
+  min-width: 160px;
+  display: none;
+  margin-bottom: 4px;
+}
+.tl-share-dropdown.tl-open {
+  display: block;
+}
+.tl-share-option {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.6rem 0.8rem;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-family: Arial, sans-serif;
+  color: #424242;
+  text-align: left;
+  transition: background 0.2s ease;
+}
+.tl-share-option:hover {
+  background: #f5f5f5;
+}
+.tl-share-option svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+.tl-share-copied {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #212121;
+  color: #fff;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.75rem;
+  white-space: nowrap;
+  margin-bottom: 8px;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+}
+.tl-share-copied.tl-visible {
+  opacity: 1;
+}
+
+/* Image gallery */
+.tl-gallery {
+  position: relative;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.tl-gallery-img {
+  display: none;
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+.tl-gallery-img.tl-gallery-active {
+  display: block;
+}
+.tl-gallery-prev,
+.tl-gallery-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #424242;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  z-index: 2;
+}
+.tl-gallery-prev:hover,
+.tl-gallery-next:hover {
+  background: #fff;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.3);
+  color: #1976d2;
+}
+.tl-gallery-prev {
+  left: 0.5rem;
+}
+.tl-gallery-next {
+  right: 0.5rem;
+}
+.tl-gallery-counter {
+  position: absolute;
+  bottom: 0.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  z-index: 2;
+}
+
+/* Slideshow styles */
+.tl-slideshow-view {
+  position: relative;
+}
+.tl-slideshow-container {
+  position: relative;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+}
+.tl-slide {
+  display: none;
+  padding: 2rem;
+  animation: tl-fadeIn 0.4s ease;
+}
+.tl-slide.tl-active {
+  display: block;
+}
+@keyframes tl-fadeIn {
+  from { opacity: 0; transform: translateX(20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+.tl-slide-year {
+  display: inline-block;
+  font-family: 'Oswald', Arial, sans-serif;
+  background: #f5f5f5;
+  color: #212121;
+  padding: 0.3rem 0.8rem;
+  border: 1px solid #e0e0e0;
+  font-weight: 400;
+  font-size: 0.8rem;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.tl-slide-content {
+  display: flex;
+  flex-direction: column;
+}
+.tl-slide-text {
+  display: flex;
+  flex-direction: column;
+}
+.tl-slide-media {
+  margin: 0.75rem 0;
+}
+.tl-slide-media img {
+  width: 100%;
+  height: auto;
+}
+.tl-slide-media .tl-youtube {
+  margin-top: 0;
+}
+.tl-slide-title {
+  font-family: 'Oswald', Arial, sans-serif;
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin: 0 0 0.25rem 0;
+  color: #212121;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.tl-slide-subtitle {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: #757575;
+  margin-bottom: 0.5rem;
+  font-style: italic;
+}
+.tl-slide-description {
+  color: #424242;
+  line-height: 1.7;
+  font-size: 0.9rem;
+}
+.tl-slide-description p {
+  margin: 0.5rem 0;
+}
+.tl-slide-description ul, .tl-slide-description ol {
+  margin: 0.5rem 0;
+  padding-left: 1.5rem;
+}
+
+/* Slideshow navigation */
+.tl-slideshow-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+.tl-slide-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid #e0e0e0;
+  background: #fff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: #424242;
+}
+.tl-slide-btn:hover {
+  background: #212121;
+  border-color: #212121;
+  color: #fff;
+}
+.tl-slide-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+.tl-slide-btn:disabled:hover {
+  background: #fff;
+  border-color: #e0e0e0;
+  color: #424242;
+}
+.tl-slide-counter {
+  font-family: 'Oswald', Arial, sans-serif;
+  font-size: 0.9rem;
+  color: #9e9e9e;
+  min-width: 60px;
+  text-align: center;
+  letter-spacing: 1px;
+}
+.tl-slide-current {
+  font-weight: 500;
+  color: #212121;
+}
+
+/* Slideshow dots */
+.tl-slideshow-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.tl-slideshow-dot {
+  width: 8px;
+  height: 8px;
+  background: #e0e0e0;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.tl-slideshow-dot:hover {
+  background: #9e9e9e;
+}
+.tl-slideshow-dot.tl-active {
+  background: #212121;
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+  .tl-header {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .tl-header-text {
+    padding-right: 0;
+  }
+  .tl-controls {
+    flex-direction: row;
+    justify-content: center;
+  }
+  .tl-main-title {
+    font-size: 2rem;
+  }
+  .tl-linear-wrapper {
+    flex-direction: column;
+  }
+  .tl-year-nav {
+    position: relative;
+    top: 0;
+    flex-direction: row;
+    width: 100%;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+  }
+  .tl-year-nav-track {
+    display: none;
+  }
+  .tl-year-nav-buttons {
+    flex-direction: row;
+    gap: 0.25rem;
+    width: 100%;
+  }
+  .tl-year-nav-btn {
+    flex: 1;
+    text-align: center;
+    min-width: auto;
+    padding: 0.4rem 0.5rem;
+    font-size: 0.75rem;
+  }
+  .tl-linear-view {
+    padding-left: 0;
+    border-left: none;
+  }
+  .tl-year-title {
+    font-size: 1.25rem;
+    margin-left: 0;
+    padding-left: 1.5rem;
+  }
+  .tl-year-title::before {
+    left: 0;
+  }
+  .tl-event {
+    padding-left: 0;
+  }
+  .tl-event-content {
+    padding: 1rem;
+  }
+  .tl-event-meta {
+    display: block;
+    margin-bottom: 0.3rem;
+  }
+  .tl-slide-content {
+    flex-direction: column;
+  }
+  .tl-slide {
+    padding: 1rem;
+  }
+}
+
+/* Highlight animation for anchor scroll */
+@keyframes tl-highlight-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(33, 33, 33, 0.4); }
+  50% { box-shadow: 0 0 0 10px rgba(33, 33, 33, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(33, 33, 33, 0); }
+}
+.tl-highlight {
+  animation: tl-highlight-pulse 1s ease-out 2;
+}
+
+  </style>
+
+  <script>
+
+(function() {
+  const scriptEl = document.currentScript;
+  const root = (scriptEl && scriptEl.closest('.tl-root')) || document.querySelector('.tl-root');
+  if (!root) return;
+  const linearWrapper = root.querySelector('.tl-linear-wrapper');
+  const linearView = root.querySelector('.tl-linear-view');
+  const slideshowView = root.querySelector('.tl-slideshow-view');
+  const slideshowContainer = root.querySelector('.tl-slideshow-container');
+  const viewBtns = root.querySelectorAll('.tl-view-btn');
+  const prevBtn = root.querySelector('.tl-slide-prev');
+  const nextBtn = root.querySelector('.tl-slide-next');
+  const currentSpan = root.querySelector('.tl-slide-current');
+  const totalSpan = root.querySelector('.tl-slide-total');
+  const dotsContainer = root.querySelector('.tl-slideshow-dots');
+  const visibleCountSpan = root.querySelector('.tl-visible-count');
+
+  // Year navigation elements
+  const yearNavBtns = root.querySelectorAll('.tl-year-nav-btn');
+  const yearNavProgress = root.querySelector('.tl-year-nav-progress');
+
+  // Filter elements
+  const filtersContainer = root.querySelector('.tl-filters');
+  const filterToggle = root.querySelector('.tl-filter-toggle');
+  const categoryCheckboxes = root.querySelectorAll('input[data-filter="category"]');
+  const selectAllBtn = root.querySelector('.tl-filter-select-all');
+  const deselectAllBtn = root.querySelector('.tl-filter-deselect-all');
+
+  // ========== TIMELINE DATA ==========
+
+  // Parse config from JSON
+  const TL_CONFIG = JSON.parse(
+    root.querySelector('#tl-config').textContent
+  );
+
+  // Parse timeline data from JSON
+  const TIMELINE_DATA = JSON.parse(
+    root.querySelector('#tl-timeline-data').textContent
+  );
+
+  // Filtered event IDs (updated when filters change)
+  let filteredEventIds = TIMELINE_DATA.map(e => e.id);
+
+  // ========== RENDERING FUNCTIONS ==========
+
+  function escapeHtml(text) {
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+  }
+
+  // Create URL-friendly slug from text
+  function slugify(text) {
+    return text
+      .toString()
+      .toLowerCase()
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '') // Remove accents
+      .replace(/[^a-z0-9]+/g, '-')     // Replace non-alphanumeric with hyphens
+      .replace(/^-+|-+$/g, '')         // Remove leading/trailing hyphens
+      .substring(0, 50);               // Limit length
+  }
+
+  // Render media - YouTube as placeholder, images directly
+  function renderMedia(event) {
+    if (event.youtubeId) {
+      // Render a placeholder that will be replaced with iframe when visible
+      return '<div class="tl-youtube tl-youtube-placeholder" data-youtube-id="' + event.youtubeId + '" data-title="' + escapeHtml(event.title) + '">' +
+        '<div class="tl-youtube-poster">' +
+        '<img src="https://img.youtube.com/vi/' + event.youtubeId + '/hqdefault.jpg" alt="' + escapeHtml(event.title) + '" loading="lazy">' +
+        '<div class="tl-youtube-play"><svg viewBox="0 0 68 48"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="#212121"/><path d="M45 24L27 14v20" fill="#fff"/></svg></div>' +
+        '</div></div>';
+    } else if (event.images && event.images.length > 0) {
+      const images = event.images;
+      let imagesHtml = '';
+      for (let i = 0; i < images.length; i++) {
+        const activeClass = i === 0 ? ' tl-gallery-active' : '';
+        imagesHtml += '<img class="tl-gallery-img' + activeClass + '" src="' + images[i] + '" alt="' + escapeHtml(event.title) + ' - ' + (i + 1) + '" loading="lazy" decoding="async">';
+      }
+      return '<div class="tl-gallery" data-count="' + images.length + '">' +
+        imagesHtml +
+        '<button class="tl-gallery-prev" type="button" aria-label="Image precedente">‹</button>' +
+        '<button class="tl-gallery-next" type="button" aria-label="Image suivante">›</button>' +
+        '<div class="tl-gallery-counter"><span class="tl-gallery-current">1</span> / <span class="tl-gallery-total">' + images.length + '</span></div>' +
+        '</div>';
+    } else if (event.image) {
+      return '<img src="' + event.image + '" alt="' + escapeHtml(event.title) + '" loading="lazy" decoding="async">';
+    }
+    return '';
+  }
+
+  function renderCategoryTags(categories) {
+    return categories.map(function(cat) {
+      const display = cat.replace(/_/g, ' ').replace(/^\w/, function(c) { return c.toUpperCase(); });
+      return '<span class="tl-event-tag">' + escapeHtml(display) + '</span>';
+    }).join('');
+  }
+
+  function renderMetadata(event) {
+    const parts = [];
+    if (event.artiste) parts.push('<span class="tl-event-meta"><strong>Artiste :</strong> ' + escapeHtml(event.artiste) + '</span>');
+    if (event.production) parts.push('<span class="tl-event-meta"><strong>Production :</strong> ' + escapeHtml(event.production) + '</span>');
+    if (event.realisation) parts.push('<span class="tl-event-meta"><strong>Réalisation :</strong> ' + escapeHtml(event.realisation) + '</span>');
+    return parts.length > 0 ? '<div class="tl-event-metadata">' + parts.join(' ') + '</div>' : '';
+  }
+
+  function renderShareButton(event) {
+    const slug = slugify(event.title);
+    return '<div class="tl-share-container">' +
+      '<button class="tl-share-btn" data-event-slug="' + slug + '" data-event-title="' + escapeHtml(event.title) + '" data-event-year="' + event.year + '">' +
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>' +
+      'Partager</button>' +
+      '<div class="tl-share-dropdown">' +
+      '<button class="tl-share-option" data-share="facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>Facebook</button>' +
+      '<button class="tl-share-option" data-share="twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>X (Twitter)</button>' +
+      '<button class="tl-share-option" data-share="linkedin"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn</button>' +
+      '<button class="tl-share-option" data-share="copy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>Copier le lien</button>' +
+      '</div>' +
+      '<span class="tl-share-copied">Lien copié!</span>' +
+      '</div>';
+  }
+
+  function renderLinearEvent(event) {
+    const subtitleHtml = event.subtitle ? '<span class="tl-event-subtitle">' + escapeHtml(event.subtitle) + '</span>' : '';
+    const linkHtml = event.link ? '<p class="tl-event-link"><a href="' + event.link + '" target="_blank" rel="noopener noreferrer">En savoir plus</a></p>' : '';
+    const ficheHtml = event.ficheHtml ? '<details class="tl-fiche-technique"><summary>Fiche technique</summary><div class="tl-fiche-content">' + event.ficheHtml + '</div></details>' : '';
+    const slug = slugify(event.title);
+
+    return '<article class="tl-event" id="' + slug + '" data-event-id="' + event.id + '" data-year="' + event.year + '" data-categories="' + event.categoriesAttr + '">' +
+      '<div class="tl-event-dot"></div>' +
+      '<div class="tl-event-content">' +
+      '<h3 class="tl-event-title">' + escapeHtml(event.title) + '</h3>' +
+      subtitleHtml +
+      renderMetadata(event) +
+      '<div class="tl-event-description">' + event.descriptionHtml + '</div>' +
+      '<div class="tl-event-media">' + renderMedia(event) + '</div>' +
+      linkHtml +
+      ficheHtml +
+      '<div class="tl-event-footer"><p class="tl-event-categories">' + renderCategoryTags(event.categories) + '</p>' +
+      renderShareButton(event) + '</div>' +
+      '</div></article>';
+  }
+
+  function renderSlide(event, slideIndex) {
+    const subtitleHtml = event.subtitle ? '<span class="tl-slide-subtitle">' + escapeHtml(event.subtitle) + '</span>' : '';
+    const linkHtml = event.link ? '<p class="tl-event-link"><a href="' + event.link + '" target="_blank" rel="noopener noreferrer">En savoir plus</a></p>' : '';
+    const ficheHtml = event.ficheHtml ? '<details class="tl-fiche-technique"><summary>Fiche technique</summary><div class="tl-fiche-content">' + event.ficheHtml + '</div></details>' : '';
+    const slug = slugify(event.title);
+
+    return '<div class="tl-slide" id="slide-' + slug + '" data-event-id="' + event.id + '" data-index="' + slideIndex + '" data-year="' + event.year + '" data-categories="' + event.categoriesAttr + '">' +
+      '<div class="tl-slide-year">' + event.year + '</div>' +
+      '<div class="tl-slide-content">' +
+      '<div class="tl-slide-text">' +
+      '<h3 class="tl-slide-title">' + escapeHtml(event.title) + '</h3>' +
+      subtitleHtml +
+      renderMetadata(event) +
+      '<div class="tl-slide-description">' + event.descriptionHtml + '</div>' +
+      '<div class="tl-slide-media">' + renderMedia(event) + '</div>' +
+      linkHtml +
+      ficheHtml +
+      '<div class="tl-event-footer"><p class="tl-event-categories">' + renderCategoryTags(event.categories) + '</p>' +
+      renderShareButton(event) + '</div>' +
+      '</div></div></div>';
+  }
+
+  // ========== YOUTUBE LAZY LOADING ==========
+
+  // Create iframe HTML for YouTube embed
+  function createYouTubeIframe(youtubeId, title) {
+    return '<iframe src="https://www.youtube.com/embed/' + youtubeId + '?rel=0&modestbranding=1&playsinline=1" ' +
+      'allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" ' +
+      'referrerpolicy="strict-origin-when-cross-origin" allowfullscreen ' +
+      'title="' + title + '"></iframe>';
+  }
+
+  // Activate YouTube embed (replace placeholder with iframe)
+  function activateYouTube(container) {
+    if (!container || !container.classList.contains('tl-youtube-placeholder')) return;
+
+    const youtubeId = container.dataset.youtubeId;
+    const title = container.dataset.title || '';
+
+    container.innerHTML = createYouTubeIframe(youtubeId, title);
+    container.classList.remove('tl-youtube-placeholder');
+    container.classList.add('tl-youtube-active');
+  }
+
+  // Deactivate YouTube embed (replace iframe with placeholder)
+  function deactivateYouTube(container) {
+    if (!container || !container.classList.contains('tl-youtube-active')) return;
+
+    const youtubeId = container.dataset.youtubeId;
+    const title = container.dataset.title || '';
+
+    container.innerHTML = '<div class="tl-youtube-poster">' +
+      '<img src="https://img.youtube.com/vi/' + youtubeId + '/hqdefault.jpg" alt="' + title + '" loading="lazy">' +
+      '<div class="tl-youtube-play"><svg viewBox="0 0 68 48"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="#212121"/><path d="M45 24L27 14v20" fill="#fff"/></svg></div>' +
+      '</div>';
+    container.classList.remove('tl-youtube-active');
+    container.classList.add('tl-youtube-placeholder');
+  }
+
+  // IntersectionObserver for YouTube lazy loading
+  const youtubeObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      const ytContainer = entry.target;
+      if (entry.isIntersecting) {
+        activateYouTube(ytContainer);
+      } else {
+        deactivateYouTube(ytContainer);
+      }
+    });
+  }, {
+    rootMargin: '200px 0px', // Load slightly before entering viewport
+    threshold: 0
+  });
+
+  // Observe all YouTube containers in an element
+  function observeYouTubeContainers(element) {
+    const containers = element.querySelectorAll('.tl-youtube');
+    containers.forEach(function(container) {
+      youtubeObserver.observe(container);
+    });
+  }
+
+  // ========== LINEAR VIEW RENDERER ==========
+
+  const linearRenderer = {
+    yearSections: new Map(),
+    eventElements: new Map(),
+
+    // Render all filtered events
+    renderAll: function() {
+      this.clear();
+
+      // Group events by year
+      const eventsByYear = new Map();
+      filteredEventIds.forEach(function(id) {
+        const event = TIMELINE_DATA[id];
+        if (!eventsByYear.has(event.year)) {
+          eventsByYear.set(event.year, []);
+        }
+        eventsByYear.get(event.year).push(event);
+      });
+
+      // Sort years descending
+      const sortedYears = Array.from(eventsByYear.keys()).sort(function(a, b) {
+        return parseInt(b, 10) - parseInt(a, 10);
+      });
+
+      // Render each year section with its events
+      const self = this;
+      sortedYears.forEach(function(year) {
+        self.renderYearSection(year, eventsByYear.get(year));
+      });
+
+      // Update year nav visibility
+      this.updateYearNavVisibility();
+
+      // Observe YouTube containers for lazy loading
+      observeYouTubeContainers(linearView);
+    },
+
+    renderYearSection: function(year, events) {
+      const section = document.createElement('section');
+      section.className = 'tl-year';
+      section.dataset.year = year;
+      section.innerHTML = '<h2 class="tl-year-title">' + year + '</h2>';
+
+      const self = this;
+      events.forEach(function(event) {
+        const html = renderLinearEvent(event);
+        const temp = document.createElement('div');
+        temp.innerHTML = html;
+        const element = temp.firstElementChild;
+
+        section.appendChild(element);
+        self.eventElements.set(event.id, element);
+
+        // Initialize gallery
+        initGallery(element.querySelector('.tl-gallery'));
+      });
+
+      linearView.appendChild(section);
+      this.yearSections.set(year, section);
+    },
+
+    updateYearNavVisibility: function() {
+      const yearsWithEvents = new Set();
+      filteredEventIds.forEach(function(id) {
+        yearsWithEvents.add(TIMELINE_DATA[id].year);
+      });
+
+      yearNavBtns.forEach(function(btn) {
+        const year = btn.dataset.year;
+        btn.style.display = yearsWithEvents.has(year) ? 'block' : 'none';
+      });
+    },
+
+    clear: function() {
+      // Unobserve YouTube containers
+      const containers = linearView.querySelectorAll('.tl-youtube');
+      containers.forEach(function(container) {
+        youtubeObserver.unobserve(container);
+      });
+
+      linearView.innerHTML = '';
+      this.yearSections.clear();
+      this.eventElements.clear();
+    },
+
+    updateFilteredEvents: function() {
+      this.renderAll();
+    }
+  };
+
+  // ========== SLIDESHOW SCROLLER ==========
+
+  const slideshowScroller = {
+    slideElements: new Map(),
+    currentIndex: 0,
+    BUFFER_SIZE: 2,
+
+    render: function() {
+      if (slideshowView.style.display === 'none') return;
+
+      const startIndex = Math.max(0, this.currentIndex - this.BUFFER_SIZE);
+      const endIndex = Math.min(filteredEventIds.length - 1, this.currentIndex + this.BUFFER_SIZE);
+
+      // Remove slides outside buffer
+      const toRemove = [];
+      const self = this;
+      this.slideElements.forEach(function(element, eventId) {
+        const idx = filteredEventIds.indexOf(eventId);
+        if (idx < startIndex || idx > endIndex || idx === -1) {
+          toRemove.push(eventId);
+        }
+      });
+      toRemove.forEach(function(eventId) { self.unmountSlide(eventId); });
+
+      // Add slides in buffer
+      for (let i = startIndex; i <= endIndex; i++) {
+        const eventId = filteredEventIds[i];
+        if (eventId !== undefined && !this.slideElements.has(eventId)) {
+          this.mountSlide(eventId, i);
+        }
+      }
+
+      // Update active state and YouTube
+      this.slideElements.forEach(function(element, eventId) {
+        const idx = filteredEventIds.indexOf(eventId);
+        const isActive = idx === self.currentIndex;
+        element.classList.toggle('tl-active', isActive);
+
+        // Activate/deactivate YouTube based on active state
+        const ytContainer = element.querySelector('.tl-youtube');
+        if (ytContainer) {
+          if (isActive) {
+            activateYouTube(ytContainer);
+          } else {
+            deactivateYouTube(ytContainer);
+          }
+        }
+      });
+
+      this.updateUI();
+    },
+
+    mountSlide: function(eventId, slideIndex) {
+      const event = TIMELINE_DATA[eventId];
+      if (!event) return;
+
+      const html = renderSlide(event, slideIndex);
+      const temp = document.createElement('div');
+      temp.innerHTML = html;
+      const element = temp.firstElementChild;
+
+      slideshowContainer.appendChild(element);
+      this.slideElements.set(eventId, element);
+
+      // Initialize gallery
+      initGallery(element.querySelector('.tl-gallery'));
+    },
+
+    unmountSlide: function(eventId) {
+      const element = this.slideElements.get(eventId);
+      if (element) {
+        element.remove();
+        this.slideElements.delete(eventId);
+      }
+    },
+
+    updateUI: function() {
+      // Update counter
+      currentSpan.textContent = filteredEventIds.length > 0 ? this.currentIndex + 1 : 0;
+      totalSpan.textContent = filteredEventIds.length;
+
+      // Update buttons
+      prevBtn.disabled = this.currentIndex === 0;
+      nextBtn.disabled = this.currentIndex >= filteredEventIds.length - 1;
+
+      // Update dots
+      const dots = root.querySelectorAll('.tl-slideshow-dot');
+      const self = this;
+      dots.forEach(function(dot, i) {
+        dot.classList.toggle('tl-active', i === self.currentIndex);
+      });
+    },
+
+    goToSlide: function(index) {
+      this.currentIndex = Math.max(0, Math.min(index, filteredEventIds.length - 1));
+      this.render();
+    },
+
+    clear: function() {
+      const self = this;
+      this.slideElements.forEach(function(_, eventId) { self.unmountSlide(eventId); });
+    },
+
+    updateFilteredEvents: function() {
+      this.currentIndex = 0;
+      this.clear();
+      this.updateDots();
+      this.render();
+    },
+
+    updateDots: function() {
+      dotsContainer.innerHTML = '';
+      const self = this;
+      for (let i = 0; i < filteredEventIds.length; i++) {
+        const dot = document.createElement('span');
+        dot.className = 'tl-slideshow-dot' + (i === 0 ? ' tl-active' : '');
+        (function(index) {
+          dot.addEventListener('click', function() { self.goToSlide(index); });
+        })(i);
+        dotsContainer.appendChild(dot);
+      }
+    }
+  };
+
+  // ========== GALLERY INITIALIZATION ==========
+
+  function initGallery(gallery) {
+    if (!gallery) return;
+
+    const images = gallery.querySelectorAll('.tl-gallery-img');
+    const prevBtn = gallery.querySelector('.tl-gallery-prev');
+    const nextBtn = gallery.querySelector('.tl-gallery-next');
+    const counter = gallery.querySelector('.tl-gallery-current');
+    const count = parseInt(gallery.dataset.count, 10);
+    let currentIndex = 0;
+
+    function showImage(index) {
+      images.forEach(function(img) { img.classList.remove('tl-gallery-active'); });
+      images[index].classList.add('tl-gallery-active');
+      counter.textContent = index + 1;
+      currentIndex = index;
+    }
+
+    prevBtn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      showImage(currentIndex === 0 ? count - 1 : currentIndex - 1);
+    });
+
+    nextBtn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      showImage(currentIndex === count - 1 ? 0 : currentIndex + 1);
+    });
+
+    // Touch swipe
+    let touchStartX = 0;
+    gallery.addEventListener('touchstart', function(e) {
+      touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    gallery.addEventListener('touchend', function(e) {
+      const touchEndX = e.changedTouches[0].screenX;
+      const swipeDistance = touchEndX - touchStartX;
+      if (Math.abs(swipeDistance) > 50) {
+        if (swipeDistance > 0) {
+          showImage(currentIndex === 0 ? count - 1 : currentIndex - 1);
+        } else {
+          showImage(currentIndex === count - 1 ? 0 : currentIndex + 1);
+        }
+      }
+    }, { passive: true });
+  }
+
+  // Storage key for this timeline instance
+  const storageKey = 'timeline-filters-' + window.location.pathname;
+
+  // ========== SESSION STORAGE ==========
+
+  function saveFiltersToSession() {
+    const filters = {
+      categories: Array.from(categoryCheckboxes).filter(cb => cb.checked).map(cb => cb.value)
+    };
+    try {
+      sessionStorage.setItem(storageKey, JSON.stringify(filters));
+    } catch (e) {
+      console.warn('Could not save filters to sessionStorage', e);
+    }
+  }
+
+  function loadFiltersFromSession() {
+    try {
+      const stored = sessionStorage.getItem(storageKey);
+      if (stored) {
+        const filters = JSON.parse(stored);
+        categoryCheckboxes.forEach(cb => {
+          cb.checked = filters.categories.includes(cb.value);
+        });
+        return true;
+      }
+    } catch (e) {
+      console.warn('Could not load filters from sessionStorage', e);
+    }
+    return false;
+  }
+
+  // ========== FILTERING ==========
+
+  function getSelectedCategories() {
+    return new Set(Array.from(categoryCheckboxes).filter(cb => cb.checked).map(cb => cb.value));
+  }
+
+  function eventMatchesFiltersData(event, selectedCategories) {
+    // If no category is selected, show all events
+    if (selectedCategories.size === 0) return true;
+
+    const categories = event.categories || [];
+
+    // If event has no categories, show it only when nothing is selected (handled above)
+    if (categories.length === 0) return false;
+
+    // At least one category must match (OR logic)
+    return categories.some(cat => selectedCategories.has(cat));
+  }
+
+  function applyFilters() {
+    const selectedCategories = getSelectedCategories();
+
+    // Filter events using data (not DOM)
+    filteredEventIds = TIMELINE_DATA
+      .filter(event => eventMatchesFiltersData(event, selectedCategories))
+      .map(event => event.id);
+
+    // Update visible count
+    visibleCountSpan.textContent = filteredEventIds.length;
+
+    // Update renderers
+    linearRenderer.updateFilteredEvents();
+    slideshowScroller.updateFilteredEvents();
+
+    // Update year navigation
+    updateYearNavigation();
+
+    // Save to session
+    saveFiltersToSession();
+  }
+
+  // ========== SLIDESHOW ==========
+
+  let currentSlide = 0;
+
+  function goToSlide(index) {
+    slideshowScroller.goToSlide(index);
+    currentSlide = slideshowScroller.currentIndex;
+  }
+
+  // ========== YEAR NAVIGATION ==========
+
+  function scrollToYear(year) {
+    const yearSection = root.querySelector('.tl-year[data-year="' + year + '"]');
+    if (yearSection) {
+      try {
+        yearSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } catch (e) {
+        yearSection.scrollIntoView();
+      }
+    }
+  }
+
+  function updateYearNavigation() {
+    const yearSectionsNow = root.querySelectorAll('.tl-year');
+    const visibleYearSections = Array.from(yearSectionsNow);
+
+    // Determine which years have filtered events
+    const yearsWithEvents = new Set();
+    filteredEventIds.forEach(function(id) {
+      yearsWithEvents.add(TIMELINE_DATA[id].year);
+    });
+
+    // Update nav button visibility
+    yearNavBtns.forEach(btn => {
+      const year = btn.dataset.year;
+      btn.style.display = yearsWithEvents.has(year) ? 'block' : 'none';
+    });
+
+    if (visibleYearSections.length === 0) return;
+
+    // Find which year section is most visible
+    const viewportHeight = window.innerHeight;
+    let activeYear = null;
+    let maxVisibleArea = 0;
+
+    visibleYearSections.forEach(section => {
+      const rect = section.getBoundingClientRect();
+      const visibleTop = Math.max(0, rect.top);
+      const visibleBottom = Math.min(viewportHeight, rect.bottom);
+      const visibleArea = Math.max(0, visibleBottom - visibleTop);
+
+      if (visibleArea > maxVisibleArea || (rect.top <= 100 && rect.bottom > 0)) {
+        maxVisibleArea = visibleArea;
+        activeYear = section.dataset.year;
+      }
+    });
+
+    // Update active button
+    yearNavBtns.forEach(btn => {
+      btn.classList.toggle('tl-active', btn.dataset.year === activeYear);
+    });
+
+    // Update progress bar
+    if (yearNavProgress && visibleYearSections.length > 0) {
+      const firstSection = visibleYearSections[0];
+      const lastSection = visibleYearSections[visibleYearSections.length - 1];
+
+      const firstRect = firstSection.getBoundingClientRect();
+      const lastRect = lastSection.getBoundingClientRect();
+
+      const totalHeight = lastRect.bottom - firstRect.top;
+      const scrolledAmount = Math.max(0, -firstRect.top);
+      const progress = Math.min(100, (scrolledAmount / totalHeight) * 100);
+
+      yearNavProgress.style.height = progress + '%';
+    }
+  }
+
+  function goToYearInSlideshow(year) {
+    // Find first filtered event of this year
+    for (let i = 0; i < filteredEventIds.length; i++) {
+      const eventId = filteredEventIds[i];
+      if (TIMELINE_DATA[eventId].year === year) {
+        goToSlide(i);
+        break;
+      }
+    }
+  }
+
+  // ========== EVENT LISTENERS ==========
+
+  // View toggle
+  viewBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const view = btn.dataset.view;
+      viewBtns.forEach(b => b.classList.remove('tl-active'));
+      btn.classList.add('tl-active');
+
+      if (view === 'linear') {
+        linearWrapper.style.display = 'flex';
+        slideshowView.style.display = 'none';
+        updateYearNavigation();
+      } else {
+        linearWrapper.style.display = 'none';
+        slideshowView.style.display = 'block';
+        slideshowScroller.render();
+      }
+    });
+  });
+
+  // Filter toggle (expand/collapse)
+  filterToggle.addEventListener('click', () => {
+    filtersContainer.classList.toggle('tl-collapsed');
+  });
+
+  // Update checkbox visual state (iOS compatible - no :has() selector)
+  function updateCheckboxStyles() {
+    categoryCheckboxes.forEach(cb => {
+      const label = cb.closest('.tl-filter-checkbox');
+      if (label) {
+        label.classList.toggle('tl-checked', cb.checked);
+      }
+    });
+  }
+
+  // Filter checkboxes
+  categoryCheckboxes.forEach(cb => cb.addEventListener('change', () => {
+    updateCheckboxStyles();
+    applyFilters();
+  }));
+
+  // Select all / Deselect all
+  selectAllBtn.addEventListener('click', () => {
+    categoryCheckboxes.forEach(cb => cb.checked = true);
+    updateCheckboxStyles();
+    applyFilters();
+  });
+
+  deselectAllBtn.addEventListener('click', () => {
+    categoryCheckboxes.forEach(cb => cb.checked = false);
+    updateCheckboxStyles();
+    applyFilters();
+  });
+
+  // Navigation
+  prevBtn.addEventListener('click', () => goToSlide(currentSlide - 1));
+  nextBtn.addEventListener('click', () => goToSlide(currentSlide + 1));
+
+  // Keyboard navigation
+  document.addEventListener('keydown', (e) => {
+    if (slideshowView.style.display !== 'none') {
+      if (e.key === 'ArrowLeft') goToSlide(currentSlide - 1);
+      if (e.key === 'ArrowRight') goToSlide(currentSlide + 1);
+    }
+  });
+
+  // Touch swipe navigation
+  let touchStartX = 0;
+  let touchEndX = 0;
+  let touchStartTarget = null;
+  const SWIPE_THRESHOLD = 50;
+
+  function isInteractiveElement(element) {
+    // Check if touch started on an interactive element (video, iframe, button, link, gallery)
+    return element.closest('iframe, .tl-youtube, .tl-gallery, a, button, details');
+  }
+
+  slideshowView.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+    touchStartTarget = e.target;
+  }, { passive: true });
+
+  slideshowView.addEventListener('touchend', (e) => {
+    // Skip swipe if started on interactive element
+    if (isInteractiveElement(touchStartTarget)) {
+      return;
+    }
+
+    touchEndX = e.changedTouches[0].screenX;
+    const swipeDistance = touchEndX - touchStartX;
+
+    if (Math.abs(swipeDistance) > SWIPE_THRESHOLD) {
+      if (swipeDistance > 0) {
+        // Swipe right -> previous slide
+        goToSlide(currentSlide - 1);
+      } else {
+        // Swipe left -> next slide
+        goToSlide(currentSlide + 1);
+      }
+    }
+  }, { passive: true });
+
+  // Year navigation buttons
+  yearNavBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const year = btn.dataset.year;
+
+      // Update active button immediately
+      yearNavBtns.forEach(b => b.classList.remove('tl-active'));
+      btn.classList.add('tl-active');
+
+      if (slideshowView.style.display !== 'none') {
+        // In slideshow mode, jump to first event of this year
+        goToYearInSlideshow(year);
+      } else {
+        // In linear mode, scroll to year section
+        scrollToYear(year);
+      }
+    });
+  });
+
+  // Scroll listener for year navigation update
+  let scrollTimeout;
+  window.addEventListener('scroll', () => {
+    if (linearWrapper.style.display !== 'none') {
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(() => {
+        updateYearNavigation();
+      }, 50);
+    }
+  }, { passive: true });
+
+  // ========== RESPONSIVE VIEW MODE ==========
+
+  const MOBILE_BREAKPOINT = 768;
+
+  function isMobile() {
+    return window.innerWidth <= MOBILE_BREAKPOINT;
+  }
+
+  function setViewMode(mode) {
+    viewBtns.forEach(b => b.classList.remove('tl-active'));
+    const targetBtn = root.querySelector('.tl-view-btn[data-view="' + mode + '"]');
+    if (targetBtn) targetBtn.classList.add('tl-active');
+
+    if (mode === 'linear') {
+      linearWrapper.style.display = 'flex';
+      slideshowView.style.display = 'none';
+      updateYearNavigation();
+    } else {
+      linearWrapper.style.display = 'none';
+      slideshowView.style.display = 'block';
+      slideshowScroller.render();
+    }
+  }
+
+  function handleResize() {
+    const shouldBeSlideshow = isMobile();
+    const currentMode = slideshowView.style.display !== 'none' ? 'slideshow' : 'linear';
+    const targetMode = shouldBeSlideshow ? 'slideshow' : 'linear';
+
+    if (currentMode !== targetMode) {
+      setViewMode(targetMode);
+    }
+  }
+
+  // Debounced resize handler
+  let resizeTimeout;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(handleResize, 150);
+  });
+
+  // ========== SHARE FUNCTIONALITY ==========
+
+  function getEventShareUrl(slug) {
+    // Use configured URL pattern if provided, otherwise default to Wix page anchor
+    if (TL_CONFIG.shareUrlPattern) {
+      return TL_CONFIG.shareUrlPattern.replace('{slug}', slug);
+    }
+    return 'https://www.emiliechedid.fr/emilie-chedid#' + slug;
+  }
+
+  function shareOnFacebook(url, title) {
+    const shareUrl = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(url);
+    window.open(shareUrl, '_blank', 'width=600,height=400');
+  }
+
+  function shareOnTwitter(url, title) {
+    const shareUrl = 'https://twitter.com/intent/tweet?url=' + encodeURIComponent(url) + '&text=' + encodeURIComponent(title);
+    window.open(shareUrl, '_blank', 'width=600,height=400');
+  }
+
+  function shareOnLinkedIn(url, title) {
+    const shareUrl = 'https://www.linkedin.com/sharing/share-offsite/?url=' + encodeURIComponent(url);
+    window.open(shareUrl, '_blank', 'width=600,height=400');
+  }
+
+  function showCopiedFeedback(container) {
+    const copiedEl = container.querySelector('.tl-share-copied');
+    if (copiedEl) {
+      copiedEl.classList.add('tl-visible');
+      setTimeout(function() {
+        copiedEl.classList.remove('tl-visible');
+      }, 2000);
+    }
+  }
+
+  function copyToClipboard(text, container) {
+    // Always use fallback method first as it's more reliable in iframes/Wix
+    fallbackCopyToClipboard(text, container);
+  }
+
+  function fallbackCopyToClipboard(text, container) {
+    // Create a temporary input element (works better than textarea in some cases)
+    const input = document.createElement('input');
+    input.setAttribute('type', 'text');
+    input.setAttribute('value', text);
+    input.setAttribute('readonly', '');
+
+    // Make it visible but off-screen (some browsers need it visible)
+    input.style.position = 'absolute';
+    input.style.left = '-9999px';
+    input.style.top = (window.pageYOffset || document.documentElement.scrollTop) + 'px';
+
+    document.body.appendChild(input);
+
+    // iOS specific handling
+    const isIOS = navigator.userAgent.match(/ipad|iphone/i);
+    if (isIOS) {
+      const range = document.createRange();
+      range.selectNodeContents(input);
+      const selection = window.getSelection();
+      selection.removeAllRanges();
+      selection.addRange(range);
+      input.setSelectionRange(0, text.length);
+    } else {
+      input.select();
+    }
+
+    let success = false;
+    try {
+      success = document.execCommand('copy');
+    } catch (err) {
+      console.error('Copy error:', err);
+    }
+
+    document.body.removeChild(input);
+
+    if (success) {
+      showCopiedFeedback(container);
+    } else {
+      // Last resort: try clipboard API
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(function() {
+          showCopiedFeedback(container);
+        }).catch(function(err) {
+          console.error('Clipboard API failed:', err);
+          alert('Lien: ' + text);
+        });
+      } else {
+        // Show alert as ultimate fallback
+        alert('Lien: ' + text);
+      }
+    }
+  }
+
+  function handleShare(shareType, slug, title, container) {
+    const url = getEventShareUrl(slug);
+
+    switch(shareType) {
+      case 'facebook':
+        shareOnFacebook(url, title);
+        break;
+      case 'twitter':
+        shareOnTwitter(url, title);
+        break;
+      case 'linkedin':
+        shareOnLinkedIn(url, title);
+        break;
+      case 'copy':
+        copyToClipboard(url, container);
+        break;
+    }
+
+    // Close dropdown
+    const dropdown = container.querySelector('.tl-share-dropdown');
+    if (dropdown) {
+      dropdown.classList.remove('tl-open');
+    }
+  }
+
+  // Event delegation for share buttons
+  root.addEventListener('click', function(e) {
+    // Toggle share dropdown
+    const shareBtn = e.target.closest('.tl-share-btn');
+    if (shareBtn) {
+      e.stopPropagation();
+      const container = shareBtn.closest('.tl-share-container');
+      const dropdown = container.querySelector('.tl-share-dropdown');
+
+      // Close all other dropdowns
+      root.querySelectorAll('.tl-share-dropdown.tl-open').forEach(function(d) {
+        if (d !== dropdown) d.classList.remove('tl-open');
+      });
+
+      dropdown.classList.toggle('tl-open');
+      return;
+    }
+
+    // Handle share option click
+    const shareOption = e.target.closest('.tl-share-option');
+    if (shareOption) {
+      e.stopPropagation();
+      const container = shareOption.closest('.tl-share-container');
+      const btn = container.querySelector('.tl-share-btn');
+      const shareType = shareOption.dataset.share;
+      const slug = btn.dataset.eventSlug;
+      const title = btn.dataset.eventTitle;
+      handleShare(shareType, slug, title, container);
+      return;
+    }
+
+    // Close dropdowns when clicking elsewhere
+    root.querySelectorAll('.tl-share-dropdown.tl-open').forEach(function(d) {
+      d.classList.remove('tl-open');
+    });
+  });
+
+  // Close dropdowns on escape
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      root.querySelectorAll('.tl-share-dropdown.tl-open').forEach(function(d) {
+        d.classList.remove('tl-open');
+      });
+    }
+  });
+
+  // ========== ANCHOR SCROLL (for iframe embedding) ==========
+
+  function getHashFromParent() {
+    // Try to get hash from parent window (for iframe embeds)
+    let hash = '';
+
+    // First try parent window (cross-origin may block this)
+    try {
+      if (window.parent && window.parent !== window) {
+        hash = window.parent.location.hash;
+      }
+    } catch (e) {
+      // Cross-origin restriction - can't access parent
+    }
+
+    // Fall back to current window hash
+    if (!hash) {
+      hash = window.location.hash;
+    }
+
+    // Remove the # prefix
+    if (hash && hash.startsWith('#')) {
+      hash = hash.substring(1);
+    }
+
+    return hash;
+  }
+
+  function scrollToAnchor(hash) {
+    if (!hash) return;
+
+    // Find element by ID (the slug)
+    const element = root.querySelector('#' + CSS.escape(hash));
+    if (element) {
+      // Small delay to ensure layout is complete
+      setTimeout(function() {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        // Add highlight effect
+        element.classList.add('tl-highlight');
+        setTimeout(function() {
+          element.classList.remove('tl-highlight');
+        }, 2000);
+      }, 100);
+    }
+  }
+
+  // Listen for messages from parent window (alternative method)
+  window.addEventListener('message', function(event) {
+    // Accept scroll commands from parent
+    if (event.data && event.data.type === 'scrollToAnchor' && event.data.anchor) {
+      scrollToAnchor(event.data.anchor);
+    }
+  });
+
+  // ========== INITIALIZATION ==========
+
+  // Load filters from session or use defaults (all selected)
+  loadFiltersFromSession();
+
+  // Update checkbox visual styles (iOS compatible)
+  updateCheckboxStyles();
+
+  // Apply filters - this renders all events
+  applyFilters();
+
+  // Set initial view mode based on screen size
+  setViewMode(isMobile() ? 'slideshow' : 'linear');
+
+  // Scroll to anchor if present in URL (for shared links)
+  const initialHash = getHashFromParent();
+  if (initialHash) {
+    scrollToAnchor(initialHash);
+  }
+
+})();
+
+  </script>
+
+</div></div>
+</body>
+</html>
