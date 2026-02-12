@@ -3719,25 +3719,20 @@ body {
 
   function shareOnFacebook(url, title) {
     const shareUrl = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(url);
+    const mobileShareUrl = 'https://m.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(url);
     const ua = navigator.userAgent || '';
     const isIOS = /iPad|iPhone|iPod/.test(ua);
+    const isMobile = /Android|iPhone|iPad|iPod/i.test(ua);
 
-    // On iOS, try opening Facebook app directly, then fallback to web share.
+    // On mobile, prefer native share sheet to reach app-level composer flows.
+    if (isMobile && navigator.share) {
+      navigator.share({ title: title || '', text: title || '', url: url }).catch(function() {});
+      return;
+    }
+
+    // iOS fallback: use mobile web sharer in current tab for composer reliability.
     if (isIOS) {
-      const appUrl = 'fb://facewebmodal/f?href=' + encodeURIComponent(shareUrl);
-      let appOpened = false;
-      const onVisibilityChange = function() {
-        if (document.visibilityState === 'hidden') {
-          appOpened = true;
-        }
-      };
-      document.addEventListener('visibilitychange', onVisibilityChange, { once: true });
-      window.location.href = appUrl;
-      setTimeout(function() {
-        if (!appOpened) {
-          window.location.href = shareUrl;
-        }
-      }, 900);
+      window.location.href = mobileShareUrl;
       return;
     }
 
@@ -3746,11 +3741,18 @@ body {
 
   function shareOnInstagram(url, title, container) {
     // Instagram has no public web intent URL for prefilling link shares.
-    // We copy the link then open Instagram.
+    // We copy the link then open share flows/app.
     copyToClipboard(url, container);
     const webUrl = 'https://www.instagram.com/';
     const ua = navigator.userAgent || '';
     const isIOS = /iPad|iPhone|iPod/.test(ua);
+    const isMobile = /Android|iPhone|iPad|iPod/i.test(ua);
+
+    // Prefer native share sheet on mobile for app-level sharing.
+    if (isMobile && navigator.share) {
+      navigator.share({ title: title || '', text: title || '', url: url }).catch(function() {});
+      return;
+    }
 
     if (isIOS) {
       const appUrl = 'instagram://app';
