@@ -922,6 +922,8 @@ body {
     let isPinching = false;
     let pinchStartDistance = 0;
     let pinchStartZoomDistance = cameraZoomDistance;
+    let suppressTapUntil = 0;
+    let singleTouchMoved = false;
 
     function getTouchDistance(t1, t2) {
         const dx = t1.clientX - t2.clientX;
@@ -933,6 +935,7 @@ body {
         if (e.touches.length === 1) {
             isDragging = true;
             isPinching = false;
+            singleTouchMoved = false;
             previousMousePosition = { x: e.touches[0].clientX, y: e.touches[0].clientY };
             markUserInteraction();
             e.preventDefault();
@@ -941,6 +944,7 @@ body {
         if (e.touches.length === 2) {
             isDragging = false;
             isPinching = true;
+            suppressTapUntil = Date.now() + 500;
             pinchStartDistance = getTouchDistance(e.touches[0], e.touches[1]);
             pinchStartZoomDistance = cameraZoomDistance;
             markUserInteraction();
@@ -952,6 +956,9 @@ body {
         if (isDragging && e.touches.length === 1) {
             const deltaX = e.touches[0].clientX - previousMousePosition.x;
             const deltaY = e.touches[0].clientY - previousMousePosition.y;
+            if (Math.abs(deltaX) > 2 || Math.abs(deltaY) > 2) {
+                singleTouchMoved = true;
+            }
 
             // Rotate around Y axis (yaw) and X axis (pitch)
             sphereGroup.rotation.y += deltaX * 0.005;
@@ -977,6 +984,9 @@ body {
     }, { passive: false });
 
     renderer.domElement.addEventListener('touchend', (e) => {
+        if (isPinching || e.changedTouches.length > 1) {
+            suppressTapUntil = Date.now() + 500;
+        }
         if (e.touches.length === 0) {
             isDragging = false;
             isPinching = false;
@@ -998,6 +1008,7 @@ body {
     raycaster.params.Sprite.threshold = 0.5;
 
     function onPointerClick(event) {
+        if (Date.now() < suppressTapUntil || isPinching) return;
         // Ignore if we were dragging
         if (Math.abs(rotationVelocity.x) > 0.001 || Math.abs(rotationVelocity.y) > 0.001) return;
 
@@ -1024,6 +1035,14 @@ body {
     // Double-tap for touch devices
     let lastTap = 0;
     renderer.domElement.addEventListener('touchend', (e) => {
+        if (Date.now() < suppressTapUntil || singleTouchMoved || isPinching) {
+            lastTap = 0;
+            return;
+        }
+        if (!e.changedTouches || e.changedTouches.length !== 1) {
+            lastTap = 0;
+            return;
+        }
         const now = Date.now();
         if (now - lastTap < 300) {
             onPointerClick(e);
