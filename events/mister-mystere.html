@@ -43,17 +43,11 @@ En ouverture du DVD, cette phrase posait un seuil : regarder, et laisser advenir
   box-sizing: border-box;
 }
 
-/* Header */
-.tl-header {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-  margin-bottom: 2rem;
-}
-.tl-header-text {
-  flex: 1;
+/* Page Header */
+.tl-page-header {
   text-align: center;
-  padding-right: 80px; /* Compense la largeur des boutons pour centrer visuellement */
+  margin-bottom: 1.5rem;
+  padding: 1rem 0;
 }
 .tl-main-title {
   font-family: 'Oswald', Arial, sans-serif;
@@ -69,44 +63,206 @@ En ouverture du DVD, cette phrase posait un seuil : regarder, et laisser advenir
   color: #757575;
   margin: 0;
   font-weight: 300;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-/* View toggle controls */
-.tl-controls {
+/* Fixed Header (contains Constellation + Toolbar) */
+.tl-fixed-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+/* Spacer to prevent content from being hidden behind fixed header */
+.tl-fixed-header + * {
+  margin-top: 130px;
+}
+
+/* Toolbar */
+.tl-toolbar {
+  background: #fff;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 0.75rem 1rem;
   display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: nowrap;
+}
+
+/* Toolbar title */
+.tl-toolbar-title {
+  font-family: 'Oswald', Arial, sans-serif;
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: #212121;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 2px;
   flex-shrink: 0;
 }
-.tl-view-btn {
+
+/* Unified toolbar button style */
+.tl-toolbar-btn {
   display: inline-flex;
   align-items: center;
-  gap: 0.3rem;
-  padding: 0.35rem 0.6rem;
+  gap: 0.4rem;
+  padding: 0.5rem 0.8rem;
   border: 1px solid #e0e0e0;
   background: #fff;
-  border-radius: 0;
   cursor: pointer;
-  font-size: 0.65rem;
+  font-size: 0.75rem;
   font-family: 'Oswald', Arial, sans-serif;
   font-weight: 400;
   color: #666;
   transition: all 0.2s ease;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  text-decoration: none;
+  flex-shrink: 0;
 }
-.tl-view-btn svg {
-  width: 14px;
-  height: 14px;
-}
-.tl-view-btn:hover {
+.tl-toolbar-btn:hover {
   background: #f5f5f5;
   border-color: #212121;
+  color: #212121;
 }
-.tl-view-btn.tl-active {
+.tl-toolbar-btn.tl-active {
   background: #212121;
   color: #fff;
   border-color: #212121;
+}
+
+/* Constellation title in toolbar center - REMOVED, no longer used */
+
+/* Introduction section below toolbar */
+.tl-intro-section {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1rem 1.5rem;
+  background: #fafafa;
+  border-bottom: 1px solid #e0e0e0;
+}
+.tl-intro-text {
+  font-size: 0.95rem;
+  color: #616161;
+  line-height: 1.7;
+  margin: 0;
+  text-align: center;
+  font-weight: 300;
+}
+
+/* Search Box */
+.tl-search-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.tl-search-input {
+  padding: 0.5rem 2rem 0.5rem 0.75rem;
+  border: 1px solid #e0e0e0;
+  font-size: 0.85rem;
+  font-family: Arial, sans-serif;
+  width: 200px;
+  transition: all 0.2s ease;
+}
+.tl-search-input:focus {
+  outline: none;
+  border-color: #212121;
+  width: 250px;
+}
+.tl-search-icon {
+  position: absolute;
+  right: 0.5rem;
+  pointer-events: none;
+  color: #757575;
+}
+
+/* Filter Dropdowns */
+.tl-filter-dropdown {
+  position: relative;
+  flex-shrink: 0;
+}
+.tl-toolbar-btn.tl-open {
+  background: #212121;
+  color: #fff;
+  border-color: #212121;
+}
+.tl-filter-dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  min-width: 200px;
+  max-height: 400px;
+  overflow-y: auto;
+  z-index: 101;
+  margin-top: 0.25rem;
+}
+.tl-filter-dropdown-menu.tl-open {
+  display: block;
+}
+.tl-filter-dropdown-header {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  border-bottom: 1px solid #e0e0e0;
+  background: #fafafa;
+}
+.tl-filter-action-btn {
+  flex: 1;
+  padding: 0.4rem;
+  border: 1px solid #e0e0e0;
+  background: #fff;
+  cursor: pointer;
+  font-size: 0.7rem;
+  font-family: 'Oswald', Arial, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.2s ease;
+}
+.tl-filter-action-btn:hover {
+  background: #212121;
+  color: #fff;
+  border-color: #212121;
+}
+.tl-filter-options {
+  padding: 0.5rem;
+}
+.tl-filter-option {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: background 0.2s ease;
+}
+.tl-filter-option:hover {
+  background: #f5f5f5;
+}
+.tl-filter-option input[type="checkbox"] {
+  cursor: pointer;
+}
+
+/* Filter Count */
+.tl-filter-count {
+  font-size: 0.75rem;
+  color: #757575;
+  font-family: 'Oswald', Arial, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.tl-visible-count {
+  font-weight: 600;
+  color: #212121;
 }
 
 /* Filter toggle button */
@@ -265,28 +421,24 @@ En ouverture du DVD, cette phrase posait un seuil : regarder, et laisser advenir
   display: flex;
   gap: 1.5rem;
   position: relative;
+  background: #F7EFD8;
 }
 
-/* Year navigation sidebar */
+/* Year navigation - separate section below toolbar */
 .tl-year-nav {
-  position: sticky;
-  top: 0;
-  height: auto;
-  max-height: 100vh;
   display: flex;
   align-items: stretch;
   gap: 0.5rem;
-  padding: 1rem 0.5rem;
-  flex-shrink: 0;
-  align-self: flex-start;
+  padding: 0.75rem 1rem;
   background: #fff;
-  z-index: 10;
+  border-bottom: 1px solid #e0e0e0;
 }
 .tl-year-nav-track {
   width: 2px;
   background: #e0e0e0;
   position: relative;
-  min-height: 100%;
+  align-self: stretch;
+  min-height: 30px;
 }
 .tl-year-nav-progress {
   position: absolute;
@@ -299,28 +451,34 @@ En ouverture du DVD, cette phrase posait un seuil : regarder, et laisser advenir
 }
 .tl-year-nav-buttons {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 0.25rem;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  flex: 1;
 }
 .tl-year-nav-btn {
-  padding: 0.5rem 0.75rem;
-  border: none;
-  background: transparent;
+  padding: 0.35rem 0.6rem;
+  border: 1px solid #e0e0e0;
+  background: #fff;
   cursor: pointer;
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   font-weight: 400;
   font-family: 'Oswald', Arial, sans-serif;
   color: #9e9e9e;
   transition: all 0.2s ease;
   white-space: nowrap;
   letter-spacing: 1px;
+  text-transform: uppercase;
 }
 .tl-year-nav-btn:hover {
   color: #212121;
+  border-color: #212121;
+  background: #f5f5f5;
 }
 .tl-year-nav-btn.tl-active {
-  color: #212121;
+  color: #fff;
+  background: #212121;
+  border-color: #212121;
   font-weight: 500;
 }
 
@@ -331,6 +489,7 @@ En ouverture du DVD, cette phrase posait un seuil : regarder, et laisser advenir
   padding-left: 2rem;
   border-left: 1px solid #e0e0e0;
   position: relative;
+  background: #F7EFD8;
 }
 
 /* Timeline style - Emilie Chedid */
@@ -532,12 +691,15 @@ En ouverture du DVD, cette phrase posait un seuil : regarder, et laisser advenir
   font-size: 0.8rem;
   color: #424242;
   line-height: 1.7;
+  max-height: none;
+  overflow: visible;
 }
 .tl-fiche-technique .tl-fiche-content p {
   margin: 0.3rem 0;
 }
 .tl-fiche-technique .tl-fiche-content strong {
   color: #212121;
+  font-weight: 500;
 }
 
 /* YouTube embed */
@@ -750,11 +912,12 @@ En ouverture du DVD, cette phrase posait un seuil : regarder, et laisser advenir
 /* Slideshow styles */
 .tl-slideshow-view {
   position: relative;
+  background: #F7EFD8;
 }
 .tl-slideshow-container {
   position: relative;
   overflow: hidden;
-  background: #fff;
+  background: #F7EFD8;
   border: 1px solid #e0e0e0;
 }
 .tl-slide {
@@ -900,46 +1063,68 @@ En ouverture du DVD, cette phrase posait un seuil : regarder, et laisser advenir
 }
 
 /* Responsive */
-@media (max-width: 700px) {
-  .tl-header {
-    flex-direction: column;
-    gap: 1rem;
-  }
-  .tl-header-text {
-    padding-right: 0;
-  }
-  .tl-controls {
-    flex-direction: row;
-    justify-content: center;
-  }
+@media (max-width: 768px) {
   .tl-main-title {
-    font-size: 2rem;
+    font-size: 1.8rem;
   }
-  .tl-linear-wrapper {
-    flex-direction: column;
+  .tl-intro-section {
+    padding: 0.75rem 1rem;
+  }
+  .tl-intro-text {
+    font-size: 0.85rem;
+  }
+  .tl-toolbar {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding: 0.75rem;
+  }
+  .tl-toolbar-title {
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+  }
+  .tl-toolbar-btn {
+    font-size: 0.7rem;
+    padding: 0.4rem 0.6rem;
+  }
+  .tl-search-box {
+    width: 100%;
+    order: 10;
+  }
+  .tl-search-input {
+    width: 100%;
+  }
+  .tl-search-input:focus {
+    width: 100%;
+  }
+  .tl-filter-dropdown-menu {
+    left: 0;
+    right: 0;
   }
   .tl-year-nav {
-    position: relative;
-    top: 0;
-    flex-direction: row;
-    width: 100%;
+    padding: 0.5rem;
     overflow-x: auto;
-    padding-bottom: 0.5rem;
   }
   .tl-year-nav-track {
     display: none;
   }
   .tl-year-nav-buttons {
-    flex-direction: row;
-    gap: 0.25rem;
-    width: 100%;
+    flex-wrap: nowrap;
+    overflow-x: auto;
   }
   .tl-year-nav-btn {
-    flex: 1;
+    flex: 0 0 auto;
+    min-width: 60px;
     text-align: center;
-    min-width: auto;
-    padding: 0.4rem 0.5rem;
-    font-size: 0.75rem;
+    padding: 0.4rem 0.6rem;
+    font-size: 0.7rem;
+  }
+  /* Adjust spacer for taller fixed header on mobile */
+  .tl-fixed-header + * {
+    margin-top: 180px;
+  }
+}
+  .tl-linear-wrapper {
+    flex-direction: column;
   }
   .tl-linear-view {
     padding-left: 0;
@@ -979,6 +1164,113 @@ En ouverture du DVD, cette phrase posait un seuil : regarder, et laisser advenir
 }
 .tl-highlight {
   animation: tl-highlight-pulse 1s ease-out 2;
+}
+
+/* YouTube Videos Gallery (multiple videos) */
+.tl-youtube-gallery {
+  margin-top: 1.5rem;
+  padding: 1rem 0;
+}
+.tl-youtube-gallery-title {
+  font-family: 'Oswald', Arial, sans-serif;
+  font-size: 1.2rem;
+  font-weight: 400;
+  margin: 0 0 1rem 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #212121;
+}
+.tl-youtube-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+}
+.tl-youtube-thumbnail {
+  position: relative;
+  cursor: pointer;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: #000;
+}
+.tl-youtube-thumbnail:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+.tl-youtube-thumbnail img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.tl-youtube-thumb-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  opacity: 0.9;
+  transition: opacity 0.3s ease;
+}
+.tl-youtube-thumbnail:hover .tl-youtube-thumb-play {
+  opacity: 1;
+}
+
+/* YouTube Video Lightbox */
+.tl-video-lightbox {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.95);
+  z-index: 10000;
+  justify-content: center;
+  align-items: center;
+}
+.tl-video-lightbox.tl-active {
+  display: flex;
+}
+.tl-lightbox-content {
+  position: relative;
+  width: 90%;
+  max-width: 1200px;
+  aspect-ratio: 16 / 9;
+}
+.tl-lightbox-content iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+.tl-lightbox-close {
+  position: absolute;
+  top: -50px;
+  right: 0;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 10px;
+  line-height: 1;
+  transition: color 0.3s ease;
+}
+.tl-lightbox-close:hover {
+  color: #ff0000;
+}
+
+@media (max-width: 768px) {
+  .tl-youtube-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+  .tl-lightbox-content {
+    width: 95%;
+  }
+  .tl-lightbox-close {
+    top: -40px;
+    font-size: 1.5rem;
+  }
 }
 
 
@@ -1058,12 +1350,148 @@ body {
     flex-wrap: wrap;
     gap: 1rem;
 }
+
+/* YouTube Videos Gallery */
+.youtube-videos-gallery {
+    margin-top: 2rem;
+}
+.gallery-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 300;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1rem;
+}
+.video-thumbnail {
+    position: relative;
+    cursor: pointer;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.video-thumbnail:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+}
+.video-thumbnail img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+.play-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    opacity: 0.9;
+    transition: opacity 0.3s ease;
+}
+.video-thumbnail:hover .play-icon {
+    opacity: 1;
+}
+
+/* Video Lightbox */
+.video-lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 10000;
+    justify-content: center;
+    align-items: center;
+}
+.video-lightbox.active {
+    display: flex;
+}
+.lightbox-content {
+    position: relative;
+    width: 90%;
+    max-width: 1200px;
+    aspect-ratio: 16 / 9;
+}
+.lightbox-content iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+.lightbox-close {
+    position: absolute;
+    top: -50px;
+    right: 0;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 10px;
+    line-height: 1;
+}
+.lightbox-close:hover {
+    color: #ff0000;
+}
+
+@media (max-width: 768px) {
+    .video-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+    .lightbox-content {
+        width: 95%;
+    }
+    .lightbox-close {
+        top: -40px;
+        font-size: 1.5rem;
+    }
+}
 </style>
+
+<div id="video-lightbox" class="video-lightbox" onclick="closeVideoLightbox(event)">
+    <div class="lightbox-content">
+        <button class="lightbox-close" onclick="closeVideoLightbox(event)">&times;</button>
+        <iframe id="lightbox-iframe" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+</div>
+
+<script>
+function openVideoLightbox(videoId) {
+    const lightbox = document.getElementById('video-lightbox');
+    const iframe = document.getElementById('lightbox-iframe');
+    iframe.src = 'https://www.youtube.com/embed/' + videoId + '?autoplay=1&rel=0&modestbranding=1';
+    lightbox.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeVideoLightbox(event) {
+    if (event.target.id === 'video-lightbox' || event.target.classList.contains('lightbox-close')) {
+        const lightbox = document.getElementById('video-lightbox');
+        const iframe = document.getElementById('lightbox-iframe');
+        iframe.src = '';
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+}
+
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+        closeVideoLightbox({target: {id: 'video-lightbox'}});
+    }
+});
+</script>
 
 </head>
 <body>
 <div class="page-container">
-    <a href="https://constellation.emiliechedid.fr/" class="back-link">
+    <a href="https://constellation.emiliechedid.fr/timeline.html" class="back-link">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <polyline points="15 18 9 12 15 6"></polyline>
         </svg>
@@ -1077,7 +1505,7 @@ body {
             <span class="tl-event-subtitle">DVD</span>
         </header>
 
-        <div class="tl-event-metadata"><span class="tl-event-meta"><strong>Artiste :</strong> -M-</span> <span class="tl-event-meta"><strong>Production :</strong> Labo M / Barclay Universal Music France</span> <span class="tl-event-meta"><strong>Réalisation :</strong> Emilie Chedid &amp; -M-</span></div>
+        <div class="tl-event-metadata"><span class="tl-event-meta"><strong>Artiste :</strong> -M-</span> <span class="tl-event-meta"><strong>Production :</strong> La Bohème films / Barclay Universal Music </span> <span class="tl-event-meta"><strong>Réalisation :</strong> Emilie Chedid, -M-</span></div>
 
         <div class="tl-event-media">
             <div class="tl-youtube">
@@ -1096,183 +1524,13 @@ Bande Annonce du DVD.</p>
         
         <details class="tl-fiche-technique">
                 <summary>Fiche technique</summary>
-                <div class="tl-fiche-content"><p>RÉALISATION 
-Émilie Chedid &amp; M</p>
-<p>IMAGE
-M</p>
-<p>PRODUCTION EXÉCUTIVE
-LA BOHÈME FILMS</p>
-<p>CHARGÉE DE PRODUCTION 
-Amandine Boué
-Assistée de Sandra Lotterstein </p>
-<p>MONTAGE
-Émilie Chedid
-Aurélien Guégan
-Charles Hannotte
-Assisté de Haydée Parcollet</p>
-<p>INFOGRAPHISTE JIT
-Charles Hannotte</p>
-<p>COLORISTE TRUQUISTE
-Ghislain Rio
-Aurélien Guégan</p>
-<p>DIRECTION ARTISTIQUE
-Émilie Chedid </p>
-<p>CONCEPTION GRAPHIQUE 
-Yann Orhan</p>
-<p>ANIMATION GRAPHISME
-Mohammed Zemmar </p>
-<p>ILLUSTRATION SONORE 
-Pierre Boscheron
-Aurélien Guégan</p>
-<p>MOYEN TECHNIQUE
-Caméra Sony Pro HVR A 1 E</p>
-<p>POSTPRODUCTION
-RIBOUKA 
-BADLANDS
-SYLICONE - Bénédicte Cartigny, Laurent Sylvestre, Catherine Wartel, Christelle Bordat, Jean Delduc, Julien Climent, Alexandre Regeffe.</p>
-<p>ENCODING &amp; AUTHORING 
-Frédéric Cagan
-Johan Viaene</p>
-<p>ASSISTANCE TECHNIQUE
-Laurent Rajchenbach </p>
-<p>CRÉDITS MUSICAUX 
-1. Mister Mystère
-(B. Fontaine/ M – Zdar)
-Labo M Editions/Allo Music/Motor Bass
-Basse, guitares: M / Batterie : C. Atef / Chœurs : A. Chedid / Piano : P. Cohen / Production additionnelle : Boom Bass</p>
-<ol>
-<li>Phébus
-(B. Fontaine /M)
-Labo M Éditions/Allo Music
-Basse et guitare acoustique : M / Guitare acoustique et électrique : J. Chedid / Guitare arpège : P. Cohen / Percussions et clochette : C. Atef / Chœurs : A. Chedid et J. Chedid / Ambiances sonores : P. Boscheron
-  </li>
-<li>
-<p>Est ce que c'est ça ? 
-(M) 
-Labo M Éditions
-Guitares, basse, souffles : M / Percussions et synthé : C. Atef /  
-Chœurs : A. Chedid /  Boucle de souffles : P. Boscheron</p>
-</li>
-<li>
-<p>Le Roi des Ombres 
-(G. Kretek / M) 
-Labo M Éditions
-Basse, guitares, synthé, batterie, percussions : M / Chœurs : A. Chedid</p>
-</li>
-<li>
-<p>Tanagra 
-(B. Fontaine / M –J. Chedid) 
-Labo M Éditions / Allo Music 
-Basse : P. Cohen /  Batterie et chœurs : J. Chedid / Guitare : M / 
-Piano, cris et chœurs : A. Chedid / Illustrations sonores : P. Boscheron</p>
-</li>
-<li>
-<p>L'élixir 
-(M) 
-Labo M Editions
-Basse : J. Chedid / Guitares : M / Percussion et batterie : C. Atef / Chœurs : A. Chedid / Piano : P. Cohen / Ambiances sonores : P. Boscheron</p>
-</li>
-<li>
-<p>Ça sonne faux 
-(M – G. Kretek/M) 
-Labo M Éditions
-Basse : P. Cohen / Batterie : J. Chedid /  Guitare : M / Guimbarde disto : C. Atef / Violoncelle : V. Segal
-  </p>
-</li>
-<li>
-<p>Destroy 
-(B. Fontaine / M - J. Chedid) 
-Labo M Éditions / Allo Music 
-Basse : P. Cohen  /  Batterie : J. Chedid / Guitare et balama : M / Bongo : C. Atef / Chœurs : A. Chedid, J. Chedid et P. Cohen / Tambourin : A. Chedid</p>
-</li>
-<li>
-<p>Semaine 
-(M) 
-Labo M Éditions
-Basse : J. Goldet /  Batterie : M. Garoute / Guitare : M / Chœurs : A. Chedid / 
-Illustrations sonores:  P. Boscheron</p>
-</li>
-<li>
-<p>Amssétou 
-(M) 
-Labo M Éditions
-Basse : J. Goldet /  Guitares : M / Pied et shaker :  M. Garoute /  
-Chœurs : A. et  J. Chedid,  P. Cohen, J. Goldet, T. Stremler, 
-R. Hamburger / Percussions : C. Atef</p>
-</li>
-<li>
-<p>Tout sauf toi 
-(H. Merabet – M / H. Merabet – M ) 
-Labo M Éditions
-Batterie et congas : C. Atef / Guitares, basse, tambourin : M / Chœurs : H. Merabet / 
-Rires : J. Goldet</p>
-</li>
-<li>
-<p>Hold Up 
-(L. Chedid) 
-LOUIS CHEDID Éditions / UNIVERSAL Music Publishing sas France 
-(Fonds Le Minotaure Éditions)
-Basse : P. Cohen / Guitares : M /  Beat box : J. Chedid / Illustrations sonores : P. Boscheron / Piano et Horloge : A. Chedid / Cri : M. Chedid / Programmations sirène : L. Chedid / Gang : H. Merabet, G. Canet, M. Cotillard, G. Lelouche, M. Nucci</p>
-</li>
-<li>
-<p>Délivre 
-(M) 
-Labo M Éditions
-Guitare : M / Chœurs : A. Chedid / Violoncelle : V. Segal</p>
-</li>
-<li>
-<p>Lettre à Tanagra 
-(B. Fontaine / J. Chedid) 
-Labo M Éditions / Allo Music
-Voix : M /  Piano et chœurs : J. Chedid</p>
-</li>
-<li>
-<p>Brigand 
-(B. Fontaine / M - J. Chedid) 
-Labo M Éditions / Allo Music
-Guitare : M / Guitare et batterie :  J. Chedid / Guitare bariton : P. Cohen / Chœurs : A. Chedid / Snaps :  Chiquito, O. Lude, C. Hannotte / Ambiances sonores : P. Boscheron</p>
-</li>
-<li>
-<p>Crise 
-(B. Fontaine / M) 
-Labo M Éditions / Allo Music
-Basse : P. Cohen / Guitares : M / Piano et Batterie : J. Chedid / 
-Ambiances sonores : P. Boscheron / Sons : H. Blanc-Francard</p>
-</li>
-<li>
-<p>Je les adore 
-(B. Fontaine / J. Chedid) 
-Labo M Éditions / Allo Music 
-Basse : P. Cohen / Batterie : J. Chedid / Piano et batterie : A. Chedid / Illustrations sonores : P. Boscheron / Violoncelle : V. Segal /Guitare : M
- 
-Réalisé par : M,  Olivier Lude, Joseph Chedid
-Arrangements : M
-Enregistré avec le  LABO -M- Mobil à Voigny, Chapelle de Doue, Domaine de
-Venterol, Fille du Calvaire et Trianon Hall par Olivier Lude, avec la collaboration d’Henry Blanc Francard assistés de Charline de Cayeux
-Sauf : 7, 16 et 17 enregistrés par Henry Blanc Francard 
-Enregistrements additionnels : Xavier Caux au Studio Skyman (1, 4, 11) et Denis Cazajeux au Jej’ garden (9 et 10)
-Ingénieur du son post prod : Jean-Daniel Glorioso
-Mixé au Studio La Seine par Louis Chedid secondé par Sébastien Gohier sauf 16 mixé par Henry Blanc Francard au studio Tango Zoulou</p>
-</li>
-</ol>
-<p>Masterisé au studio Raphing par Raphael Jonin</p>
-<p>Conseil : Auguri productions- Charles Bensmaine assisté de Akiko Lassus
-Production exécutive : Chiquito Bolivian records et Balthazar
-Responsable image : Aurélie Ullrich &amp; Jérôme Marroc Latour
-Photos : Yann Orhan</p>
-<p>PRODUCTEURS : 
-LABO M
-M assisté de Gaspard Borgeaud
-&amp;
-BARCLAY
-Olivier Caillart, Hélène Lemoine, Jérôme Marroc-Latour, Marie Mounier, Olivier Descroix, Jocelyn Perrotin, Damien Fischetti, Jean-Charles Mariani, Thérèsa Le, Valérie Foray, Isabelle Vernassière, Anne-Sophie Kourganoff, Florence Berger, Vanessa Broszniowski, Thierry Gicquel, Alexis Massoutier, Marie-José Sarazin, Flavie Jaubert, Nathalie François, Frédéric Bassin, Philippe Zouari, Manuella Matos, Claude Chabane, Pauline Berenger, Sylvain Taillet, Séverine Michel et Gaëlle Le Gratiet.</p>
-<p>Merci Amssétou, Axelle Bernard, Brigitte &amp; Areski, Camille Stoos, Catherine Rouyez, Cécile, Charles Carmignac, Cyril Houplain, David Bembananga, Edgar Morin, Françoise &amp; Alain, George Kretek, Géraldine Roce, Gilles Deleuze, Hocine &amp; Mado, Jérôme Goldet, Johann &amp; Fred de Guitare Garage, Koutok, La Famille Murat, Laurent Seroussi, Laurent Thessier, Lisa Roze, Macha &amp; Jérôme, Marc &amp; Sabine, Maxime &amp; Aurélien, Michel Gineston et tout le personnel du Barricou, M. &amp; Mme Weismann, Nathalie Falquero, Philippe Zdar, Rabih Saadé, Sonia &amp; Agnès.
-Attitude, Bnp Paribas, Continental Media Assurances, FCM, Fondation Guggenheim, Le Cred, Metronomic, Ratp, Repetto, Sncf Voyages.</p>
-<p>A ma famille. </p></div>
+                <div class="tl-fiche-content"><p>Réalisation Émilie CHEDID / M / Image M / Production exécutive La Bohème Films / Chargée de production Amandine BOUÉ (assistée de Sandra LOTTERSTEIN) / Montage Émilie CHEDID / Aurélien GUÉGAN / Charles HANNOTTE (assisté de Haydée PARCOLLET) / Infographiste JIT Charles HANNOTTE / Coloristes / truquistes Ghislain RIO / Aurélien GUÉGAN / Direction artistique Émilie CHEDID / Conception graphique Yann ORHAN / Animation graphisme Mohammed ZEMMAR / Illustrations sonores Pierre BOSCHERON / Aurélien GUÉGAN / Moyen technique Caméra Sony Pro HVR A1E / Post-production Ribouka / Badlands / Sylicone (Bénédicte CARTIGNY / Laurent SYLVESTRE / Catherine WARTEL / Christelle BORDAT / Jean DELDUC / Julien CLIMENT / Alexandre REGEFFE) / Encoding &amp; authoring Frédéric CAGAN / Johan VIAENE / Assistance technique Laurent RAJCHENBACH / Crédits musicaux (liste complète ci-dessous) / Producteurs Labo M (M assisté de Gaspard BORGEAUD) / Barclay (Olivier CAILLART / Hélène LEMOINE / Jérôme MARROC-LATOUR / Marie MOUNIER / Olivier DESCROIX / Jocelyn PERROTIN / Damien FISCHETTI / Jean-Charles MARIANI / Thérèsa LE / Valérie FORAY / Isabelle VERNASSIÈRE / Anne-Sophie KOURGANOFF / Florence BERGER / Vanessa BROSZNIOWSKI / Thierry GICQUEL / Alexis MASSOUTIER / Marie-José SARAZIN / Flavie JAUBERT / Nathalie FRANÇOIS / Frédéric BASSIN / Philippe ZOUARI / Manuella MATOS / Claude CHABANE / Pauline BERENGER / Sylvain TAILLET / Séverine MICHEL / Gaëlle LE GRATIET)</p>
+<p>Crédits musicaux 1 Mister Mystère / 2 Phébus / 3 Est-ce que c’est ça ? / 4 Le Roi des Ombres / 5 Tanagra / 6 L’Élixir / 7 Ça sonne faux / 8 Destroy / 9 Semaine / 10 Amssétou / 11 Tout sauf toi / 12 Hold Up / 13 Délivre / 14 Lettre à Tanagra / 15 Brigand / 16 Crise / 17 Je les adore / Réalisé par M / Olivier LUDE / Joseph CHEDID / Arrangements M / Enregistrements (LABO -M- Mobil + lieux cités) / Ingénieur du son post-prod Jean-Daniel GLORIOSO / Mixage (Studio La Seine + exceptions) / Mastering Raphaël JONIN (Studio Raphing) / Conseil Auguri Productions (Charles BENSMAINE, assisté d’Akiko LASSUS) / Production exécutive (son) Chiquito Bolivian Records / Balthazar / Responsables image Aurélie ULLRICH / Jérôme MARROC-LATOUR / Photos Yann ORHAN</p>
+<p>Remerciements (liste) / Partenaires Attitude / BNP Paribas / Continental Media Assurances / FCM / Fondation Guggenheim / Le Cred / Metronomic / RATP / Repetto / SNCF Voyages / Dédicace À ma famille.</p></div>
             </details>
 
         <footer class="tl-event-footer">
-            <div class="tl-event-categories"><span class="tl-event-tag">D.a</span><span class="tl-event-tag">Dvd</span><span class="tl-event-tag">Film</span><span class="tl-event-tag">Inédit</span><span class="tl-event-tag">Productrice</span></div>
+            <div class="tl-event-categories"><span class="tl-event-tag">D.A</span><span class="tl-event-tag">Conceptrice DVD</span><span class="tl-event-tag">Réalisatrice</span><span class="tl-event-tag">Inédit</span><span class="tl-event-tag">Productrice</span></div>
             <div class="tl-share-buttons">
     <span class="tl-share-label">Partager :</span>
     <a href="https://www.facebook.com/sharer/sharer.php?u=https://constellation.emiliechedid.fr/events/mister-mystere.html"
