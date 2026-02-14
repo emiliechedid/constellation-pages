@@ -1,0 +1,1634 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mur d&#x27;image - Constellation</title>
+    <meta name="description" content="Mur d&#x27;images et vidéos des événements">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://constellation.emiliechedid.fr/wall.html">
+    <meta property="og:title" content="Mur d&#x27;image - Constellation">
+    <meta property="og:description" content="Mur d&#x27;images et vidéos des événements">
+    <meta property="og:image" content="https://img.youtube.com/vi/saJX6sAWtZ4/hqdefault.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://constellation.emiliechedid.fr/wall.html">
+    <meta property="twitter:title" content="Mur d&#x27;image - Constellation">
+    <meta property="twitter:description" content="Mur d&#x27;images et vidéos des événements">
+    <meta property="twitter:image" content="https://img.youtube.com/vi/saJX6sAWtZ4/hqdefault.jpg">
+
+    <link rel="canonical" href="https://constellation.emiliechedid.fr/wall.html">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap');
+
+.tl-root {
+  font-family: Arial, Helvetica, sans-serif;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1rem 0;
+  box-sizing: border-box;
+  background: transparent;
+  color: #212121;
+}
+.tl-root *, .tl-root *::before, .tl-root *::after {
+  box-sizing: border-box;
+}
+
+/* Page Header */
+.tl-page-header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  padding: 1rem 0;
+}
+.tl-main-title {
+  font-family: 'Oswald', Arial, sans-serif;
+  font-size: 2.5rem;
+  font-weight: 300;
+  color: #212121;
+  margin: 0 0 0.5rem 0;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+.tl-intro {
+  font-size: 1rem;
+  color: #757575;
+  margin: 0;
+  font-weight: 300;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Fixed Header (contains Constellation + Toolbar) */
+.tl-fixed-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: #F7EFD8;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+/* Spacer to prevent content from being hidden behind fixed header */
+.tl-fixed-header + * {
+  margin-top: 130px;
+}
+
+/* Toolbar */
+.tl-toolbar {
+  background: #F7EFD8;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 0.75rem 1rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: nowrap;
+}
+
+/* Toolbar title */
+.tl-toolbar-title {
+  font-family: 'Oswald', Arial, sans-serif;
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: #212121;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  flex-shrink: 0;
+}
+
+/* Unified toolbar button style */
+.tl-toolbar-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 0.8rem;
+  border: 1px solid #e0e0e0;
+  background: #F7EFD8;
+  cursor: pointer;
+  font-size: 0.75rem;
+  font-family: 'Oswald', Arial, sans-serif;
+  font-weight: 400;
+  color: #666;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+.tl-toolbar-btn:hover {
+  background: #efe4c0;
+  border-color: #212121;
+  color: #212121;
+}
+.tl-toolbar-btn.tl-active {
+  background: #212121;
+  color: #fff;
+  border-color: #212121;
+}
+
+/* Constellation title in toolbar center - REMOVED, no longer used */
+
+/* Introduction section below toolbar */
+.tl-intro-section {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1rem 1.5rem;
+  background: #F7EFD8;
+  border-bottom: 1px solid #e0e0e0;
+}
+.tl-intro-text {
+  font-size: 0.95rem;
+  color: #616161;
+  line-height: 1.7;
+  margin: 0;
+  text-align: center;
+  font-weight: 300;
+}
+
+/* Search Box */
+.tl-search-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.tl-search-input {
+  padding: 0.5rem 2rem 0.5rem 0.75rem;
+  border: 1px solid #e0e0e0;
+  font-size: 0.85rem;
+  font-family: Arial, sans-serif;
+  width: 200px;
+  transition: all 0.2s ease;
+}
+.tl-search-input:focus {
+  outline: none;
+  border-color: #212121;
+  width: 250px;
+}
+.tl-search-icon {
+  position: absolute;
+  right: 0.5rem;
+  pointer-events: none;
+  color: #757575;
+}
+
+/* Filter Dropdowns */
+.tl-filter-dropdown {
+  position: relative;
+  flex-shrink: 0;
+}
+.tl-toolbar-btn.tl-open {
+  background: #212121;
+  color: #fff;
+  border-color: #212121;
+}
+.tl-filter-dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: #F7EFD8;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  min-width: 200px;
+  max-height: 400px;
+  overflow-y: auto;
+  z-index: 101;
+  margin-top: 0.25rem;
+}
+.tl-filter-dropdown-menu.tl-open {
+  display: block;
+}
+.tl-filter-dropdown-header {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  border-bottom: 1px solid #e0e0e0;
+  background: #F7EFD8;
+}
+.tl-filter-action-btn {
+  flex: 1;
+  padding: 0.4rem;
+  border: 1px solid #e0e0e0;
+  background: #F7EFD8;
+  cursor: pointer;
+  font-size: 0.7rem;
+  font-family: 'Oswald', Arial, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.2s ease;
+}
+.tl-filter-action-btn:hover {
+  background: #212121;
+  color: #fff;
+  border-color: #212121;
+}
+.tl-filter-options {
+  padding: 0.5rem;
+}
+.tl-filter-option {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: background 0.2s ease;
+}
+.tl-filter-option:hover {
+  background: #efe4c0;
+}
+.tl-filter-option input[type="checkbox"] {
+  cursor: pointer;
+}
+
+/* Filter Count */
+.tl-filter-count {
+  font-size: 0.75rem;
+  color: #757575;
+  font-family: 'Oswald', Arial, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.tl-visible-count {
+  font-weight: 600;
+  color: #212121;
+}
+
+/* Filter toggle button */
+.tl-filter-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-family: 'Oswald', Arial, sans-serif;
+  font-weight: 400;
+  color: #666;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.tl-filter-toggle:hover {
+  color: #212121;
+}
+.tl-filter-toggle svg {
+  transition: transform 0.3s ease;
+}
+.tl-filters:not(.tl-collapsed) .tl-filter-toggle svg {
+  transform: rotate(180deg);
+}
+.tl-filters:not(.tl-collapsed) .tl-filter-toggle {
+  color: #212121;
+}
+
+/* Filter content (collapsible) */
+.tl-filter-content {
+  max-height: 500px;
+  overflow: hidden;
+  transition: max-height 0.3s ease, opacity 0.3s ease, padding 0.3s ease;
+  opacity: 1;
+  padding-top: 1rem;
+}
+.tl-filters.tl-collapsed .tl-filter-content {
+  max-height: 0;
+  opacity: 0;
+  padding-top: 0;
+}
+
+/* Filter styles */
+.tl-filters {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1.5rem;
+}
+.tl-filter-group {
+  margin-bottom: 1rem;
+}
+.tl-filter-group:last-of-type {
+  margin-bottom: 0.5rem;
+}
+.tl-filter-label {
+  font-family: 'Oswald', Arial, sans-serif;
+  font-weight: 400;
+  font-size: 0.75rem;
+  color: #666;
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.tl-filter-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.tl-filter-checkbox {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.9rem;
+  background: #f5f5f5;
+  border: 1px solid #e0e0e0;
+  cursor: pointer;
+  font-size: 0.8rem;
+  color: #666;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+.tl-filter-checkbox:hover {
+  border-color: #212121;
+}
+.tl-filter-checkbox input {
+  display: none;
+}
+.tl-filter-checkbox input:checked + span {
+  color: #fff;
+}
+.tl-filter-checkbox.tl-checked {
+  background: #212121;
+  color: #fff;
+  border-color: #212121;
+}
+.tl-filter-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e0e0e0;
+}
+.tl-filter-btn {
+  padding: 0.4rem 0.8rem;
+  border: 1px solid #e0e0e0;
+  background: transparent;
+  cursor: pointer;
+  font-size: 0.75rem;
+  font-family: 'Oswald', Arial, sans-serif;
+  font-weight: 400;
+  color: #666;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.tl-filter-btn:hover {
+  background: #f5f5f5;
+  border-color: #212121;
+}
+.tl-filter-count {
+  margin-top: 0.8rem;
+  font-size: 0.8rem;
+  color: #9e9e9e;
+  text-align: center;
+}
+.tl-visible-count {
+  font-weight: 500;
+  color: #212121;
+}
+
+/* Hidden elements */
+.tl-year.tl-hidden,
+.tl-event.tl-hidden,
+.tl-slide.tl-hidden {
+  display: none !important;
+}
+.tl-year.tl-no-visible-events {
+  display: none !important;
+}
+
+/* No results message */
+.tl-no-results {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: #9e9e9e;
+  font-size: 1rem;
+}
+
+/* Linear view wrapper with side navigation */
+.tl-linear-wrapper {
+  display: flex;
+  gap: 1.5rem;
+  position: relative;
+  background: #F7EFD8;
+}
+
+/* Year navigation - separate section below toolbar */
+.tl-year-nav {
+  display: flex;
+  align-items: stretch;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  background: #F7EFD8;
+  border-bottom: 1px solid #e0e0e0;
+}
+.tl-year-nav-track {
+  width: 2px;
+  background: #e0e0e0;
+  position: relative;
+  align-self: stretch;
+  min-height: 30px;
+}
+.tl-year-nav-progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #212121;
+  height: 0%;
+  transition: height 0.3s ease;
+}
+.tl-year-nav-buttons {
+  display: flex;
+  flex-direction: row;
+  gap: 0.25rem;
+  flex-wrap: wrap;
+  flex: 1;
+}
+.tl-year-nav-btn {
+  padding: 0.35rem 0.6rem;
+  border: 1px solid #e0e0e0;
+  background: #F7EFD8;
+  cursor: pointer;
+  font-size: 0.75rem;
+  font-weight: 400;
+  font-family: 'Oswald', Arial, sans-serif;
+  color: #9e9e9e;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.tl-year-nav-btn:hover {
+  color: #212121;
+  border-color: #212121;
+  background: #efe4c0;
+}
+.tl-year-nav-btn.tl-active {
+  color: #fff;
+  background: #212121;
+  border-color: #212121;
+  font-weight: 500;
+}
+
+/* Linear view content */
+.tl-linear-view {
+  flex: 1;
+  min-width: 0;
+  padding-left: 2rem;
+  border-left: 1px solid #e0e0e0;
+  position: relative;
+  background: #F7EFD8;
+}
+
+/* Timeline style - Emilie Chedid */
+.tl-year {
+  margin-top: 2.5rem;
+  padding-top: 0;
+  position: relative;
+}
+.tl-year:first-child {
+  margin-top: 0;
+}
+.tl-year-title {
+  font-family: 'Oswald', Arial, sans-serif;
+  font-size: 1.75rem;
+  font-weight: 300;
+  color: #212121;
+  margin-bottom: 1.5rem;
+  margin-left: -2.5rem;
+  padding-left: 1rem;
+  position: relative;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+.tl-year-title::before {
+  content: '';
+  position: absolute;
+  left: -0.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 8px;
+  background: #212121;
+  border-radius: 50%;
+  border: 2px solid #fff;
+}
+
+/* Event styling */
+.tl-event {
+  position: relative;
+  margin-bottom: 1.5rem;
+  padding-left: 0;
+}
+.tl-event-dot {
+  display: none;
+}
+.tl-event-content {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  padding: 1.25rem;
+  border: 1px solid #e0e0e0;
+  transition: all 0.2s ease;
+}
+.tl-event-content:hover {
+  border-color: #212121;
+}
+.tl-event-title {
+  font-family: 'Oswald', Arial, sans-serif;
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin: 0 0 0.25rem 0;
+  color: #212121;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.tl-event-subtitle {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: #757575;
+  margin-bottom: 0.5rem;
+  font-style: italic;
+}
+.tl-event-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+}
+.tl-event-categories {
+  margin: 0;
+  font-size: 0.8rem;
+  flex: 1;
+}
+.tl-event-tag {
+  display: inline-block;
+  background: #f5f5f5;
+  color: #424242;
+  border: 1px solid #e0e0e0;
+  padding: 0.2rem 0.7rem;
+  margin-right: 0.3rem;
+  margin-bottom: 0.3rem;
+  font-size: 0.75rem;
+  font-weight: 400;
+}
+.tl-event-metadata {
+  margin-bottom: 0.75rem;
+  font-size: 0.8rem;
+  color: #757575;
+}
+.tl-event-meta {
+  display: inline-block;
+  margin-right: 1rem;
+  margin-bottom: 0.25rem;
+}
+.tl-event-meta strong {
+  color: #424242;
+  font-weight: 500;
+}
+.tl-event-description {
+  color: #424242;
+  line-height: 1.7;
+  font-size: 0.9rem;
+}
+.tl-event-description p {
+  margin: 0.5rem 0;
+}
+.tl-event-media {
+  margin: 0.75rem 0;
+}
+.tl-event-media img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+.tl-event-link {
+  margin-top: 0.75rem;
+  font-size: 0.85rem;
+}
+.tl-event-link a {
+  color: #212121;
+  text-decoration: none;
+  font-weight: 400;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  border-bottom: 1px solid #212121;
+  padding-bottom: 2px;
+  transition: opacity 0.2s ease;
+}
+.tl-event-link a:hover {
+  opacity: 0.6;
+}
+.tl-event-link a::after {
+  content: '→';
+  transition: transform 0.2s ease;
+}
+.tl-event-link a:hover::after {
+  transform: translateX(4px);
+}
+
+/* Fiche technique */
+.tl-fiche-technique {
+  margin-top: 1rem;
+  background: #fafafa;
+  border: 1px solid #e0e0e0;
+  overflow: hidden;
+}
+.tl-fiche-technique summary {
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  font-family: 'Oswald', Arial, sans-serif;
+  font-weight: 400;
+  font-size: 0.8rem;
+  color: #424242;
+  background: #f5f5f5;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.tl-fiche-technique summary:hover {
+  background: #e0e0e0;
+}
+.tl-fiche-technique summary:focus,
+.tl-fiche-technique summary:active {
+  outline: none;
+  text-transform: uppercase;
+}
+.tl-fiche-technique summary::-webkit-details-marker {
+  display: none;
+}
+.tl-fiche-technique summary::before {
+  content: '+';
+  font-size: 0.875rem;
+  font-weight: 300;
+  transition: transform 0.2s ease;
+}
+.tl-fiche-technique[open] summary::before {
+  content: '−';
+}
+.tl-fiche-technique .tl-fiche-content {
+  padding: 1rem;
+  font-size: 0.8rem;
+  color: #424242;
+  line-height: 1.7;
+  max-height: none;
+  overflow: visible;
+}
+.tl-fiche-technique .tl-fiche-content p {
+  margin: 0.3rem 0;
+}
+.tl-fiche-technique .tl-fiche-content strong {
+  color: #212121;
+  font-weight: 500;
+}
+
+/* YouTube embed */
+.tl-youtube {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  margin-top: 0.75rem;
+}
+.tl-youtube iframe {
+  position: absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  border:0;
+}
+.tl-youtube-hidden {
+  display: none;
+}
+
+/* YouTube placeholder/poster for lazy loading */
+.tl-youtube-placeholder {
+  cursor: pointer;
+}
+.tl-youtube-poster {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.tl-youtube-poster img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.tl-youtube-play {
+  position: relative;
+  z-index: 1;
+  width: 68px;
+  height: 48px;
+  opacity: 0.9;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.tl-youtube-placeholder:hover .tl-youtube-play {
+  opacity: 1;
+  transform: scale(1.1);
+}
+.tl-youtube-play svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Share button */
+.tl-share-container {
+  position: relative;
+  display: inline-block;
+  margin-top: 0.75rem;
+}
+.tl-share-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.8rem;
+  border: 1px solid #e0e0e0;
+  background: #fff;
+  cursor: pointer;
+  font-size: 0.75rem;
+  font-family: 'Oswald', Arial, sans-serif;
+  font-weight: 400;
+  color: #666;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.tl-share-btn svg {
+  width: 14px;
+  height: 14px;
+}
+.tl-share-btn:hover {
+  background: #f5f5f5;
+  border-color: #212121;
+  color: #212121;
+}
+.tl-share-dropdown {
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 -2px 8px rgba(0,0,0,0.1);
+  z-index: 100;
+  min-width: 160px;
+  display: none;
+  margin-bottom: 4px;
+}
+.tl-share-dropdown.tl-open {
+  display: block;
+}
+.tl-share-option {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.6rem 0.8rem;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-family: Arial, sans-serif;
+  color: #424242;
+  text-align: left;
+  transition: background 0.2s ease;
+}
+.tl-share-option:hover {
+  background: #f5f5f5;
+}
+.tl-share-option svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+.tl-share-copied {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #212121;
+  color: #fff;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.75rem;
+  white-space: nowrap;
+  margin-bottom: 8px;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+}
+.tl-share-copied.tl-visible {
+  opacity: 1;
+}
+
+/* Image gallery */
+.tl-gallery {
+  position: relative;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.tl-gallery-img {
+  display: none;
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+.tl-gallery-img.tl-gallery-active {
+  display: block;
+}
+.tl-gallery-prev,
+.tl-gallery-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #424242;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  z-index: 2;
+}
+.tl-gallery-prev:hover,
+.tl-gallery-next:hover {
+  background: #fff;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.3);
+  color: #1976d2;
+}
+.tl-gallery-prev {
+  left: 0.5rem;
+}
+.tl-gallery-next {
+  right: 0.5rem;
+}
+.tl-gallery-counter {
+  position: absolute;
+  bottom: 0.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  z-index: 2;
+}
+
+/* Slideshow styles */
+.tl-slideshow-view {
+  position: relative;
+  background: #F7EFD8;
+}
+.tl-slideshow-container {
+  position: relative;
+  overflow: hidden;
+  background: #F7EFD8;
+  border: 1px solid #e0e0e0;
+}
+.tl-slide {
+  display: none;
+  padding: 2rem;
+  animation: tl-fadeIn 0.4s ease;
+}
+.tl-slide.tl-active {
+  display: block;
+}
+@keyframes tl-fadeIn {
+  from { opacity: 0; transform: translateX(20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+.tl-slide-year {
+  display: inline-block;
+  font-family: 'Oswald', Arial, sans-serif;
+  background: #f5f5f5;
+  color: #212121;
+  padding: 0.3rem 0.8rem;
+  border: 1px solid #e0e0e0;
+  font-weight: 400;
+  font-size: 0.8rem;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.tl-slide-content {
+  display: flex;
+  flex-direction: column;
+}
+.tl-slide-text {
+  display: flex;
+  flex-direction: column;
+}
+.tl-slide-media {
+  margin: 0.75rem 0;
+}
+.tl-slide-media img {
+  width: 100%;
+  height: auto;
+}
+.tl-slide-media .tl-youtube {
+  margin-top: 0;
+}
+.tl-slide-title {
+  font-family: 'Oswald', Arial, sans-serif;
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin: 0 0 0.25rem 0;
+  color: #212121;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.tl-slide-subtitle {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: #757575;
+  margin-bottom: 0.5rem;
+  font-style: italic;
+}
+.tl-slide-description {
+  color: #424242;
+  line-height: 1.7;
+  font-size: 0.9rem;
+}
+.tl-slide-description p {
+  margin: 0.5rem 0;
+}
+.tl-slide-description ul, .tl-slide-description ol {
+  margin: 0.5rem 0;
+  padding-left: 1.5rem;
+}
+
+/* Slideshow navigation */
+.tl-slideshow-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+.tl-slide-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid #e0e0e0;
+  background: #F7EFD8;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: #424242;
+}
+.tl-slide-btn:hover {
+  background: #212121;
+  border-color: #212121;
+  color: #fff;
+}
+.tl-slide-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+.tl-slide-btn:disabled:hover {
+  background: #F7EFD8;
+  border-color: #e0e0e0;
+  color: #424242;
+}
+.tl-slide-counter {
+  font-family: 'Oswald', Arial, sans-serif;
+  font-size: 0.9rem;
+  color: #9e9e9e;
+  min-width: 60px;
+  text-align: center;
+  letter-spacing: 1px;
+}
+.tl-slide-current {
+  font-weight: 500;
+  color: #212121;
+}
+
+/* Slideshow dots */
+.tl-slideshow-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.tl-slideshow-dot {
+  width: 8px;
+  height: 8px;
+  background: #e0e0e0;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.tl-slideshow-dot:hover {
+  background: #9e9e9e;
+}
+.tl-slideshow-dot.tl-active {
+  background: #212121;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .tl-main-title {
+    font-size: 1.8rem;
+  }
+  .tl-intro-section {
+    padding: 0.75rem 1rem;
+  }
+  .tl-intro-text {
+    font-size: 0.85rem;
+  }
+  .tl-toolbar {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding: 0.75rem;
+  }
+  .tl-toolbar-title {
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+  }
+  .tl-toolbar-btn {
+    font-size: 0.7rem;
+    padding: 0.4rem 0.6rem;
+  }
+  .tl-search-box {
+    width: 100%;
+    order: 10;
+  }
+  .tl-search-input {
+    width: 100%;
+  }
+  .tl-search-input:focus {
+    width: 100%;
+  }
+  .tl-filter-dropdown-menu {
+    left: 0;
+    right: 0;
+  }
+  .tl-year-nav {
+    padding: 0.5rem;
+    overflow-x: auto;
+  }
+  .tl-year-nav-track {
+    display: none;
+  }
+  .tl-year-nav-buttons {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+  }
+  .tl-year-nav-btn {
+    flex: 0 0 auto;
+    min-width: 60px;
+    text-align: center;
+    padding: 0.4rem 0.6rem;
+    font-size: 0.7rem;
+  }
+  /* Adjust spacer for taller fixed header on mobile */
+  .tl-fixed-header + * {
+    margin-top: 180px;
+  }
+}
+  .tl-linear-wrapper {
+    flex-direction: column;
+  }
+  .tl-linear-view {
+    padding-left: 0;
+    border-left: none;
+  }
+  .tl-year-title {
+    font-size: 1.25rem;
+    margin-left: 0;
+    padding-left: 1.5rem;
+  }
+  .tl-year-title::before {
+    left: 0;
+  }
+  .tl-event {
+    padding-left: 0;
+  }
+  .tl-event-content {
+    padding: 1rem;
+  }
+  .tl-event-meta {
+    display: block;
+    margin-bottom: 0.3rem;
+  }
+  .tl-slide-content {
+    flex-direction: column;
+  }
+  .tl-slide {
+    padding: 1rem;
+  }
+}
+
+/* Highlight animation for anchor scroll */
+@keyframes tl-highlight-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(33, 33, 33, 0.4); }
+  50% { box-shadow: 0 0 0 10px rgba(33, 33, 33, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(33, 33, 33, 0); }
+}
+.tl-highlight {
+  animation: tl-highlight-pulse 1s ease-out 2;
+}
+
+/* YouTube Videos Gallery (multiple videos) */
+.tl-youtube-gallery {
+  margin-top: 1.5rem;
+  padding: 1rem 0;
+}
+.tl-youtube-gallery-title {
+  font-family: 'Oswald', Arial, sans-serif;
+  font-size: 1.2rem;
+  font-weight: 400;
+  margin: 0 0 1rem 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #212121;
+}
+.tl-youtube-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+}
+.tl-youtube-thumbnail {
+  position: relative;
+  cursor: pointer;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: #000;
+}
+.tl-youtube-thumbnail:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+.tl-youtube-thumbnail img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.tl-youtube-thumb-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  opacity: 0.9;
+  transition: opacity 0.3s ease;
+}
+.tl-youtube-thumbnail:hover .tl-youtube-thumb-play {
+  opacity: 1;
+}
+
+/* YouTube Video Lightbox */
+.tl-video-lightbox {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.95);
+  z-index: 10000;
+  justify-content: center;
+  align-items: center;
+}
+.tl-video-lightbox.tl-active {
+  display: flex;
+}
+.tl-lightbox-content {
+  position: relative;
+  width: 90%;
+  max-width: 1200px;
+  aspect-ratio: 16 / 9;
+}
+.tl-lightbox-content iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+.tl-lightbox-close {
+  position: absolute;
+  top: -50px;
+  right: 0;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 10px;
+  line-height: 1;
+  transition: color 0.3s ease;
+}
+.tl-lightbox-close:hover {
+  color: #ff0000;
+}
+
+@media (max-width: 768px) {
+  .tl-youtube-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+  .tl-lightbox-content {
+    width: 95%;
+  }
+  .tl-lightbox-close {
+    top: -40px;
+    font-size: 1.5rem;
+  }
+}
+
+
+/* Page-specific styles */
+body {
+    margin: 0;
+    padding: 0;
+    background: #fff;
+}
+.page-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #212121;
+    text-decoration: none;
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 2rem;
+    padding: 0.5rem 1rem;
+    border: 1px solid #212121;
+    transition: all 0.2s;
+}
+.back-link:hover {
+    background: #212121;
+    color: #fff;
+}
+    </style>
+    
+<style>
+body {
+  margin: 0;
+  background: #000;
+  color: #f2f2f2;
+}
+.mw-page {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 1rem;
+  background: #000;
+}
+.mw-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+.mw-header h1 {
+  font-family: 'Oswald', Arial, sans-serif;
+  letter-spacing: 2px;
+  font-weight: 500;
+  margin: 0;
+}
+.mw-header p {
+  margin: 0.2rem 0 0 0;
+  color: #a6a6a6;
+}
+.mw-header-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+.mw-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.45rem 0.8rem;
+  border: 1px solid #f2f2f2;
+  color: #f2f2f2;
+  text-decoration: none;
+  font-family: 'Oswald', Arial, sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+.mw-btn:hover {
+  background: #f2f2f2;
+  color: #000;
+}
+.mw-filters {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(140px, 1fr));
+  gap: 0.6rem;
+  margin-bottom: 0.8rem;
+}
+.mw-input {
+  border: 1px solid #2f2f2f;
+  background: #111;
+  color: #f2f2f2;
+  padding: 0.55rem 0.65rem;
+  font-size: 0.9rem;
+}
+.mw-search {
+  grid-column: span 1;
+}
+.mw-count {
+  margin: 0.2rem 0 0.9rem;
+  color: #9a9a9a;
+  font-size: 0.9rem;
+}
+.mw-grid {
+  column-count: 5;
+  column-gap: 0;
+}
+.mw-card {
+  break-inside: avoid;
+  margin: 0;
+  background: #000;
+  border: 0;
+}
+.mw-thumb-wrap {
+  position: relative;
+  overflow: hidden;
+}
+.mw-thumb-action {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+}
+.mw-thumb-wrap img {
+  width: 100%;
+  display: block;
+}
+.mw-badge {
+  position: absolute;
+  top: 0.4rem;
+  left: 0.4rem;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  padding: 0.18rem 0.4rem;
+  z-index: 3;
+}
+.mw-play {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 2.2rem;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+  pointer-events: none;
+  z-index: 3;
+}
+.mw-video-modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  z-index: 2000;
+}
+.mw-video-modal.is-open {
+  display: block;
+}
+.mw-video-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+}
+.mw-video-panel {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(92vw, 1120px);
+  aspect-ratio: 16 / 9;
+}
+.mw-video-panel iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+.mw-video-close {
+  position: absolute;
+  right: -0.5rem;
+  top: -2.2rem;
+  border: 1px solid #f2f2f2;
+  background: transparent;
+  color: #f2f2f2;
+  width: 2rem;
+  height: 2rem;
+  font-size: 1.4rem;
+  line-height: 1;
+  cursor: pointer;
+}
+@media (max-width: 1120px) {
+  .mw-grid { column-count: 4; }
+}
+@media (max-width: 860px) {
+  .mw-grid { column-count: 3; }
+  .mw-filters { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 680px) {
+  .mw-grid { column-count: 2; }
+}
+@media (max-width: 560px) {
+  .mw-grid { column-count: 1; }
+  .mw-filters { grid-template-columns: 1fr; }
+  .mw-header { align-items: flex-start; flex-direction: column; }
+}
+</style>
+
+</head>
+<body>
+
+<div class="mw-page">
+  <header class="mw-header">
+    <div class="mw-header-left">
+      <h1>MUR D'IMAGE</h1>
+      <p>Images et vidéos extraites des événements.</p>
+    </div>
+    <div class="mw-header-actions">
+      <a href="https://constellation.emiliechedid.fr/timeline.html" class="mw-btn">Timeline</a>
+      <a href="https://constellation.emiliechedid.fr/index.html" class="mw-btn">Explorer 3D</a>
+    </div>
+  </header>
+
+  <section class="mw-filters">
+    <select id="mw-filter-type" class="mw-input">
+      <option value="all">Tous les médias</option>
+      <option value="image">Images</option>
+      <option value="video">Vidéos</option>
+    </select>
+    <select id="mw-filter-year" class="mw-input">
+      <option value="all">Toutes les années</option>
+      <option value="2026">2026</option><option value="2025">2025</option><option value="2024">2024</option><option value="2023">2023</option><option value="2022">2022</option><option value="2021">2021</option><option value="2020">2020</option><option value="2019">2019</option><option value="2018">2018</option><option value="2017">2017</option><option value="2016">2016</option><option value="2015">2015</option><option value="2014">2014</option><option value="2012">2012</option><option value="2011">2011</option><option value="2010">2010</option><option value="2009">2009</option><option value="2008">2008</option><option value="2007">2007</option><option value="2006">2006</option><option value="2005">2005</option><option value="2004">2004</option><option value="2003">2003</option><option value="2001">2001</option><option value="2000">2000</option><option value="1999">1999</option><option value="1998">1998</option><option value="1997">1997</option><option value="1996">1996</option><option value="1994">1994</option><option value="1993">1993</option>
+    </select>
+    <select id="mw-filter-category" class="mw-input">
+      <option value="all">Toutes les catégories</option>
+      <option value="Autrice">Autrice</option><option value="B.D">B.D</option><option value="Conceptrice DVD">Conceptrice DVD</option><option value="D.A">D.A</option><option value="Distinction">Distinction</option><option value="Editrice">Editrice</option><option value="Illustratrice">Illustratrice</option><option value="Image">Image</option><option value="Intime">Intime</option><option value="Inédit">Inédit</option><option value="Mise en scène">Mise en scène</option><option value="Monteuse">Monteuse</option><option value="Photographe">Photographe</option><option value="Productrice">Productrice</option><option value="Réalisatrice">Réalisatrice</option>
+    </select>
+    <input id="mw-search" class="mw-input mw-search" type="text" placeholder="Rechercher un événement...">
+  </section>
+
+  <p id="mw-count" class="mw-count"></p>
+  <main id="mw-grid" class="mw-grid"></main>
+</div>
+
+<div id="mw-video-modal" class="mw-video-modal" aria-hidden="true">
+  <div class="mw-video-backdrop"></div>
+  <div class="mw-video-panel">
+    <button id="mw-video-close" class="mw-video-close" aria-label="Fermer">×</button>
+    <iframe id="mw-video-frame" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+</div>
+
+<script type="application/json" id="mw-media-data">[{"id": "vid-1", "mediaType": "video", "thumbUrl": "https://img.youtube.com/vi/saJX6sAWtZ4/hqdefault.jpg", "mediaUrl": "https://youtu.be/saJX6sAWtZ4?si=-5PzReOoRf8VJQcd", "videoId": "saJX6sAWtZ4", "eventTitle": "Silences", "eventYear": "2026", "eventSlug": "silences", "eventUrl": "events/silences.html", "categories": ["Image", "Monteuse", "Réalisatrice", "Productrice"], "searchText": "Silences 2026 Image Monteuse Réalisatrice Productrice"}, {"id": "vid-2", "mediaType": "video", "thumbUrl": "https://img.youtube.com/vi/Pa0ji559A_E/hqdefault.jpg", "mediaUrl": "https://youtu.be/Pa0ji559A_E", "videoId": "Pa0ji559A_E", "eventTitle": "Twenty Twenty", "eventYear": "2025", "eventSlug": "twenty-twenty", "eventUrl": "events/twenty-twenty.html", "categories": ["Monteuse", "Réalisatrice", "Productrice"], "searchText": "Twenty Twenty 2025 Monteuse Réalisatrice Productrice"}, {"id": "vid-3", "mediaType": "video", "thumbUrl": "https://img.youtube.com/vi/aSrdS4ycQ_U/hqdefault.jpg", "mediaUrl": "https://youtu.be/aSrdS4ycQ_U", "videoId": "aSrdS4ycQ_U", "eventTitle": "Je suis heureux pour toi", "eventYear": "2024", "eventSlug": "je-suis-heureux-pour-toi", "eventUrl": "events/je-suis-heureux-pour-toi.html", "categories": ["Image", "Monteuse", "Réalisatrice"], "searchText": "Je suis heureux pour toi 2024 Image Monteuse Réalisatrice"}, {"id": "vid-4", "mediaType": "video", "thumbUrl": "https://img.youtube.com/vi/59iSIexQTP8/hqdefault.jpg", "mediaUrl": "https://youtu.be/59iSIexQTP8?si=QUhevsqcuj50ghWe", "videoId": "59iSIexQTP8", "eventTitle": "Mogodo", "eventYear": "2023", "eventSlug": "mogodo", "eventUrl": "events/mogodo.html", "categories": ["D.A", "Réalisatrice"], "searchText": "Mogodo 2023 D.A Réalisatrice"}, {"id": "img-5", "mediaType": "image", "thumbUrl": "https://static.wixstatic.com/media/3d23ce_657507db12a54d8b91d753b0031aca43~mv2.jpeg", "mediaUrl": "https://static.wixstatic.com/media/3d23ce_657507db12a54d8b91d753b0031aca43~mv2.jpeg", "eventTitle": "Rêvalité ", "eventYear": "2022", "eventSlug": "revalite", "eventUrl": "events/revalite.html", "categories": ["D.A"], "searchText": "Rêvalité  2022 D.A"}, {"id": "img-6", "mediaType": "image", "thumbUrl": "https://static.wixstatic.com/media/3d23ce_8d801080c982481e9e0a6a374171ffa3~mv2.jpeg", "mediaUrl": "https://static.wixstatic.com/media/3d23ce_8d801080c982481e9e0a6a374171ffa3~mv2.jpeg", "eventTitle": "Rêvalité ", "eventYear": "2022", "eventSlug": "revalite", "eventUrl": "events/revalite.html", "categories": ["D.A"], "searchText": "Rêvalité  2022 D.A"}, {"id": "img-7", "mediaType": "image", "thumbUrl": "https://static.wixstatic.com/media/3d23ce_6794986351734a78af72f7d01363fa4b~mv2.jpeg", "mediaUrl": "https://static.wixstatic.com/media/3d23ce_6794986351734a78af72f7d01363fa4b~mv2.jpeg", "eventTitle": "Rêvalité ", "eventYear": "2022", "eventSlug": "revalite", "eventUrl": "events/revalite.html", "categories": ["D.A"], "searchText": "Rêvalité  2022 D.A"}, {"id": "img-8", "mediaType": "image", "thumbUrl": "https://static.wixstatic.com/media/3d23ce_0de820cc47194df285f3d38813e58312~mv2.jpg", "mediaUrl": "https://static.wixstatic.com/media/3d23ce_0de820cc47194df285f3d38813e58312~mv2.jpg", "eventTitle": "Illustrations by Emil", "eventYear": "2021", "eventSlug": "illustrations-by-emil", "eventUrl": "events/illustrations-by-emil.html", "categories": ["Illustratrice"], "searchText": "Illustrations by Emil 2021 Illustratrice"}, {"id": "img-9", "mediaType": "image", "thumbUrl": "https://static.wixstatic.com/media/3d23ce_46c84d8b782d4db48efff2be0f712e34~mv2.png", "mediaUrl": "https://static.wixstatic.com/media/3d23ce_46c84d8b782d4db48efff2be0f712e34~mv2.png", "eventTitle": "Illustrations by Emil", "eventYear": "2021", "eventSlug": "illustrations-by-emil", "eventUrl": "events/illustrations-by-emil.html", "categories": ["Illustratrice"], "searchText": "Illustrations by Emil 2021 Illustratrice"}, {"id": "img-10", "mediaType": "image", "thumbUrl": "https://static.wixstatic.com/media/3d23ce_c3018b168bf14c03aafe41938f1f5d06~mv2.png", "mediaUrl": "https://static.wixstatic.com/media/3d23ce_c3018b168bf14c03aafe41938f1f5d06~mv2.png", "eventTitle": "Grandes Oreilles, Tout Oreilles", "eventYear": "2021", "eventSlug": "grandes-oreilles-tout-oreilles", "eventUrl": "events/grandes-oreilles-tout-oreilles.html", "categories": ["B.D", "Illustratrice"], "searchText": "Grandes Oreilles, Tout Oreilles 2021 B.D Illustratrice"}, {"id": "img-11", "mediaType": "image", "thumbUrl": "https://static.wixstatic.com/media/3d23ce_7ea51b2b9cda4a78bf948410e4f863d3~mv2.jpg", "mediaUrl": "https://static.wixstatic.com/media/3d23ce_7ea51b2b9cda4a78bf948410e4f863d3~mv2.jpg", "eventTitle": "Grandes Oreilles, Tout Oreilles", "eventYear": "2021", "eventSlug": "grandes-oreilles-tout-oreilles", "eventUrl": "events/grandes-oreilles-tout-oreilles.html", "categories": ["B.D", "Illustratrice"], "searchText": "Grandes Oreilles, Tout Oreilles 2021 B.D Illustratrice"}, {"id": "img-12", "mediaType": "image", "thumbUrl": "https://static.wixstatic.com/media/3d23ce_51a24499258b4e9c991bdc068ddc930b~mv2.jpg", "mediaUrl": "https://static.wixstatic.com/media/3d23ce_51a24499258b4e9c991bdc068ddc930b~mv2.jpg", "eventTitle": "Grandes Oreilles, Tout Oreilles", "eventYear": "2021", "eventSlug": "grandes-oreilles-tout-oreilles", "eventUrl": "events/grandes-oreilles-tout-oreilles.html", "categories": ["B.D", "Illustratrice"], "searchText": "Grandes Oreilles, Tout Oreilles 2021 B.D Illustratrice"}, {"id": "img-13", "mediaType": "image", "thumbUrl": "https://static.wixstatic.com/media/3d23ce_0e153c8c061a46db9d605c665816837b~mv2.jpg", "mediaUrl": "https://static.wixstatic.com/media/3d23ce_0e153c8c061a46db9d605c665816837b~mv2.jpg", "eventTitle": "Grandes Oreilles, Tout Oreilles", "eventYear": "2021", "eventSlug": "grandes-oreilles-tout-oreilles", "eventUrl": "events/grandes-oreilles-tout-oreilles.html", "categories": ["B.D", "Illustratrice"], "searchText": "Grandes Oreilles, Tout Oreilles 2021 B.D Illustratrice"}, {"id": "img-14", "mediaType": "image", "thumbUrl": "https://static.wixstatic.com/media/3d23ce_8e740d55a77548cdab3a1346e4da7d98~mv2.jpg", "mediaUrl": "https://static.wixstatic.com/media/3d23ce_8e740d55a77548cdab3a1346e4da7d98~mv2.jpg", "eventTitle": "Grandes Oreilles, Tout Oreilles", "eventYear": "2021", "eventSlug": "grandes-oreilles-tout-oreilles", "eventUrl": "events/grandes-oreilles-tout-oreilles.html", "categories": ["B.D", "Illustratrice"], "searchText": "Grandes Oreilles, Tout Oreilles 2021 B.D Illustratrice"}, {"id": "img-15", "mediaType": "image", "thumbUrl": "https://static.wixstatic.com/media/3d23ce_8d006ee77fa248dcb3b96fac7053dca9~mv2.jpg", "mediaUrl": "https://static.wixstatic.com/media/3d23ce_8d006ee77fa248dcb3b96fac7053dca9~mv2.jpg", "eventTitle": "Grandes Oreilles, Tout Oreilles", "eventYear": "2021", "eventSlug": "grandes-oreilles-tout-oreilles", "eventUrl": "events/grandes-oreilles-tout-oreilles.html", "categories": ["B.D", "Illustratrice"], "searchText": "Grandes Oreilles, Tout Oreilles 2021 B.D Illustratrice"}, {"id": "img-16", "mediaType": "image", "thumbUrl": "https://static.wixstatic.com/media/3d23ce_b909a2caefeb480294b472a154fb32a0~mv2.jpg", "mediaUrl": "https://static.wixstatic.com/media/3d23ce_b909a2caefeb480294b472a154fb32a0~mv2.jpg", "eventTitle": "Grandes Oreilles, Tout Oreilles", "eventYear": "2021", "eventSlug": "grandes-oreilles-tout-oreilles", "eventUrl": "events/grandes-oreilles-tout-oreilles.html", "categories": ["B.D", "Illustratrice"], "searchText": "Grandes Oreilles, Tout Oreilles 2021 B.D Illustratrice"}, {"id": "vid-17", "mediaType": "video", "thumbUrl": "https://img.youtube.com/vi/Q8HcijwB9RU/hqdefault.jpg", "mediaUrl": "https://youtu.be/Q8HcijwB9RU?si=7ThaGAFJYqjukTCQ", "videoId": "Q8HcijwB9RU", "eventTitle": "Grandes Oreilles", "eventYear": "2021", "eventSlug": "grandes-oreilles", "eventUrl": "events/grandes-oreilles.html", "categories": ["Réalisatrice", "Illustratrice"], "searchText": "Grandes Oreilles 2021 Réalisatrice Illustratrice"}, {"id": "img-18", "mediaType": "image", "thumbUrl": "https://static.wixstatic.com/media/3d23ce_24e05ca2c9744ca08d70fc5cec2d88ca~mv2.jpeg", "mediaUrl": "https://static.wixstatic.com/media/3d23ce_24e05ca2c9744ca08d70fc5cec2d88ca~mv2.jpeg", "eventTitle": "Vibrations", "eventYear": "2020", "eventSlug": "vibrations", "eventUrl": "events/vibrations.html", "categories": ["Autrice", "Mise en scène"], "searchText": "Vibrations 2020 Autrice Mise en scène"}, {"id": "img-19", "mediaType": "image", "thumbUrl": "https://static.wixstatic.com/media/3d23ce_716a69f9d66a49aab624f53480a53529~mv2.jpeg", "mediaUrl": "https://static.wixstatic.com/media/3d23ce_716a69f9d66a49aab624f53480a53529~mv2.jpeg", "eventTitle": "Vibrations", "eventYear": "2020", "eventSlug": "vibrations", "eventUrl": "events/vibrations.html", "categories": ["Autrice", "Mise en scène"], "searchText": "Vibrations 2020 Autrice Mise en scène"}, {"id": "img-20", "mediaType": "image", "thumbUrl": "https://static.wixstatic.com/media/3d23ce_c089c46388e5406dac3f08207c84ebcb~mv2.jpg", "mediaUrl": "https://static.wixstatic.com/media/3d23ce_c089c46388e5406dac3f08207c84ebcb~mv2.jpg", "eventTitle": "Naïvetés by Emil", "eventYear": "2020", "eventSlug": "naivetes-by-emil", "eventUrl": "events/naivetes-by-emil.html", "categories": ["Illustratrice"], "searchText": "Naïvetés by Emil 2020 Illustratrice"}, {"id": "img-21", "mediaType": "image", "thumbUrl": "https://static.wixstatic.com/media/3d23ce_c7a1215425fe42fe8220a23f8d75559f~mv2.jpg", "mediaUrl": "https://static.wixstatic.com/media/3d23ce_c7a1215425fe42fe8220a23f8d75559f~mv2.jpg", "eventTitle": "Naïvetés by Emil", "eventYear": "2020", "eventSlug": "naivetes-by-emil", "eventUrl": "events/naivetes-by-emil.html", "categories": ["Illustratrice"], "searchText": "Naïvetés by Emil 2020 Illustratrice"}, {"id": "img-22", "mediaType": "image", "thumbUrl": "https://static.wixstatic.com/media/3d23ce_57daf81c47e648ceb4de35187b93298a~mv2.jpg", "mediaUrl": "https://static.wixstatic.com/media/3d23ce_57daf81c47e648ceb4de35187b93298a~mv2.jpg", "eventTitle": "Ghost Clusters", "eventYear": "2020", "eventSlug": "ghost-clusters", "eventUrl": "events/ghost-clusters.html", "categories": ["D.A", "Editrice", "Autrice", "Illustratrice", "B.D"], "searchText": "Ghost Clusters 2020 D.A Editrice Autrice Illustratrice B.D"}, {"id": "img-23", "mediaType": "image", "thumbUrl": "https://static.wixstatic.com/media/3d23ce_7c9c67a40f77492ca08c119958693598~mv2.jpg", "mediaUrl": "https://static.wixstatic.com/media/3d23ce_7c9c67a40f77492ca08c119958693598~mv2.jpg", "eventTitle": "Ghost Clusters", "eventYear": "2020", "eventSlug": "ghost-clusters", "eventUrl": "events/ghost-clusters.html", "categories": ["D.A", "Editrice", "Autrice", "Illustratrice", "B.D"], "searchText": "Ghost Clusters 2020 D.A Editrice Autrice Illustratrice B.D"}, {"id": "img-24", "mediaType": "image", "thumbUrl": "https://static.wixstatic.com/media/3d23ce_a89d8c88931a4ad9ba1a99300cb01629~mv2.jpg", "mediaUrl": "https://static.wixstatic.com/media/3d23ce_a89d8c88931a4ad9ba1a99300cb01629~mv2.jpg", "eventTitle": "Ghost Clusters", "eventYear": "2020", "eventSlug": "ghost-clusters", "eventUrl": "events/ghost-clusters.html", "categories": ["D.A", "Editrice", "Autrice", "Illustratrice", "B.D"], "searchText": "Ghost Clusters 2020 D.A Editrice Autrice Illustratrice B.D"}, {"id": "img-25", "mediaType": "image", "thumbUrl": "https://static.wixstatic.com/media/3d23ce_270070d36f7c456fa0e98f3fab01a042~mv2.jpg", "mediaUrl": "https://static.wixstatic.com/media/3d23ce_270070d36f7c456fa0e98f3fab01a042~mv2.jpg", "eventTitle": "Ghost Clusters", "eventYear": "2020", "eventSlug": "ghost-clusters", "eventUrl": "events/ghost-clusters.html", "categories": ["D.A", "Editrice", "Autrice", "Illustratrice", "B.D"], "searchText": "Ghost Clusters 2020 D.A Editrice Autrice Illustratrice B.D"}, {"id": "img-26", "mediaType": "image", "thumbUrl": "https://static.wixstatic.com/media/3d23ce_b3658195378e4083bc23c89a7fecea51~mv2.jpg", "mediaUrl": "https://static.wixstatic.com/media/3d23ce_b3658195378e4083bc23c89a7fecea51~mv2.jpg", "eventTitle": "Ghost Clusters", "eventYear": "2020", "eventSlug": "ghost-clusters", "eventUrl": "events/ghost-clusters.html", "categories": ["D.A", "Editrice", "Autrice", "Illustratrice", "B.D"], "searchText": "Ghost Clusters 2020 D.A Editrice Autrice Illustratrice B.D"}, {"id": "img-27", "mediaType": "image", "thumbUrl": "https://static.wixstatic.com/media/3d23ce_62cc149c35da46d1b1fbbf55ebc39815~mv2.jpg", "mediaUrl": "https://static.wixstatic.com/media/3d23ce_62cc149c35da46d1b1fbbf55ebc39815~mv2.jpg", "eventTitle": "Ghost Clusters", "eventYear": "2020", "eventSlug": "ghost-clusters", "eventUrl": "events/ghost-clusters.html", "categories": ["D.A", "Editrice", "Autrice", "Illustratrice", "B.D"], "searchText": "Ghost Clusters 2020 D.A Editrice Autrice Illustratrice B.D"}, {"id": "img-28", "mediaType": "image", "thumbUrl": "https://static.wixstatic.com/media/3d23ce_0e47e176a9934aeebd89fe670533ecce~mv2.jpg", "mediaUrl": "https://static.wixstatic.com/media/3d23ce_0e47e176a9934aeebd89fe670533ecce~mv2.jpg", "eventTitle": "Ghost Clusters", "eventYear": "2020", "eventSlug": "ghost-clusters", "eventUrl": "events/ghost-clusters.html", "categories": ["D.A", "Editrice", "Autrice", "Illustratrice", "B.D"], "searchText": "Ghost Clusters 2020 D.A Editrice Autrice Illustratrice B.D"}, {"id": "img-29", "mediaType": "image", "thumbUrl": "https://static.wixstatic.com/media/3d23ce_96b608d2a49f4812affb8569e3c5d014~mv2.jpg", "mediaUrl": "https://static.wixstatic.com/media/3d23ce_96b608d2a49f4812affb8569e3c5d014~mv2.jpg", "eventTitle": "Ghost Clusters", "eventYear": "2020", "eventSlug": "ghost-clusters", "eventUrl": "events/ghost-clusters.html", "categories": ["D.A", "Editrice", "Autrice", "Illustratrice", "B.D"], "searchText": "Ghost Clusters 2020 D.A Editrice Autrice Illustratrice B.D"}, {"id": "img-30", "mediaType": "image", "thumbUrl": "https://static.wixstatic.com/media/3d23ce_9ea74dc6a3f24223b5bb32d6bd94589d~mv2.jpg", "mediaUrl": "https://static.wixstatic.com/media/3d23ce_9ea74dc6a3f24223b5bb32d6bd94589d~mv2.jpg", "eventTitle": "Ghost by Emil", "eventYear": "2020", "eventSlug": "ghost-by-emil", "eventUrl": "events/ghost-by-emil.html", "categories": ["Illustratrice"], "searchText": "Ghost by Emil 2020 Illustratrice"}, {"id": "img-31", "mediaType": "image", "thumbUrl": "https://static.wixstatic.com/media/3d23ce_0e47e176a9934aeebd89fe670533ecce~mv2.jpg", "mediaUrl": "https://static.wixstatic.com/media/3d23ce_0e47e176a9934aeebd89fe670533ecce~mv2.jpg", "eventTitle": "Ghost by Emil", "eventYear": "2020", "eventSlug": "ghost-by-emil", "eventUrl": "events/ghost-by-emil.html", "categories": ["Illustratrice"], "searchText": "Ghost by Emil 2020 Illustratrice"}, {"id": "img-32", "mediaType": "image", "thumbUrl": "https://static.wixstatic.com/media/3d23ce_ee197c05fac0480bb93db8fc3509dcc0~mv2.jpg", "mediaUrl": "https://static.wixstatic.com/media/3d23ce_ee197c05fac0480bb93db8fc3509dcc0~mv2.jpg", "eventTitle": "Ghost by Emil", "eventYear": "2020", "eventSlug": "ghost-by-emil", "eventUrl": "events/ghost-by-emil.html", "categories": ["Illustratrice"], "searchText": "Ghost by Emil 2020 Illustratrice"}, {"id": "img-33", "mediaType": "image", "thumbUrl": "https://static.wixstatic.com/media/3d23ce_c8d77e4c7be44b5fbdaa574d15d9e9da~mv2.jpg", "mediaUrl": "https://static.wixstatic.com/media/3d23ce_c8d77e4c7be44b5fbdaa574d15d9e9da~mv2.jpg", "eventTitle": "Ghost by Emil", "eventYear": "2020", "eventSlug": "ghost-by-emil", "eventUrl": "events/ghost-by-emil.html", "categories": ["Illustratrice"], "searchText": "Ghost by Emil 2020 Illustratrice"}, {"id": "img-34", "mediaType": "image", "thumbUrl": "https://static.wixstatic.com/media/3d23ce_a20468f8e0144ae98e1cb702c0eb34fe~mv2.jpg", "mediaUrl": "https://static.wixstatic.com/media/3d23ce_a20468f8e0144ae98e1cb702c0eb34fe~mv2.jpg", "eventTitle": "Ghost by Emil", "eventYear": "2020", "eventSlug": "ghost-by-emil", "eventUrl": "events/ghost-by-emil.html", "categories": ["Illustratrice"], "searchText": "Ghost by Emil 2020 Illustratrice"}, {"id": "img-35", "mediaType": "image", "thumbUrl": "https://static.wixstatic.com/media/3d23ce_6f264c82a5f04112a063fc8d225ec469~mv2.jpg", "mediaUrl": "https://static.wixstatic.com/media/3d23ce_6f264c82a5f04112a063fc8d225ec469~mv2.jpg", "eventTitle": "Ghost by Emil", "eventYear": "2020", "eventSlug": "ghost-by-emil", "eventUrl": "events/ghost-by-emil.html", "categories": ["Illustratrice"], "searchText": "Ghost by Emil 2020 Illustratrice"}, {"id": "img-36", "mediaType": "image", "thumbUrl": "https://static.wixstatic.com/media/3d23ce_085039e566e54019b253be583c8e8819~mv2.png", "mediaUrl": "https://static.wixstatic.com/media/3d23ce_085039e566e54019b253be583c8e8819~mv2.png", "eventTitle": "Ghost by Emil", "eventYear": "2020", "eventSlug": "ghost-by-emil", "eventUrl": "events/ghost-by-emil.html", "categories": ["Illustratrice"], "searchText": "Ghost by Emil 2020 Illustratrice"}, {"id": "img-37", "mediaType": "image", "thumbUrl": "https://static.wixstatic.com/media/3d23ce_3cb8b70773a24cf79e3a66f8703d26bc~mv2.jpg", "mediaUrl": "https://static.wixstatic.com/media/3d23ce_3cb8b70773a24cf79e3a66f8703d26bc~mv2.jpg", "eventTitle": "Naïvetés by Emil", "eventYear": "2019", "eventSlug": "naivetes-by-emil", "eventUrl": "events/naivetes-by-emil.html", "categories": ["Illustratrice"], "searchText": "Naïvetés by Emil 2019 Illustratrice"}, {"id": "img-38", "mediaType": "image", "thumbUrl": "https://static.wixstatic.com/media/3d23ce_3dfe04466a0a424a9a49f1656996cc04~mv2.jpg", "mediaUrl": "https://static.wixstatic.com/media/3d23ce_3dfe04466a0a424a9a49f1656996cc04~mv2.jpg", "eventTitle": "Naïvetés by Emil", "eventYear": "2019", "eventSlug": "naivetes-by-emil", "eventUrl": "events/naivetes-by-emil.html", "categories": ["Illustratrice"], "searchText": "Naïvetés by Emil 2019 Illustratrice"}, {"id": "vid-39", "mediaType": "video", "thumbUrl": "https://img.youtube.com/vi/FdcRO30gZ6Y/hqdefault.jpg", "mediaUrl": "https://youtu.be/FdcRO30gZ6Y", "videoId": "FdcRO30gZ6Y", "eventTitle": "Luzerne Couture", "eventYear": "2019", "eventSlug": "luzerne-couture", "eventUrl": "events/luzerne-couture.html", "categories": ["Monteuse", "Réalisatrice"], "searchText": "Luzerne Couture 2019 Monteuse Réalisatrice"}, {"id": "img-40", "mediaType": "image", "thumbUrl": "https://static.wixstatic.com/media/3d23ce_47fbadabd6084da08516a3c2634a3d3a~mv2.jpeg", "mediaUrl": "https://static.wixstatic.com/media/3d23ce_47fbadabd6084da08516a3c2634a3d3a~mv2.jpeg", "eventTitle": "Entre 2 Pôles", "eventYear": "2019", "eventSlug": "entre-2-poles", "eventUrl": "events/entre-2-poles.html", "categories": ["Autrice", "Mise en scène"], "searchText": "Entre 2 Pôles 2019 Autrice Mise en scène"}, {"id": "vid-41", "mediaType": "video", "thumbUrl": "https://img.youtube.com/vi/X8JCjPhZjuE/hqdefault.jpg", "mediaUrl": "https://www.youtube.com/watch?v=X8JCjPhZjuE", "videoId": "X8JCjPhZjuE", "eventTitle": "Entre 2 Pôles", "eventYear": "2019", "eventSlug": "entre-2-poles", "eventUrl": "events/entre-2-poles.html", "categories": ["Autrice", "Mise en scène"], "searchText": "Entre 2 Pôles 2019 Autrice Mise en scène"}, {"id": "vid-42", "mediaType": "video", "thumbUrl": "https://img.youtube.com/vi/OV1go4W8gZw/hqdefault.jpg", "mediaUrl": "https://www.youtube.com/watch?v=OV1go4W8gZw", "videoId": "OV1go4W8gZw", "eventTitle": "Une histoire d’âme", "eventYear": "2018", "eventSlug": "une-histoire-d-ame", "eventUrl": "events/une-histoire-d-ame.html", "categories": ["Réalisatrice"], "searchText": "Une histoire d’âme 2018 Réalisatrice"}, {"id": "vid-43", "mediaType": "video", "thumbUrl": "https://img.youtube.com/vi/FwrMKGaUlbU/hqdefault.jpg", "mediaUrl": "https://youtu.be/FwrMKGaUlbU", "videoId": "FwrMKGaUlbU", "eventTitle": "Slap !", "eventYear": "2018", "eventSlug": "slap", "eventUrl": "events/slap.html", "categories": ["Réalisatrice", "Productrice"], "searchText": "Slap ! 2018 Réalisatrice Productrice"}, {"id": "img-44", "mediaType": "image", "thumbUrl": "https://static.wixstatic.com/media/3d23ce_fbe2bd3db0154ae48f27261dab5ff461~mv2.png", "mediaUrl": "https://static.wixstatic.com/media/3d23ce_fbe2bd3db0154ae48f27261dab5ff461~mv2.png", "eventTitle": "Naïvetés by Emil", "eventYear": "2018", "eventSlug": "naivetes-by-emil", "eventUrl": "events/naivetes-by-emil.html", "categories": ["Illustratrice"], "searchText": "Naïvetés by Emil 2018 Illustratrice"}, {"id": "img-45", "mediaType": "image", "thumbUrl": "https://static.wixstatic.com/media/3d23ce_d6ce7dd888b14f4c92af5ec36eb109d6~mv2.jpeg", "mediaUrl": "https://static.wixstatic.com/media/3d23ce_d6ce7dd888b14f4c92af5ec36eb109d6~mv2.jpeg", "eventTitle": "Letrre infinie", "eventYear": "2018", "eventSlug": "letrre-infinie", "eventUrl": "events/letrre-infinie.html", "categories": ["D.A"], "searchText": "Letrre infinie 2018 D.A"}, {"id": "img-46", "mediaType": "image", "thumbUrl": "https://static.wixstatic.com/media/3d23ce_85a0b44efdda4c389709517a8c6d207f~mv2.jpg", "mediaUrl": "https://static.wixstatic.com/media/3d23ce_85a0b44efdda4c389709517a8c6d207f~mv2.jpg", "eventTitle": "Letrre infinie", "eventYear": "2018", "eventSlug": "letrre-infinie", "eventUrl": "events/letrre-infinie.html", "categories": ["D.A"], "searchText": "Letrre infinie 2018 D.A"}, {"id": "img-47", "mediaType": "image", "thumbUrl": "https://static.wixstatic.com/media/3d23ce_972dc33038dd451ab9c768131bae1c9b~mv2.jpg", "mediaUrl": "https://static.wixstatic.com/media/3d23ce_972dc33038dd451ab9c768131bae1c9b~mv2.jpg", "eventTitle": "Letrre infinie", "eventYear": "2018", "eventSlug": "letrre-infinie", "eventUrl": "events/letrre-infinie.html", "categories": ["D.A"], "searchText": "Letrre infinie 2018 D.A"}, {"id": "vid-48", "mediaType": "video", "thumbUrl": "https://img.youtube.com/vi/1isMTPXLpEE/hqdefault.jpg", "mediaUrl": "https://youtu.be/1isMTPXLpEE", "videoId": "1isMTPXLpEE", "eventTitle": "Les âmes-cœurs", "eventYear": "2018", "eventSlug": "les-ames-c-urs", "eventUrl": "events/les-ames-c-urs.html", "categories": ["Autrice", "Mise en scène"], "searchText": "Les âmes-cœurs 2018 Autrice Mise en scène"}, {"id": "vid-49", "mediaType": "video", "thumbUrl": "https://img.youtube.com/vi/Fh_e1I_VtcA/hqdefault.jpg", "mediaUrl": "https://youtu.be/Fh_e1I_VtcA", "videoId": "Fh_e1I_VtcA", "eventTitle": "LABO-M-.net", "eventYear": "2018", "eventSlug": "labo-m-net", "eventUrl": "events/labo-m-net.html", "categories": ["D.A"], "searchText": "LABO-M-.net 2018 D.A"}, {"id": "vid-50", "mediaType": "video", "thumbUrl": "https://img.youtube.com/vi/Alag-wApomQ/hqdefault.jpg", "mediaUrl": "https://youtu.be/Alag-wApomQ?si=A_n_Qj11VaTEOPta", "videoId": "Alag-wApomQ", "eventTitle": "Ah c’qu’on est bête", "eventYear": "2018", "eventSlug": "ah-c-qu-on-est-bete", "eventUrl": "events/ah-c-qu-on-est-bete.html", "categories": ["Réalisatrice", "Illustratrice"], "searchText": "Ah c’qu’on est bête 2018 Réalisatrice Illustratrice"}, {"id": "vid-51", "mediaType": "video", "thumbUrl": "https://img.youtube.com/vi/kCpm_6qiuhQ/hqdefault.jpg", "mediaUrl": "https://www.youtube.com/watch?v=kCpm_6qiuhQ", "videoId": "kCpm_6qiuhQ", "eventTitle": "Parce que je t’aime", "eventYear": "2017", "eventSlug": "parce-que-je-t-aime", "eventUrl": "events/parce-que-je-t-aime.html", "categories": ["Image", "Réalisatrice"], "searchText": "Parce que je t’aime 2017 Image Réalisatrice"}, {"id": "vid-52", "mediaType": "video", "thumbUrl": "https://img.youtube.com/vi/hThAwNjBckM/hqdefault.jpg", "mediaUrl": "https://youtu.be/hThAwNjBckM", "videoId": "hThAwNjBckM", "eventTitle": "Main dans la main", "eventYear": "2017", "eventSlug": "main-dans-la-main", "eventUrl": "events/main-dans-la-main.html", "categories": ["Image", "Monteuse", "Réalisatrice"], "searchText": "Main dans la main 2017 Image Monteuse Réalisatrice"}, {"id": "vid-53", "mediaType": "video", "thumbUrl": "https://img.youtube.com/vi/pYG9hUkizck/hqdefault.jpg", "mediaUrl": "https://youtu.be/pYG9hUkizck", "videoId": "pYG9hUkizck", "eventTitle": "L’aigle Noir", "eventYear": "2017", "eventSlug": "l-aigle-noir", "eventUrl": "events/l-aigle-noir.html", "categories": ["Image", "Réalisatrice"], "searchText": "L’aigle Noir 2017 Image Réalisatrice"}, {"id": "vid-54", "mediaType": "video", "thumbUrl": "https://img.youtube.com/vi/PpRJcpg5zlY/hqdefault.jpg", "mediaUrl": "https://youtu.be/PpRJcpg5zlY", "videoId": "PpRJcpg5zlY", "eventTitle": "Elles & Barbara", "eventYear": "2017", "eventSlug": "elles-barbara", "eventUrl": "events/elles-barbara.html", "categories": ["Image", "Réalisatrice"], "searchText": "Elles & Barbara 2017 Image Réalisatrice"}, {"id": "vid-55", "mediaType": "video", "thumbUrl": "https://img.youtube.com/vi/W5eDAne7nl0/hqdefault.jpg", "mediaUrl": "https://youtu.be/W5eDAne7nl0?si=OIl_k6z66ld4uumv", "videoId": "W5eDAne7nl0", "eventTitle": "On ne dit jamais assez aux gens qu’on aime qu’on les aime", "eventYear": "2016", "eventSlug": "on-ne-dit-jamais-assez-aux-gens-qu-on-aime-qu-on-l", "eventUrl": "events/on-ne-dit-jamais-assez-aux-gens-qu-on-aime-qu-on-l.html", "categories": ["D.A", "Image", "Réalisatrice"], "searchText": "On ne dit jamais assez aux gens qu’on aime qu’on les aime 2016 D.A Image Réalisatrice"}, {"id": "vid-56", "mediaType": "video", "thumbUrl": "https://img.youtube.com/vi/Fk6IDDxH5Ac/hqdefault.jpg", "mediaUrl": "https://youtu.be/Fk6IDDxH5Ac?si=DCLtb9Q_vScSCWco", "videoId": "Fk6IDDxH5Ac", "eventTitle": "Les copains d’abord", "eventYear": "2016", "eventSlug": "les-copains-d-abord", "eventUrl": "events/les-copains-d-abord.html", "categories": ["Image", "Réalisatrice"], "searchText": "Les copains d’abord 2016 Image Réalisatrice"}, {"id": "img-57", "mediaType": "image", "thumbUrl": "https://static.wixstatic.com/media/3d23ce_e5a769901bc14fccb40eebf1227865b9~mv2.jpg,", "mediaUrl": "https://static.wixstatic.com/media/3d23ce_e5a769901bc14fccb40eebf1227865b9~mv2.jpg,", "eventTitle": "Famille Chedid", "eventYear": "2016", "eventSlug": "famille-chedid", "eventUrl": "events/famille-chedid.html", "categories": ["Photographe"], "searchText": "Famille Chedid 2016 Photographe"}, {"id": "img-58", "mediaType": "image", "thumbUrl": "https://static.wixstatic.com/media/3d23ce_073dec0d27b5422b9671d4c55c64a17e~mv2.jpg", "mediaUrl": "https://static.wixstatic.com/media/3d23ce_073dec0d27b5422b9671d4c55c64a17e~mv2.jpg", "eventTitle": "Famille Chedid", "eventYear": "2016", "eventSlug": "famille-chedid", "eventUrl": "events/famille-chedid.html", "categories": ["Photographe"], "searchText": "Famille Chedid 2016 Photographe"}, {"id": "img-59", "mediaType": "image", "thumbUrl": "https://static.wixstatic.com/media/3d23ce_ba71abc2082642f9ba21684e1c91bf20~mv2.jpg", "mediaUrl": "https://static.wixstatic.com/media/3d23ce_ba71abc2082642f9ba21684e1c91bf20~mv2.jpg", "eventTitle": "Famille Chedid", "eventYear": "2016", "eventSlug": "famille-chedid", "eventUrl": "events/famille-chedid.html", "categories": ["Photographe"], "searchText": "Famille Chedid 2016 Photographe"}, {"id": "img-60", "mediaType": "image", "thumbUrl": "https://static.wixstatic.com/media/3d23ce_0262a80e5c5f46c8a1ccba58b4d48ec1~mv2.jpg", "mediaUrl": "https://static.wixstatic.com/media/3d23ce_0262a80e5c5f46c8a1ccba58b4d48ec1~mv2.jpg", "eventTitle": "Famille Chedid", "eventYear": "2016", "eventSlug": "famille-chedid", "eventUrl": "events/famille-chedid.html", "categories": ["Photographe"], "searchText": "Famille Chedid 2016 Photographe"}, {"id": "img-61", "mediaType": "image", "thumbUrl": "https://static.wixstatic.com/media/3d23ce_267e97000a704296a771a5f42e07051f~mv2.jpg", "mediaUrl": "https://static.wixstatic.com/media/3d23ce_267e97000a704296a771a5f42e07051f~mv2.jpg", "eventTitle": "Famille Chedid", "eventYear": "2016", "eventSlug": "famille-chedid", "eventUrl": "events/famille-chedid.html", "categories": ["Photographe"], "searchText": "Famille Chedid 2016 Photographe"}, {"id": "img-62", "mediaType": "image", "thumbUrl": "https://static.wixstatic.com/media/3d23ce_bc32270bc5884fb68e6f2160e29eb8ab~mv2.jpg", "mediaUrl": "https://static.wixstatic.com/media/3d23ce_bc32270bc5884fb68e6f2160e29eb8ab~mv2.jpg", "eventTitle": "Famille Chedid", "eventYear": "2016", "eventSlug": "famille-chedid", "eventUrl": "events/famille-chedid.html", "categories": ["Photographe"], "searchText": "Famille Chedid 2016 Photographe"}, {"id": "img-63", "mediaType": "image", "thumbUrl": "https://static.wixstatic.com/media/3d23ce_829d6810246e40609f5d84c58d9c1bb3~mv2.jpg", "mediaUrl": "https://static.wixstatic.com/media/3d23ce_829d6810246e40609f5d84c58d9c1bb3~mv2.jpg", "eventTitle": "Famille Chedid", "eventYear": "2016", "eventSlug": "famille-chedid", "eventUrl": "events/famille-chedid.html", "categories": ["Photographe"], "searchText": "Famille Chedid 2016 Photographe"}, {"id": "vid-64", "mediaType": "video", "thumbUrl": "https://img.youtube.com/vi/HAkXHjd9fbY/hqdefault.jpg", "mediaUrl": "https://youtu.be/HAkXHjd9fbY", "videoId": "HAkXHjd9fbY", "eventTitle": "F.O.R.T", "eventYear": "2016", "eventSlug": "f-o-r-t", "eventUrl": "events/f-o-r-t.html", "categories": ["D.A", "Image", "Réalisatrice"], "searchText": "F.O.R.T 2016 D.A Image Réalisatrice"}, {"id": "vid-65", "mediaType": "video", "thumbUrl": "https://img.youtube.com/vi/DeI5deT-zqM/hqdefault.jpg", "mediaUrl": "https://youtu.be/DeI5deT-zqM?si=SP5f5Rl0fpwwgv8p", "videoId": "DeI5deT-zqM", "eventTitle": "Brassens sur parole(s)", "eventYear": "2016", "eventSlug": "brassens-sur-parole-s", "eventUrl": "events/brassens-sur-parole-s.html", "categories": ["Image", "Réalisatrice"], "searchText": "Brassens sur parole(s) 2016 Image Réalisatrice"}, {"id": "vid-66", "mediaType": "video", "thumbUrl": "https://img.youtube.com/vi/F_r7y3Mefmc/hqdefault.jpg", "mediaUrl": "https://youtu.be/F_r7y3Mefmc?si=BOG7ip_0Ryld6EXi", "videoId": "F_r7y3Mefmc", "eventTitle": "Âme mélodique", "eventYear": "2015", "eventSlug": "ame-melodique", "eventUrl": "events/ame-melodique.html", "categories": ["D.A", "Réalisatrice"], "searchText": "Âme mélodique 2015 D.A Réalisatrice"}, {"id": "vid-67", "mediaType": "video", "thumbUrl": "https://img.youtube.com/vi/uMTqqo7OcMI/hqdefault.jpg", "mediaUrl": "https://www.youtube.com/watch?v=uMTqqo7OcMI", "videoId": "uMTqqo7OcMI", "eventTitle": "La B.O² -M- Expérience", "eventYear": "2015", "eventSlug": "la-b-o-m-experience", "eventUrl": "events/la-b-o-m-experience.html", "categories": ["Monteuse", "Réalisatrice"], "searchText": "La B.O² -M- Expérience 2015 Monteuse Réalisatrice"}, {"id": "vid-68", "mediaType": "video", "thumbUrl": "https://img.youtube.com/vi/Ymsl2w10ZCQ/hqdefault.jpg", "mediaUrl": "https://youtu.be/Ymsl2w10ZCQ?si=EO8U0Qs-NrT08bKw", "videoId": "Ymsl2w10ZCQ", "eventTitle": "Chedid à l’Opéra Garnier", "eventYear": "2015", "eventSlug": "chedid-a-l-opera-garnier", "eventUrl": "events/chedid-a-l-opera-garnier.html", "categories": ["Réalisatrice"], "searchText": "Chedid à l’Opéra Garnier 2015 Réalisatrice"}, {"id": "vid-69", "mediaType": "video", "thumbUrl": "https://img.youtube.com/vi/N0lQSKQoOAo/hqdefault.jpg", "mediaUrl": "https://youtu.be/N0lQSKQoOAo", "videoId": "N0lQSKQoOAo", "eventTitle": "33 tours à la Fabrique", "eventYear": "2015", "eventSlug": "33-tours-a-la-fabrique", "eventUrl": "events/33-tours-a-la-fabrique.html", "categories": ["Image", "Réalisatrice", "Inédit"], "searchText": "33 tours à la Fabrique 2015 Image Réalisatrice Inédit"}, {"id": "vid-70", "mediaType": "video", "thumbUrl": "https://img.youtube.com/vi/rg8ZqcqqMV0/hqdefault.jpg", "mediaUrl": "https://youtu.be/rg8ZqcqqMV0?si=l7Q7hgvkCClbBMGC", "videoId": "rg8ZqcqqMV0", "eventTitle": "Paranoïa", "eventYear": "2014", "eventSlug": "paranoia", "eventUrl": "events/paranoia.html", "categories": ["D.A", "Réalisatrice"], "searchText": "Paranoïa 2014 D.A Réalisatrice"}, {"id": "vid-71", "mediaType": "video", "thumbUrl": "https://img.youtube.com/vi/uLGQh69Z6uI/hqdefault.jpg", "mediaUrl": "https://youtu.be/uLGQh69Z6uI?si=uaQOtg2tE1D6bjgP", "videoId": "uLGQh69Z6uI", "eventTitle": "Lady Luck", "eventYear": "2014", "eventSlug": "lady-luck", "eventUrl": "events/lady-luck.html", "categories": ["D.A", "Réalisatrice"], "searchText": "Lady Luck 2014 D.A Réalisatrice"}, {"id": "img-72", "mediaType": "image", "thumbUrl": "https://static.wixstatic.com/media/3d23ce_9e90c7976827402e8a6e2ca1d812cfc3~mv2.jpg", "mediaUrl": "https://static.wixstatic.com/media/3d23ce_9e90c7976827402e8a6e2ca1d812cfc3~mv2.jpg", "eventTitle": "îL", "eventYear": "2012", "eventSlug": "il", "eventUrl": "events/il.html", "categories": ["D.A", "Inédit"], "searchText": "îL 2012 D.A Inédit"}, {"id": "img-73", "mediaType": "image", "thumbUrl": "https://video.wixstatic.com/video/3d23ce_f67342cb6faf4b66913056870aaf626d/480p/mp4/file.mp4", "mediaUrl": "https://video.wixstatic.com/video/3d23ce_f67342cb6faf4b66913056870aaf626d/480p/mp4/file.mp4", "eventTitle": "îL", "eventYear": "2012", "eventSlug": "il", "eventUrl": "events/il.html", "categories": ["D.A", "Inédit"], "searchText": "îL 2012 D.A Inédit"}, {"id": "vid-74", "mediaType": "video", "thumbUrl": "https://img.youtube.com/vi/aATxwTcBuaE/hqdefault.jpg", "mediaUrl": "https://youtu.be/aATxwTcBuaE", "videoId": "aATxwTcBuaE", "eventTitle": "ÎL", "eventYear": "2012", "eventSlug": "il", "eventUrl": "events/il.html", "categories": ["D.A", "Image", "Réalisatrice"], "searchText": "ÎL 2012 D.A Image Réalisatrice"}, {"id": "img-75", "mediaType": "image", "thumbUrl": "https://static.wixstatic.com/media/3d23ce_dd3168d0d1ce4a77a97ebd698b9dfa25~mv2.jpg,", "mediaUrl": "https://static.wixstatic.com/media/3d23ce_dd3168d0d1ce4a77a97ebd698b9dfa25~mv2.jpg,", "eventTitle": "Prem Sé", "eventYear": "2011", "eventSlug": "prem-se", "eventUrl": "events/prem-se.html", "categories": ["Inédit", "Photographe"], "searchText": "Prem Sé 2011 Inédit Photographe"}, {"id": "img-76", "mediaType": "image", "thumbUrl": "https://static.wixstatic.com/media/3d23ce_52a142de35ae43f1b4a6f39c817142d8~mv2.jpg", "mediaUrl": "https://static.wixstatic.com/media/3d23ce_52a142de35ae43f1b4a6f39c817142d8~mv2.jpg", "eventTitle": "Prem Sé", "eventYear": "2011", "eventSlug": "prem-se", "eventUrl": "events/prem-se.html", "categories": ["Inédit", "Photographe"], "searchText": "Prem Sé 2011 Inédit Photographe"}, {"id": "img-77", "mediaType": "image", "thumbUrl": "https://static.wixstatic.com/media/3d23ce_8b997025b01b4380b8724469c1470458~mv2.jpg", "mediaUrl": "https://static.wixstatic.com/media/3d23ce_8b997025b01b4380b8724469c1470458~mv2.jpg", "eventTitle": "Prem Sé", "eventYear": "2011", "eventSlug": "prem-se", "eventUrl": "events/prem-se.html", "categories": ["Inédit", "Photographe"], "searchText": "Prem Sé 2011 Inédit Photographe"}, {"id": "img-78", "mediaType": "image", "thumbUrl": "https://static.wixstatic.com/media/3d23ce_ad9e744c684c41d3be8c6909d1d75f7e~mv2.jpg", "mediaUrl": "https://static.wixstatic.com/media/3d23ce_ad9e744c684c41d3be8c6909d1d75f7e~mv2.jpg", "eventTitle": "Prem Sé", "eventYear": "2011", "eventSlug": "prem-se", "eventUrl": "events/prem-se.html", "categories": ["Inédit", "Photographe"], "searchText": "Prem Sé 2011 Inédit Photographe"}, {"id": "img-79", "mediaType": "image", "thumbUrl": "https://static.wixstatic.com/media/3d23ce_db250580bb7d47a99ce4ebe937501f47~mv2.jpg", "mediaUrl": "https://static.wixstatic.com/media/3d23ce_db250580bb7d47a99ce4ebe937501f47~mv2.jpg", "eventTitle": "Prem Sé", "eventYear": "2011", "eventSlug": "prem-se", "eventUrl": "events/prem-se.html", "categories": ["Inédit", "Photographe"], "searchText": "Prem Sé 2011 Inédit Photographe"}, {"id": "img-80", "mediaType": "image", "thumbUrl": "https://static.wixstatic.com/media/3d23ce_2580cab6b62b4e8688abe77425464300~mv2.jpg", "mediaUrl": "https://static.wixstatic.com/media/3d23ce_2580cab6b62b4e8688abe77425464300~mv2.jpg", "eventTitle": "Prem Sé", "eventYear": "2011", "eventSlug": "prem-se", "eventUrl": "events/prem-se.html", "categories": ["Inédit", "Photographe"], "searchText": "Prem Sé 2011 Inédit Photographe"}, {"id": "vid-81", "mediaType": "video", "thumbUrl": "https://img.youtube.com/vi/vsOPhRQyp4Q/hqdefault.jpg", "mediaUrl": "https://youtu.be/vsOPhRQyp4Q?si=x3UN_-RenFtMAj8c", "videoId": "vsOPhRQyp4Q", "eventTitle": "I Know What You Did", "eventYear": "2011", "eventSlug": "i-know-what-you-did", "eventUrl": "events/i-know-what-you-did.html", "categories": ["Réalisatrice"], "searchText": "I Know What You Did 2011 Réalisatrice"}, {"id": "img-82", "mediaType": "image", "thumbUrl": "https://static.wixstatic.com/media/3d23ce_c4abf0d720a24bf4a7975e6889816fca~mv2.png", "mediaUrl": "https://static.wixstatic.com/media/3d23ce_c4abf0d720a24bf4a7975e6889816fca~mv2.png", "eventTitle": "Violette", "eventYear": "2010", "eventSlug": "violette", "eventUrl": "events/violette.html", "categories": ["Intime"], "searchText": "Violette 2010 Intime"}, {"id": "vid-83", "mediaType": "video", "thumbUrl": "https://img.youtube.com/vi/DoSeFOcCQsM/hqdefault.jpg", "mediaUrl": "https://youtu.be/DoSeFOcCQsM", "videoId": "DoSeFOcCQsM", "eventTitle": "Mister Mystère", "eventYear": "2009", "eventSlug": "mister-mystere", "eventUrl": "events/mister-mystere.html", "categories": ["D.A", "Conceptrice DVD", "Réalisatrice", "Inédit", "Productrice"], "searchText": "Mister Mystère 2009 D.A Conceptrice DVD Réalisatrice Inédit Productrice"}, {"id": "img-84", "mediaType": "image", "thumbUrl": "https://static.wixstatic.com/media/3d23ce_adc33b8a930547c59c81f6aec156b830~mv2.jpg", "mediaUrl": "https://static.wixstatic.com/media/3d23ce_adc33b8a930547c59c81f6aec156b830~mv2.jpg", "eventTitle": "Amande", "eventYear": "2008", "eventSlug": "amande", "eventUrl": "events/amande.html", "categories": ["Intime"], "searchText": "Amande 2008 Intime"}, {"id": "vid-85", "mediaType": "video", "thumbUrl": "https://img.youtube.com/vi/n_bwKuvK5t0/hqdefault.jpg", "mediaUrl": "https://youtu.be/n_bwKuvK5t0", "videoId": "n_bwKuvK5t0", "eventTitle": "Petite pute", "eventYear": "2007", "eventSlug": "petite-pute", "eventUrl": "events/petite-pute.html", "categories": ["D.A", "Réalisatrice", "Inédit", "Productrice", "Illustratrice"], "searchText": "Petite pute 2007 D.A Réalisatrice Inédit Productrice Illustratrice"}, {"id": "vid-86", "mediaType": "video", "thumbUrl": "https://img.youtube.com/vi/aBNxFPLlklk/hqdefault.jpg", "mediaUrl": "https://youtu.be/aBNxFPLlklk", "videoId": "aBNxFPLlklk", "eventTitle": "Les leçons de musique", "eventYear": "2007", "eventSlug": "les-lecons-de-musique", "eventUrl": "events/les-lecons-de-musique.html", "categories": ["D.A", "Conceptrice DVD", "Réalisatrice", "Inédit", "Productrice"], "searchText": "Les leçons de musique 2007 D.A Conceptrice DVD Réalisatrice Inédit Productrice"}, {"id": "vid-87", "mediaType": "video", "thumbUrl": "https://img.youtube.com/vi/oRv5Vq5saH0/hqdefault.jpg", "mediaUrl": "https://youtu.be/oRv5Vq5saH0?si=jivexJJhfoy6fKxf", "videoId": "oRv5Vq5saH0", "eventTitle": "Farewell Angel", "eventYear": "2007", "eventSlug": "farewell-angel", "eventUrl": "events/farewell-angel.html", "categories": ["Réalisatrice", "Productrice"], "searchText": "Farewell Angel 2007 Réalisatrice Productrice"}, {"id": "vid-88", "mediaType": "video", "thumbUrl": "https://img.youtube.com/vi/cYS3Mydujmc/hqdefault.jpg", "mediaUrl": "https://youtu.be/cYS3Mydujmc", "videoId": "cYS3Mydujmc", "eventTitle": "Reine d’un jour", "eventYear": "2006", "eventSlug": "reine-d-un-jour", "eventUrl": "events/reine-d-un-jour.html", "categories": ["D.A", "Réalisatrice", "Productrice"], "searchText": "Reine d’un jour 2006 D.A Réalisatrice Productrice"}, {"id": "vid-89", "mediaType": "video", "thumbUrl": "https://img.youtube.com/vi/a-bdxx5dkeo/hqdefault.jpg", "mediaUrl": "https://youtu.be/a-bdxx5dkeo?si=iaBSQSRhy6BIiXCL", "videoId": "a-bdxx5dkeo", "eventTitle": "Larmes", "eventYear": "2006", "eventSlug": "larmes", "eventUrl": "events/larmes.html", "categories": ["Réalisatrice", "Productrice"], "searchText": "Larmes 2006 Réalisatrice Productrice"}, {"id": "vid-90", "mediaType": "video", "thumbUrl": "https://img.youtube.com/vi/1tvCWpQPXTY/hqdefault.jpg", "mediaUrl": "https://youtu.be/1tvCWpQPXTY?si=ff6z2uIsdj-Cy_UN", "videoId": "1tvCWpQPXTY", "eventTitle": "La Bouche", "eventYear": "2006", "eventSlug": "la-bouche", "eventUrl": "events/la-bouche.html", "categories": ["D.A", "Réalisatrice", "Productrice"], "searchText": "La Bouche 2006 D.A Réalisatrice Productrice"}, {"id": "vid-91", "mediaType": "video", "thumbUrl": "https://img.youtube.com/vi/HifpBzJUGhE/hqdefault.jpg", "mediaUrl": "https://youtu.be/HifpBzJUGhE", "videoId": "HifpBzJUGhE", "eventTitle": "Comme un souffle", "eventYear": "2006", "eventSlug": "comme-un-souffle", "eventUrl": "events/comme-un-souffle.html", "categories": ["D.A", "Réalisatrice", "Illustratrice", "Productrice"], "searchText": "Comme un souffle 2006 D.A Réalisatrice Illustratrice Productrice"}, {"id": "vid-92", "mediaType": "video", "thumbUrl": "https://img.youtube.com/vi/JiB82tMuEtQ/hqdefault.jpg", "mediaUrl": "https://youtu.be/JiB82tMuEtQ?si=i0IEEQInkq5ufnoY", "videoId": "JiB82tMuEtQ", "eventTitle": "À tes souhaits", "eventYear": "2005", "eventSlug": "a-tes-souhaits", "eventUrl": "events/a-tes-souhaits.html", "categories": ["D.A", "Réalisatrice", "Productrice"], "searchText": "À tes souhaits 2005 D.A Réalisatrice Productrice"}, {"id": "vid-93", "mediaType": "video", "thumbUrl": "https://img.youtube.com/vi/uwAcwcgH5o4/hqdefault.jpg", "mediaUrl": "https://youtu.be/uwAcwcgH5o4?si=UIFAThDValPmWjQP", "videoId": "uwAcwcgH5o4", "eventTitle": "Mr Bibendum", "eventYear": "2005", "eventSlug": "mr-bibendum", "eventUrl": "events/mr-bibendum.html", "categories": ["D.A", "Réalisatrice", "Productrice"], "searchText": "Mr Bibendum 2005 D.A Réalisatrice Productrice"}, {"id": "vid-94", "mediaType": "video", "thumbUrl": "https://img.youtube.com/vi/bs22ymqe0RM/hqdefault.jpg", "mediaUrl": "https://youtu.be/bs22ymqe0RM", "videoId": "bs22ymqe0RM", "eventTitle": "A tes souhaits", "eventYear": "2005", "eventSlug": "a-tes-souhaits", "eventUrl": "events/a-tes-souhaits.html", "categories": ["Inédit", "Productrice"], "searchText": "A tes souhaits 2005 Inédit Productrice"}, {"id": "vid-95", "mediaType": "video", "thumbUrl": "https://img.youtube.com/vi/QbSMi7_w7k8/hqdefault.jpg", "mediaUrl": "https://youtu.be/QbSMi7_w7k8", "videoId": "QbSMi7_w7k8", "eventTitle": "Les leçons de musique", "eventYear": "2004", "eventSlug": "les-lecons-de-musique", "eventUrl": "events/les-lecons-de-musique.html", "categories": ["D.A", "Distinction", "Conceptrice DVD", "Réalisatrice", "Productrice"], "searchText": "Les leçons de musique 2004 D.A Distinction Conceptrice DVD Réalisatrice Productrice"}, {"id": "vid-96", "mediaType": "video", "thumbUrl": "https://img.youtube.com/vi/cNKjfLuQZvE/hqdefault.jpg", "mediaUrl": "https://youtu.be/cNKjfLuQZvE?si=5LvcQGUz78785SJy", "videoId": "cNKjfLuQZvE", "eventTitle": "Les leçons de musique", "eventYear": "2004", "eventSlug": "les-lecons-de-musique", "eventUrl": "events/les-lecons-de-musique.html", "categories": ["D.A", "Distinction", "Conceptrice DVD", "Réalisatrice", "Productrice"], "searchText": "Les leçons de musique 2004 D.A Distinction Conceptrice DVD Réalisatrice Productrice"}, {"id": "vid-97", "mediaType": "video", "thumbUrl": "https://img.youtube.com/vi/SOypedE1gBo/hqdefault.jpg", "mediaUrl": "https://youtu.be/SOypedE1gBo", "videoId": "SOypedE1gBo", "eventTitle": "Carambar et Abeilles", "eventYear": "2004", "eventSlug": "carambar-et-abeilles", "eventUrl": "events/carambar-et-abeilles.html", "categories": ["D.A", "Réalisatrice", "Inédit", "Productrice"], "searchText": "Carambar et Abeilles 2004 D.A Réalisatrice Inédit Productrice"}, {"id": "vid-98", "mediaType": "video", "thumbUrl": "https://img.youtube.com/vi/snQy9dR2zoc/hqdefault.jpg", "mediaUrl": "https://youtu.be/snQy9dR2zoc?si=vTB0HZSpmKoc8syZ", "videoId": "snQy9dR2zoc", "eventTitle": "Au coin du monde", "eventYear": "2004", "eventSlug": "au-coin-du-monde", "eventUrl": "events/au-coin-du-monde.html", "categories": ["D.A", "Réalisatrice", "Inédit", "Productrice"], "searchText": "Au coin du monde 2004 D.A Réalisatrice Inédit Productrice"}, {"id": "vid-99", "mediaType": "video", "thumbUrl": "https://img.youtube.com/vi/6TJ3BBG7Ens/hqdefault.jpg", "mediaUrl": "https://youtu.be/6TJ3BBG7Ens", "videoId": "6TJ3BBG7Ens", "eventTitle": "Au coin du monde", "eventYear": "2004", "eventSlug": "au-coin-du-monde", "eventUrl": "events/au-coin-du-monde.html", "categories": ["D.A", "Réalisatrice", "Inédit", "Productrice"], "searchText": "Au coin du monde 2004 D.A Réalisatrice Inédit Productrice"}, {"id": "vid-100", "mediaType": "video", "thumbUrl": "https://img.youtube.com/vi/CkwgugYJFpM/hqdefault.jpg", "mediaUrl": "https://youtu.be/CkwgugYJFpM?si=MVz4FKwK-YVc79a2", "videoId": "CkwgugYJFpM", "eventTitle": "Ailleurs", "eventYear": "2004", "eventSlug": "ailleurs", "eventUrl": "events/ailleurs.html", "categories": ["D.A", "Réalisatrice", "Productrice"], "searchText": "Ailleurs 2004 D.A Réalisatrice Productrice"}, {"id": "vid-101", "mediaType": "video", "thumbUrl": "https://img.youtube.com/vi/SzbCwu6hEx0/hqdefault.jpg", "mediaUrl": "https://youtu.be/SzbCwu6hEx0", "videoId": "SzbCwu6hEx0", "eventTitle": "Sur le fil & Bright Stones", "eventYear": "2001", "eventSlug": "sur-le-fil-bright-stones", "eventUrl": "events/sur-le-fil-bright-stones.html", "categories": ["Réalisatrice", "Productrice"], "searchText": "Sur le fil & Bright Stones 2001 Réalisatrice Productrice"}, {"id": "vid-102", "mediaType": "video", "thumbUrl": "https://img.youtube.com/vi/aHdDD3uC6p8/hqdefault.jpg", "mediaUrl": "https://youtu.be/aHdDD3uC6p8", "videoId": "aHdDD3uC6p8", "eventTitle": "Oui peut-être", "eventYear": "2001", "eventSlug": "oui-peut-etre", "eventUrl": "events/oui-peut-etre.html", "categories": ["Réalisatrice", "Productrice"], "searchText": "Oui peut-être 2001 Réalisatrice Productrice"}, {"id": "vid-103", "mediaType": "video", "thumbUrl": "https://img.youtube.com/vi/muTmHqDgDLc/hqdefault.jpg", "mediaUrl": "https://www.youtube.com/watch?v=muTmHqDgDLc&list=RDmuTmHqDgDLc&start_radio=1", "videoId": "muTmHqDgDLc", "eventTitle": "Le Tour de M", "eventYear": "2001", "eventSlug": "le-tour-de-m", "eventUrl": "events/le-tour-de-m.html", "categories": ["D.A", "Réalisatrice", "Productrice"], "searchText": "Le Tour de M 2001 D.A Réalisatrice Productrice"}, {"id": "vid-104", "mediaType": "video", "thumbUrl": "https://img.youtube.com/vi/LU6ikNVxe9g/hqdefault.jpg", "mediaUrl": "https://youtu.be/LU6ikNVxe9g?si=L7IGi_TRzjyYzWd1", "videoId": "LU6ikNVxe9g", "eventTitle": "Corn Flakes", "eventYear": "2001", "eventSlug": "corn-flakes", "eventUrl": "events/corn-flakes.html", "categories": ["Réalisatrice", "Productrice"], "searchText": "Corn Flakes 2001 Réalisatrice Productrice"}, {"id": "vid-105", "mediaType": "video", "thumbUrl": "https://img.youtube.com/vi/mgkMkxfq3lE/hqdefault.jpg", "mediaUrl": "https://youtu.be/mgkMkxfq3lE?si=d_fWkHeqqDPI8DEd", "videoId": "mgkMkxfq3lE", "eventTitle": "Bonoboo", "eventYear": "2001", "eventSlug": "bonoboo", "eventUrl": "events/bonoboo.html", "categories": ["Réalisatrice", "Productrice"], "searchText": "Bonoboo 2001 Réalisatrice Productrice"}, {"id": "vid-106", "mediaType": "video", "thumbUrl": "https://img.youtube.com/vi/PbpODAzTrYo/hqdefault.jpg", "mediaUrl": "https://youtu.be/PbpODAzTrYo?si=7VeF_ixF16eRZf27", "videoId": "PbpODAzTrYo", "eventTitle": "Seule", "eventYear": "2000", "eventSlug": "seule", "eventUrl": "events/seule.html", "categories": ["Réalisatrice", "Productrice"], "searchText": "Seule 2000 Réalisatrice Productrice"}, {"id": "img-107", "mediaType": "image", "thumbUrl": "https://static.wixstatic.com/media/3d23ce_340be92350f94cdc89f70295cc26b8b6~mv2.jpg", "mediaUrl": "https://static.wixstatic.com/media/3d23ce_340be92350f94cdc89f70295cc26b8b6~mv2.jpg", "eventTitle": "La Bohème Films", "eventYear": "1999", "eventSlug": "la-boheme-films", "eventUrl": "events/la-boheme-films.html", "categories": ["Productrice"], "searchText": "La Bohème Films 1999 Productrice"}, {"id": "vid-108", "mediaType": "video", "thumbUrl": "https://img.youtube.com/vi/6hV-UnrC9tU/hqdefault.jpg", "mediaUrl": "https://youtu.be/6hV-UnrC9tU?si=4OUG9g7wjQY3WprC", "videoId": "6hV-UnrC9tU", "eventTitle": "Je dis aime", "eventYear": "1999", "eventSlug": "je-dis-aime", "eventUrl": "events/je-dis-aime.html", "categories": ["Réalisatrice", "Productrice"], "searchText": "Je dis aime 1999 Réalisatrice Productrice"}, {"id": "vid-109", "mediaType": "video", "thumbUrl": "https://img.youtube.com/vi/YoZCz6-pyH8/hqdefault.jpg", "mediaUrl": "https://youtu.be/YoZCz6-pyH8?si=dFZWjMA_u_pZZqj4", "videoId": "YoZCz6-pyH8", "eventTitle": "Nostalgic du cool", "eventYear": "1998", "eventSlug": "nostalgic-du-cool", "eventUrl": "events/nostalgic-du-cool.html", "categories": ["Réalisatrice"], "searchText": "Nostalgic du cool 1998 Réalisatrice"}, {"id": "vid-110", "mediaType": "video", "thumbUrl": "https://img.youtube.com/vi/w3sSGZlWLP4/hqdefault.jpg", "mediaUrl": "https://youtu.be/w3sSGZlWLP4?si=3YxQKK0Ic4yOhK2F", "videoId": "w3sSGZlWLP4", "eventTitle": "Machistador", "eventYear": "1998", "eventSlug": "machistador", "eventUrl": "events/machistador.html", "categories": ["Réalisatrice"], "searchText": "Machistador 1998 Réalisatrice"}, {"id": "vid-111", "mediaType": "video", "thumbUrl": "https://img.youtube.com/vi/8DiqqXX24Fw/hqdefault.jpg", "mediaUrl": "https://youtu.be/8DiqqXX24Fw", "videoId": "8DiqqXX24Fw", "eventTitle": "Capable de tout", "eventYear": "1998", "eventSlug": "capable-de-tout", "eventUrl": "events/capable-de-tout.html", "categories": ["Réalisatrice"], "searchText": "Capable de tout 1998 Réalisatrice"}, {"id": "vid-112", "mediaType": "video", "thumbUrl": "https://img.youtube.com/vi/q7orPB473WY/hqdefault.jpg", "mediaUrl": "https://youtu.be/q7orPB473WY", "videoId": "q7orPB473WY", "eventTitle": "Tidam", "eventYear": "1997", "eventSlug": "tidam", "eventUrl": "events/tidam.html", "categories": ["Réalisatrice"], "searchText": "Tidam 1997 Réalisatrice"}, {"id": "vid-113", "mediaType": "video", "thumbUrl": "https://img.youtube.com/vi/LywbNi35IJ4/hqdefault.jpg", "mediaUrl": "https://youtu.be/LywbNi35IJ4", "videoId": "LywbNi35IJ4", "eventTitle": "Les Cracker’s", "eventYear": "1997", "eventSlug": "les-cracker-s", "eventUrl": "events/les-cracker-s.html", "categories": ["Réalisatrice"], "searchText": "Les Cracker’s 1997 Réalisatrice"}, {"id": "vid-114", "mediaType": "video", "thumbUrl": "https://img.youtube.com/vi/PdrkP2w8ZdI/hqdefault.jpg", "mediaUrl": "https://youtu.be/PdrkP2w8ZdI", "videoId": "PdrkP2w8ZdI", "eventTitle": "Près du lac vert", "eventYear": "1996", "eventSlug": "pres-du-lac-vert", "eventUrl": "events/pres-du-lac-vert.html", "categories": ["Réalisatrice", "Illustratrice"], "searchText": "Près du lac vert 1996 Réalisatrice Illustratrice"}, {"id": "vid-115", "mediaType": "video", "thumbUrl": "https://img.youtube.com/vi/Np768-L7uyM/hqdefault.jpg", "mediaUrl": "https://youtu.be/Np768-L7uyM?si=NDi5VA_L8tlDKlTC", "videoId": "Np768-L7uyM", "eventTitle": "Ondulé", "eventYear": "1994", "eventSlug": "ondule", "eventUrl": "events/ondule.html", "categories": ["Réalisatrice"], "searchText": "Ondulé 1994 Réalisatrice"}, {"id": "vid-116", "mediaType": "video", "thumbUrl": "https://img.youtube.com/vi/2jLBu-WneSk/hqdefault.jpg", "mediaUrl": "https://youtu.be/2jLBu-WneSk", "videoId": "2jLBu-WneSk", "eventTitle": "Shoes for Show", "eventYear": "1993", "eventSlug": "shoes-for-show", "eventUrl": "events/shoes-for-show.html", "categories": ["Réalisatrice", "Inédit"], "searchText": "Shoes for Show 1993 Réalisatrice Inédit"}, {"id": "img-117", "mediaType": "image", "thumbUrl": "https://static.wixstatic.com/media/3d23ce_afcaa70dc0a94e83b1ce694fecb1291a~mv2.jpg", "mediaUrl": "https://static.wixstatic.com/media/3d23ce_afcaa70dc0a94e83b1ce694fecb1291a~mv2.jpg", "eventTitle": "Juliette Gréco - Juliette Gréco", "eventYear": "1993", "eventSlug": "juliette-greco-juliette-greco", "eventUrl": "events/juliette-greco-juliette-greco.html", "categories": ["Réalisatrice", "Inédit"], "searchText": "Juliette Gréco - Juliette Gréco 1993 Réalisatrice Inédit"}]</script>
+<script>
+(function() {
+  const dataEl = document.getElementById('mw-media-data');
+  const items = JSON.parse(dataEl.textContent || '[]');
+  const mixedItems = items.slice();
+  const grid = document.getElementById('mw-grid');
+  const countEl = document.getElementById('mw-count');
+  const typeEl = document.getElementById('mw-filter-type');
+  const yearEl = document.getElementById('mw-filter-year');
+  const categoryEl = document.getElementById('mw-filter-category');
+  const searchEl = document.getElementById('mw-search');
+  const modal = document.getElementById('mw-video-modal');
+  const closeBtn = document.getElementById('mw-video-close');
+  const videoFrame = document.getElementById('mw-video-frame');
+
+  function shuffleInPlace(arr) {
+    for (let i = arr.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+  }
+
+  shuffleInPlace(mixedItems);
+
+  function mediaBadge(type) {
+    return type === 'video' ? 'Vidéo' : 'Image';
+  }
+
+  function createCard(item) {
+    const card = document.createElement('article');
+    card.className = 'mw-card';
+    const safeTitle = item.eventTitle || '';
+    const clickTarget = item.mediaType === 'video'
+      ? `<button class="mw-thumb-action" data-action="play" data-video-id="${item.videoId || ''}" aria-label="Lire la vidéo: ${safeTitle}"></button>`
+      : `<a class="mw-thumb-action" href="${item.eventUrl}" aria-label="Ouvrir la fiche: ${safeTitle}"></a>`;
+    const overlayLabel = item.mediaType === 'video' ? '▶' : '';
+
+    card.innerHTML = `
+      <div class="mw-thumb-wrap">
+        ${clickTarget}
+        <img loading="lazy" src="${item.thumbUrl}" alt="${safeTitle}">
+        <span class="mw-badge">${mediaBadge(item.mediaType)}</span>
+        ${overlayLabel ? `<span class="mw-play">${overlayLabel}</span>` : ''}
+      </div>
+    `;
+    return card;
+  }
+
+  function openVideo(videoId) {
+    if (!videoId) return;
+    videoFrame.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden', 'false');
+  }
+
+  function closeVideo() {
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden', 'true');
+    videoFrame.src = '';
+  }
+
+  function applyFilters() {
+    const type = typeEl.value;
+    const year = yearEl.value;
+    const category = categoryEl.value;
+    const search = (searchEl.value || '').trim().toLowerCase();
+
+    const visible = mixedItems.filter((item) => {
+      if (type !== 'all' && item.mediaType !== type) return false;
+      if (year !== 'all' && item.eventYear !== year) return false;
+      if (category !== 'all' && !(item.categories || []).includes(category)) return false;
+      if (search && !(item.searchText || '').toLowerCase().includes(search)) return false;
+      return true;
+    });
+
+    grid.innerHTML = '';
+    visible.forEach((item) => {
+      grid.appendChild(createCard(item));
+    });
+    countEl.textContent = `${visible.length} média${visible.length > 1 ? 's' : ''}`;
+  }
+
+  grid.addEventListener('click', (e) => {
+    const btn = e.target.closest('[data-action="play"]');
+    if (!btn) return;
+    e.preventDefault();
+    openVideo(btn.getAttribute('data-video-id'));
+  });
+
+  closeBtn.addEventListener('click', closeVideo);
+  modal.addEventListener('click', (e) => {
+    if (e.target.classList.contains('mw-video-backdrop')) closeVideo();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeVideo();
+  });
+
+  [typeEl, yearEl, categoryEl].forEach((el) => el.addEventListener('change', applyFilters));
+  searchEl.addEventListener('input', applyFilters);
+  applyFilters();
+})();
+</script>
+
+</body>
+</html>
